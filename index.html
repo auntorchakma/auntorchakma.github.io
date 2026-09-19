@@ -270,14 +270,15 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
       <p data-field="mentor-p2">During my undergraduate degree, my thesis supervisor <a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">Md Mynoddin</a> guided the intrusion-detection work that became my B.Sc. thesis, and <a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">Dr. Tanjim Mahmud</a> supported my research as a co-author on the Bangla license plate paper.</p>
       <h3 class="sec"><span>Recent News</span></h3>
       <ul id="news">
-        <li data-field="news-1"><b>Sep, 2026</b>: "Multimodal Federated Learning with Privacy-Preserving Mechanisms in Healthcare: A Mini Review of Convergence, Challenges, and Future Directions" accepted in <b><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></b>.</li>
-        <li data-field="news-2"><b>9 Aug, 2026</b>: "An Ensemble Approach for Diabetic Retinopathy Severity Classification with Diffusion-Based Augmentation and Explainability" accepted in <b><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></b> (Q1, Scopus-indexed).</li>
+        <li data-field="news-1"><b>Sep, 2026</b>: "Multimodal Federated Learning with Privacy-Preserving Mechanisms in Healthcare: A Mini Review of Convergence, Challenges, and Future Directions" <b>accepted</b> in <b><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></b>.</li>
+        <li data-field="news-2"><b>9 Aug, 2026</b>: "An Ensemble Approach for Diabetic Retinopathy Severity Classification with Diffusion-Based Augmentation and Explainability" <b>accepted</b> in <b><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></b> (Q1, Scopus-indexed).</li>
         <li data-field="news-3"><b>Aug, 2026</b>: Started supervising two research interns on biomedical signal processing at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
         <li data-field="news-4"><b>Jul, 2026</b>: Joined <b><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a></b> as MIS Officer on the WFP-funded Mother and Child Benefit Programme in Rangamati.</li>
-        <li data-field="news-5"><b>Apr, 2026</b>: Promoted to Researcher &amp; Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
-        <li data-field="news-6"><b>10 Jan, 2026</b>: "A Deep Learning-Based Framework for Bangla Vehicle License Plate Detection and Recognition" published in <b><a href="https://link.springer.com/book/10.1007/978-3-032-11355-9" target="_blank" rel="noopener">Springer CCIS</a></b>, vol. 2683.</li>
-        <li data-field="news-7"><b>Jun, 2025</b>: Left my research assistant role at Rangamati Science and Technology University after defending my B.Sc. thesis, "Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things."</li>
-        <li data-field="news-8"><b>Dec, 2024</b>: Joined Rangamati Science and Technology University as a Research Assistant, building a real-time network traffic dataset from Bangladesh telecommunications for malicious-traffic detection.</li>
+        <li data-field="news-5"><b>Apr, 2026</b>: <b>Promoted</b> to Researcher &amp; Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
+        <li data-field="news-6"><b>10 Jan, 2026</b>: "A Deep Learning-Based Framework for Bangla Vehicle License Plate Detection and Recognition" <b>published</b> in <b><a href="https://link.springer.com/book/10.1007/978-3-032-11355-9" target="_blank" rel="noopener">Springer CCIS</a></b>, vol. 2683.</li>
+        <li data-field="news-7"><b>Jan, 2026</b>: Joined <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> as AI Research Intern.</li>
+        <li data-field="news-8"><b>Jun, 2025</b>: Left my research assistant role at Rangamati Science and Technology University after defending my B.Sc. thesis, "Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things."</li>
+        <li data-field="news-9"><b>Dec, 2024</b>: Joined Rangamati Science and Technology University as a Research Assistant, building a real-time network traffic dataset from Bangladesh telecommunications for malicious-traffic detection.</li>
       </ul>
 
       <h3 class="sec"><span>Experience</span></h3>
@@ -359,7 +360,7 @@ var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"
   function paintIcon(){var el=document.getElementById('theme-icon');if(!el)return;var d=current()==='dark';el.innerHTML=d?
     '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>':
     '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';}
-  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  try{var saved=localStorage.getItem('theme');root.setAttribute('data-theme',saved||'light');}catch(e){root.setAttribute('data-theme','light');}
   paintIcon();
   var themeBtn=document.getElementById('theme');
   if(themeBtn)themeBtn.addEventListener('click',function(){
