@@ -91,6 +91,21 @@ ul.plain{list-style:none;padding-left:0;margin:0}
 #news li{margin-bottom:.8rem}
 .exp li.item{margin-bottom:2rem}
 .exp ul{padding-left:2rem;margin:.4rem 0 0}
+.exp-company{margin-bottom:2.4rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
+.exp-company-head{margin-bottom:1.2rem}
+.exp-co-name{font-size:1.7rem;font-weight:600;color:var(--heading)}
+.exp-co-name a{color:inherit}
+.exp-co-meta{color:var(--muted);font-size:1.3rem;margin-top:.2rem}
+.exp-roles{position:relative;padding-left:1.8rem;border-left:2px solid var(--rule);margin-left:.4rem}
+.exp-role{position:relative;padding-bottom:1.8rem}
+.exp-role:last-child{padding-bottom:0}
+.exp-role:before{content:"";position:absolute;left:-2.27rem;top:.35rem;width:9px;height:9px;border-radius:50%;background:var(--link)}
+.exp-role-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.exp-role-head b{font-size:1.5rem;font-weight:600;color:var(--heading)}
+.exp-dates{color:var(--muted);font-size:1.3rem;white-space:nowrap}
+.exp-role ul{padding-left:1.8rem;margin:.5rem 0 0;font-size:1.45rem}
+.exp-role li{margin-bottom:.3rem}
+@media (max-width:600px){.exp-roles{padding-left:1.4rem;margin-left:.1rem}.exp-role:before{left:-1.87rem}}
 .uni{color:var(--muted)}
 .gpa-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0 0}
 .gpa-chip{background:var(--tag-bg);color:var(--tag-fg);border-radius:6px;padding:.3rem .8rem;font-size:1.3rem}
@@ -245,11 +260,11 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
         <div><b>1st</b><span>author on both accepted papers</span></div>
         <div><b>2</b><span>research interns supervised at ELITE Research Lab</span></div>
       </div>
-      <div class="seeking"><b>Currently seeking:</b> research-based graduate positions in Computer Science, with a focus on <span class="kw">multimodal AI</span>, <span class="kw">vision-language models</span>, <span class="kw">trustworthy AI</span>, and <span class="kw">AI safety</span> — open to both master's and doctoral programmes. Supervisors and collaborators can reach me by email.</div>
-      <p>I'm Auntor Chakma, a Research Assistant at ELITE Research Lab. My research covers <span class="kw">multimodal learning</span>, <span class="kw">vision-language models</span> (VLMs) and their applications, and <span class="kw">federated learning</span>, applied to healthcare data, with the specific properties I work on described under Research.</p>
+      <div class="seeking"><b>Currently seeking:</b> research-based graduate positions in Computer Science, with a focus on <span class="kw">multimodal AI</span>, <span class="kw">vision-language models</span>, <span class="kw">trustworthy AI</span>, and <span class="kw">AI safety</span>, open to both master's and doctoral programmes. Supervisors and collaborators can reach me by email.</div>
+      <p>I'm Auntor Chakma, a Researcher and Research Assistant at ELITE Research Lab. My current research covers <span class="kw">multimodal learning</span>, <span class="kw">vision-language models</span> (VLMs) and their applications, and <span class="kw">federated learning</span>, applied to healthcare data, with the specific properties I work on described under Research.</p>
       <p>I grew up in Rangamati, in the Chittagong Hill Tracts, where specialist medical care is hard to reach. The lung-sound project I supervise aims at a tool that a health worker in a low-resource clinic could run and understand.</p>
       <p>My published work covers diabetic retinopathy grading from fundus images, Bangla license plate recognition, and a review of multimodal federated learning in healthcare. My B.Sc. thesis was on intrusion detection for Internet of Medical Things networks. Project code is on GitHub, and three live demos are linked under Projects.</p>
-      <p>I am a Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> (New York, remote), and MIS Officer on the WFP-funded Mother and Child Benefit Programme run by <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> in Rangamati. I hold a B.Sc. in Computer Science and Engineering from Rangamati Science and Technology University (2025).</p>
+      <p>I am a Researcher and Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> (New York, remote), and Management Information System (MIS) Officer on the WFP-funded Mother and Child Benefit Programme run by <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> in Rangamati. I hold a B.Sc. in Computer Science and Engineering from Rangamati Science and Technology University (2025).</p>
       <h3 class="sec"><span>Mentor</span></h3>
       <p>My current mentor and principal investigator is <a href="https://kishormorol.github.io/" target="_blank" rel="noopener">Md Kishor Morol</a>, a PhD student at Cornell University and a Researcher at Meta FAIR, who also founded <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>. He supervised my work on multimodal and federated learning. He now advises me on vision-language models, their applications, and AI safety, and on formal privacy guarantees. He is a co-author on the Frontiers in Digital Health review and oversees the two interns I supervise.</p>
       <p>During my undergraduate degree, my thesis supervisor <a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">Md Mynoddin</a> guided the intrusion-detection work that became my B.Sc. thesis, and <a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">Dr. Tanjim Mahmud</a> supported my research as a co-author on the Bangla license plate paper.</p>
@@ -266,24 +281,36 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
       </ul>
 
       <h3 class="sec"><span>Experience</span></h3>
+      <div class="exp-company">
+        <div class="exp-company-head">
+          <div class="exp-co-name"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC</div>
+          <div class="exp-co-meta">Queens, NY, USA (Remote) · Aug 2025 – Present</div>
+        </div>
+        <div class="exp-roles">
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Researcher &amp; Research Assistant</b><span class="exp-dates">Apr 2026 – Present</span></div>
+            <ul><li>Research on multimodal and vision-language models for healthcare: interpretability, trustworthiness, AI safety, and privacy for data security</li><li>Supervising two interns on biomedical signal processing and outcome prediction, since Aug 2026</li></ul>
+            <div class="proofs"><a class="proof" data-proof="elite_letter" hidden>Appointment letter</a></div>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Junior Research Assistant</b><span class="exp-dates">Mar 2026 – Apr 2026</span></div>
+            <ul><li>Primary author on a federated learning project with differential privacy and XAI, and expanded my research domain into multimodal AI, its applications, and agentic systems</li></ul>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>AI Research Intern</b><span class="exp-dates">Jan 2026 – Mar 2026</span></div>
+            <ul><li>Conceived and led a mini-review on multimodal federated learning in healthcare during the three-month internship. It was later accepted in Frontiers in Digital Health.</li></ul>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Research Collaborator</b><span class="exp-dates">Aug 2025 – Dec 2025</span></div>
+            <ul><li>Diabetic retinopathy classification with Stable Diffusion augmentation and a stacking ensemble of the top 3 pretrained models (ConvNeXt-Tiny, DenseNet-121, and RegNetY-600MF)</li></ul>
+          </div>
+        </div>
+      </div>
       <ul class="plain exp">
-        <li class="item"><b>Researcher &amp; Research Assistant</b> | <em class="uni">Apr 2026 – Present</em><br>
-          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Queens, NY, USA (Remote)</em></span>
-          <ul><li>Research on multimodal and vision-language models for healthcare: interpretability, trustworthiness, AI safety, and privacy for data security</li><li>Supervising two interns on biomedical signal processing and outcome prediction, since Aug 2026</li></ul>
-          <div class="proofs"><a class="proof" data-proof="elite_letter" hidden>Appointment letter</a></div></li>
-        <li class="item"><b>MIS Officer</b> | <em class="uni">Jul 2026 – Present</em><br>
+        <li class="item"><b>Management Information System (MIS) Officer</b> | <em class="uni">Jul 2026 – Present</em><br>
           <span class="uni"><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> | <em>Rangamati, Chittagong</em></span>
           <ul><li>WFP-funded Mother and Child Benefit Programme, which protects women and children in the Chittagong Hill Tracts from malnutrition and supports healthy child growth and safe pregnancy and childbirth</li></ul>
           <div class="proofs"><a class="proof" data-proof="ashika_letter" hidden>Employment letter</a></div></li>
-        <li class="item"><b>Junior Research Assistant</b> | <em class="uni">Mar 2026 – Apr 2026</em><br>
-          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
-          <ul><li>Primary author on a federated learning project with differential privacy and XAI</li></ul></li>
-        <li class="item"><b>AI Research Intern</b> | <em class="uni">Jan 2026 – Mar 2026</em><br>
-          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
-          <ul><li>Conceived and led a mini-review on multimodal federated learning in healthcare during the three-month internship. It was later accepted in Frontiers in Digital Health.</li></ul></li>
-        <li class="item"><b>Research Collaborator</b> | <em class="uni">Aug 2025 – Dec 2025</em><br>
-          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
-          <ul><li>Diabetic retinopathy grading with Stable Diffusion augmentation and CNN ensembles</li></ul></li>
         <li class="item"><b>Researcher &amp; Research Assistant</b> | <em class="uni">Dec 2024 – Jun 2025</em><br>
           <span class="uni">Rangamati Science and Technology University</span>
           <ul><li>Network traffic collection and deep learning models for malicious traffic detection</li></ul></li>
@@ -319,7 +346,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
 
 </section>
 </div>
-<footer>© 2026 Auntor Chakma · Template adapted from Randal Sean Harrison (MIT) via Soham Khisa</footer>
+<footer>© 2026 Auntor Chakma</footer>
 <button id="topper" aria-label="Back to top" title="Top"><svg viewBox="0 0 24 24"><path d="M12 7l-7 8h14z"/></svg></button>
 <div id="toast" role="status"></div>
 <script>
