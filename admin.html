@@ -20,7 +20,7 @@
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
 h1,h2,h3{font-family:"Montserrat",sans-serif;margin:0;font-weight:600}
 code,textarea,.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
-.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 80px}
 header{margin-bottom:22px}
 header .k{color:var(--brand);font-weight:700;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase}
 h1{font-size:23px;margin:6px 0}
@@ -36,7 +36,7 @@ input[type=text],input[type=password],select,textarea{
   width:100%;padding:9px 11px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--ink);
   font:inherit;font-size:14px}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
-textarea{min-height:380px;resize:vertical;font-size:12.5px;line-height:1.5;tab-size:2}
+textarea{resize:vertical;font-size:13.5px;line-height:1.5}
 .row{display:flex;gap:12px;flex-wrap:wrap}
 .row>div{flex:1;min-width:200px}
 
@@ -60,18 +60,28 @@ button.small{padding:6px 12px;font-size:13px}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 11px;background:var(--chip);color:var(--brand)}
 .pill.on{background:var(--ok-bg);color:var(--ok-fg)}
 
-.preview-frame{width:100%;height:520px;border:1px solid var(--rule);border-radius:8px;background:#fff;margin-top:10px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--rule);padding-bottom:0}
+.tab{padding:9px 16px;font-size:14px;font-weight:600;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;border-radius:0;cursor:pointer}
+.tab.active{color:var(--brand);border-bottom-color:var(--brand)}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
 
-.count-big{font-size:38px;font-weight:700;color:var(--brand);line-height:1}
-.count-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:12px}
-.count-item{background:var(--chip);border-radius:8px;padding:12px 14px}
-.count-item .n{font-size:22px;font-weight:700;color:var(--ink)}
-.count-item .p{font-size:12px;color:var(--muted);margin-top:2px;word-break:break-all}
+.field{border-top:1px solid var(--rule);padding:16px 0}
+.field:first-child{border-top:0;padding-top:0}
+.field-label{font-size:13.5px;font-weight:600;margin-bottom:2px}
+.field-hint{font-size:12px;color:var(--muted);margin-bottom:7px}
+.field textarea{min-height:64px}
+.field-changed{border-left:3px solid var(--brand);padding-left:13px;margin-left:-16px}
+
+.section-head{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:22px 0 4px}
+.section-head:first-child{margin-top:0}
 
 .drive-out{display:flex;gap:8px;margin-top:8px}
 .drive-out input{flex:1}
 .help{font-size:12.5px;color:var(--muted);margin-top:6px}
 a{color:var(--brand)}
+details{margin-top:6px}
+summary{cursor:pointer;font-size:13.5px;color:var(--brand);font-weight:600}
 </style>
 </head>
 <body>
@@ -79,16 +89,15 @@ a{color:var(--brand)}
 <header>
   <div class="k">Private, not linked from the public site</div>
   <h1>Site admin</h1>
-  <p>Edit pages, convert Google Drive links, and check the visit counter, all from this one page. Nothing here touches a server you don't control: your token stays in this browser only.</p>
+  <p>Edit specific pieces of the site in plain boxes, no HTML required for most of it. Your GitHub token stays in this browser only.</p>
 </header>
 
 <div class="note">
-  <b>About the token.</b> To save changes, this page needs a GitHub <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a> scoped to only the <code>auntorchakma.github.io</code> repository, with <b>Contents: Read and write</b> permission and nothing else. It's stored in this browser's <code>localStorage</code> and never sent anywhere except directly to GitHub's API. Click "Forget token" below before using a shared or public computer.
+  <b>About the token.</b> Needs a GitHub <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a>, scoped to only <code>auntorchakma.github.io</code>, with <b>Contents: Read and write</b>. Stored in this browser's <code>localStorage</code> only. Click "Forget token" before using a shared computer.
 </div>
 
 <div class="card">
   <h2>1. Connect</h2>
-  <div class="sub">One-time setup per browser.</div>
   <div class="row">
     <div>
       <label for="tok">GitHub token</label>
@@ -109,33 +118,44 @@ a{color:var(--brand)}
 
 <div class="card" id="editCard">
   <h2>2. Edit a page</h2>
-  <div class="sub">Loads the live file from GitHub. Saving commits directly to the repo; the public site updates within a minute or two.</div>
-  <label for="fileSel">Page</label>
-  <select id="fileSel">
-    <option value="index.html">index.html (About)</option>
-    <option value="research.html">research.html (Research)</option>
-    <option value="projects.html">projects.html (Projects)</option>
-    <option value="awards.html">awards.html (Awards)</option>
-    <option value="leadership.html">leadership.html (Leadership)</option>
-    <option value="references.html">references.html (References)</option>
-    <option value="admin.html">admin.html (this page)</option>
-  </select>
-  <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-    <button class="primary small" id="loadBtn">Load</button>
-    <button class="ghost small" id="previewBtn">Preview</button>
-    <button class="primary small" id="saveBtn" disabled>Save to GitHub</button>
+  <div class="sub">Pick a page below. Each box holds one paragraph, bullet, or line, labeled in plain English. Change the wording, then Save just that page.</div>
+
+  <div class="tabs" id="pageTabs">
+    <button class="tab active" data-page="index.html">About</button>
+    <button class="tab" data-page="research.html">Research</button>
+    <button class="tab" data-page="other">Other pages</button>
   </div>
-  <label for="editor" style="margin-top:16px">HTML source</label>
-  <textarea id="editor" spellcheck="false" placeholder="Click Load to fetch this page's current content..."></textarea>
-  <label for="commitMsg">Commit message</label>
-  <input type="text" id="commitMsg" value="Edit via admin panel">
+
+  <div id="otherPanel" style="display:none;margin-bottom:16px">
+    <label for="otherSel">Page</label>
+    <select id="otherSel">
+      <option value="projects.html">projects.html</option>
+      <option value="awards.html">awards.html</option>
+      <option value="leadership.html">leadership.html</option>
+      <option value="references.html">references.html</option>
+      <option value="admin.html">admin.html (this page)</option>
+    </select>
+    <p class="help">These three don't have the plain-box editor yet, so this opens the raw HTML instead. Ask me in chat to convert one and I will.</p>
+  </div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+    <button class="primary small" id="loadBtn">Load current content</button>
+    <button class="primary small" id="saveBtn" disabled>Save changes</button>
+    <span class="pill" id="loadPill" style="display:none">Loaded</span>
+  </div>
   <div class="status" id="editStatus"></div>
-  <iframe class="preview-frame" id="previewFrame" style="display:none"></iframe>
+
+  <div id="fieldsWrap"></div>
+
+  <div id="rawWrap" style="display:none">
+    <label for="rawEditor">Raw HTML</label>
+    <textarea id="rawEditor" class="mono" style="min-height:420px" spellcheck="false"></textarea>
+  </div>
 </div>
 
 <div class="card">
   <h2>3. Add a photo or video from Google Drive</h2>
-  <div class="sub">Paste a Drive "Anyone with the link" share URL. This converts it to a direct-embed link you can paste into the editor above. It won't work for private files.</div>
+  <div class="sub">Paste a Drive "Anyone with the link" share URL to get an embeddable code snippet you can paste into any box above.</div>
   <label for="driveIn">Drive share link</label>
   <input type="text" id="driveIn" placeholder="https://drive.google.com/file/d/XXXXXXXXXXXXXXXX/view?usp=sharing">
   <div class="row" style="margin-top:10px">
@@ -152,22 +172,20 @@ a{color:var(--brand)}
     <input type="text" id="driveOut" readonly placeholder="Converted embed code appears here">
     <button class="ghost small" id="driveCopy">Copy</button>
   </div>
-  <p class="help">Image files embed directly. Video files over ~100MB may be slow to stream from Drive. For anything long, YouTube (unlisted) or a dedicated host will play more reliably.</p>
 </div>
 
 <div class="card">
   <h2>4. Site visits</h2>
-  <div class="sub">A free, no-signup hit counter (visitorbadge.io) tracks page loads per file. This is a rough count, not real analytics, with no unique-visitor or location data. For that, add a free <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> account later and I can wire it in.</div>
-  <div class="count-grid" id="countGrid">
-    <div class="count-item"><div class="n">…</div><div class="p">index.html</div></div>
-    <div class="count-item"><div class="n">…</div><div class="p">research.html</div></div>
-    <div class="count-item"><div class="n">…</div><div class="p">projects.html</div></div>
-    <div class="count-item"><div class="n">…</div><div class="p">awards.html</div></div>
-    <div class="count-item"><div class="n">…</div><div class="p">leadership.html</div></div>
-    <div class="count-item"><div class="n">…</div><div class="p">references.html</div></div>
+  <div class="sub">A free, no-signup hit counter. Rough count, not real analytics.</div>
+  <div id="countGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
+    <div class="count-item">index.html</div>
+    <div class="count-item">research.html</div>
+    <div class="count-item">projects.html</div>
+    <div class="count-item">awards.html</div>
+    <div class="count-item">leadership.html</div>
+    <div class="count-item">references.html</div>
   </div>
-  <p class="help">Counts start from zero once the site is live and pages have been visited at least once. Refresh this card any time; it just re-reads the public badge images.</p>
-  <button class="ghost small" id="refreshCounts" style="margin-top:8px">Refresh counts</button>
+  <p class="help">Click a page name to see its count on visitorbadge.io.</p>
 </div>
 
 </div>
@@ -180,156 +198,222 @@ a{color:var(--brand)}
   var connStatus = document.getElementById('connStatus');
   var editCard = document.getElementById('editCard');
   var saveBtn = document.getElementById('saveBtn');
-  var editor = document.getElementById('editor');
+  var loadPill = document.getElementById('loadPill');
+  var fieldsWrap = document.getElementById('fieldsWrap');
+  var rawWrap = document.getElementById('rawWrap');
+  var rawEditor = document.getElementById('rawEditor');
   var currentSha = null;
+  var currentPath = 'index.html';
+  var parsedDoc = null;
 
-  function setStatus(el, msg, kind){
-    el.textContent = msg; el.className = 'status show ' + (kind||'');
-  }
+  // ---- Field schema: plain-English labels mapped to data-field selectors ----
+  var SCHEMA = {
+    'index.html': [
+      {s:'section', t:'About Me'},
+      {f:'about-p1', l:'Intro paragraph'},
+      {f:'about-p2', l:'Background paragraph (Rangamati / CHT)'},
+      {f:'about-p3', l:'Papers paragraph'},
+      {f:'about-p4', l:'Current role paragraph (ELITE / ASHIKA)'},
+      {f:'seeking', l:'"Currently seeking" box', hint:'Keep the <b> and <span class="kw"> tags if you want the bold label and blue keyword highlights to stay.'},
+      {s:'section', t:'Mentor'},
+      {f:'mentor-p1', l:'Mentor paragraph 1 (Kishor Morol)'},
+      {f:'mentor-p2', l:'Mentor paragraph 2 (thesis supervisors)'},
+      {s:'section', t:'Recent News (newest first)'},
+      {f:'news-1', l:'News item 1'}, {f:'news-2', l:'News item 2'}, {f:'news-3', l:'News item 3'},
+      {f:'news-4', l:'News item 4'}, {f:'news-5', l:'News item 5'}, {f:'news-6', l:'News item 6'},
+      {f:'news-7', l:'News item 7'}, {f:'news-8', l:'News item 8'},
+      {s:'section', t:'Experience, ELITE Research Lab'},
+      {f:'exp-elite1-b1', l:'Researcher & Research Assistant, bullet 1'},
+      {f:'exp-elite1-b2', l:'Researcher & Research Assistant, bullet 2 (interns)'},
+      {f:'exp-elite2-b1', l:'Junior Research Assistant, bullet'},
+      {f:'exp-elite3-b1', l:'AI Research Intern, bullet'},
+      {f:'exp-elite4-b1', l:'Research Collaborator, bullet'},
+      {s:'section', t:'Experience, other roles'},
+      {f:'exp-mis-b1', l:'MIS Officer, bullet'},
+      {f:'exp-rmstu-b1', l:'RMSTU Research Assistant, bullet'},
+      {f:'exp-cello-b1', l:'Celloscope Software Engineer Intern, bullet'},
+      {s:'section', t:'Skills'},
+      {f:'skills-programming', l:'Programming'}, {f:'skills-methods', l:'Methods'},
+      {f:'skills-mldl', l:'ML/DL'}, {f:'skills-data', l:'Data'},
+      {f:'skills-web', l:'Web & databases'}, {f:'skills-security', l:'Security'},
+      {f:'skills-tools', l:'Tools'}
+    ],
+    'research.html': [
+      {s:'section', t:'Research Interest'},
+      {f:'focus-primary', l:'Primary focus line'},
+      {f:'focus-secondary', l:'Secondary focus line'},
+      {s:'section', t:'Publication abstracts'},
+      {f:'abstract-dr', l:'Diabetic retinopathy paper, abstract'},
+      {f:'abstract-frontiers', l:'Frontiers mini-review, abstract'},
+      {f:'abstract-springer', l:'Bangla license plate paper, abstract'},
+      {s:'section', t:'Ongoing research'},
+      {f:'abstract-vlm-ongoing', l:'Multimodal / VLM ongoing work, abstract'},
+      {f:'abstract-signal-ongoing', l:'Signal-processing ongoing work, abstract'},
+      {s:'section', t:'Thesis'},
+      {f:'abstract-thesis', l:'B.Sc. thesis, abstract'}
+    ]
+  };
 
+  function setStatus(el, msg, kind){ el.textContent = msg; el.className = 'status show ' + (kind||''); }
   function loadSaved(){
     try{
-      var t = localStorage.getItem('gh_token');
-      var r = localStorage.getItem('gh_repo');
-      if(t) tokEl.value = t;
-      if(r) repoEl.value = r;
-      if(t) connect(true);
+      var t = localStorage.getItem('gh_token'); var r = localStorage.getItem('gh_repo');
+      if(t) tokEl.value = t; if(r) repoEl.value = r; if(t) connect(true);
     }catch(e){}
   }
-
   function ghHeaders(){
-    return {
-      'Authorization': 'Bearer ' + tokEl.value.trim(),
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28'
-    };
+    return {'Authorization':'Bearer '+tokEl.value.trim(),'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
   }
-
   function connect(silent){
-    var token = tokEl.value.trim();
-    var repo = repoEl.value.trim();
-    if(!token || !repo){
-      if(!silent) setStatus(connStatus, 'Enter both a token and a repository.', 'err');
-      return;
-    }
-    fetch(API + '/repos/' + repo, {headers: ghHeaders()})
-      .then(function(r){
-        if(!r.ok) throw new Error(r.status === 404 ? 'Repository not found, or the token can\'t see it.' : ('GitHub returned ' + r.status));
-        return r.json();
-      })
+    var token = tokEl.value.trim(), repo = repoEl.value.trim();
+    if(!token || !repo){ if(!silent) setStatus(connStatus,'Enter both a token and a repository.','err'); return; }
+    fetch(API+'/repos/'+repo, {headers: ghHeaders()})
+      .then(function(r){ if(!r.ok) throw new Error(r.status===404?'Repository not found, or the token can\'t see it.':('GitHub returned '+r.status)); return r.json(); })
       .then(function(data){
-        connPill.textContent = 'Connected · ' + data.full_name;
-        connPill.classList.add('on');
+        connPill.textContent = 'Connected, '+data.full_name; connPill.classList.add('on');
         editCard.classList.remove('locked');
-        setStatus(connStatus, 'Connected. You can now load and edit pages below.', 'ok');
-        try{ localStorage.setItem('gh_token', token); localStorage.setItem('gh_repo', repo); }catch(e){}
+        setStatus(connStatus,'Connected. Pick a page below and load it.','ok');
+        try{ localStorage.setItem('gh_token',token); localStorage.setItem('gh_repo',repo); }catch(e){}
       })
       .catch(function(err){
-        connPill.textContent = 'Not connected';
-        connPill.classList.remove('on');
-        editCard.classList.add('locked');
+        connPill.textContent='Not connected'; connPill.classList.remove('on'); editCard.classList.add('locked');
         setStatus(connStatus, err.message, 'err');
       });
   }
-
   document.getElementById('connectBtn').addEventListener('click', function(){ connect(false); });
   document.getElementById('forgetBtn').addEventListener('click', function(){
     try{ localStorage.removeItem('gh_token'); localStorage.removeItem('gh_repo'); }catch(e){}
-    tokEl.value=''; connPill.textContent='Not connected'; connPill.classList.remove('on');
-    editCard.classList.add('locked');
-    setStatus(connStatus, 'Token forgotten from this browser.', 'warn');
+    tokEl.value=''; connPill.textContent='Not connected'; connPill.classList.remove('on'); editCard.classList.add('locked');
+    setStatus(connStatus,'Token forgotten from this browser.','warn');
   });
 
+  // ---- Page tabs ----
+  var tabs = document.querySelectorAll('.tab');
+  var otherPanel = document.getElementById('otherPanel');
+  var otherSel = document.getElementById('otherSel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){t.classList.remove('active');});
+      tab.classList.add('active');
+      var p = tab.getAttribute('data-page');
+      if(p === 'other'){
+        otherPanel.style.display = 'block';
+        currentPath = otherSel.value;
+      } else {
+        otherPanel.style.display = 'none';
+        currentPath = p;
+      }
+      fieldsWrap.innerHTML = ''; rawWrap.style.display = 'none';
+      saveBtn.disabled = true; loadPill.style.display = 'none';
+    });
+  });
+  otherSel.addEventListener('change', function(){ currentPath = otherSel.value; });
+
+  // ---- Load ----
   document.getElementById('loadBtn').addEventListener('click', function(){
     var repo = repoEl.value.trim();
-    var path = document.getElementById('fileSel').value;
     var editStatus = document.getElementById('editStatus');
-    fetch(API + '/repos/' + repo + '/contents/' + path, {headers: ghHeaders()})
-      .then(function(r){
-        if(!r.ok) throw new Error('Could not load ' + path + ' (HTTP ' + r.status + ')');
-        return r.json();
-      })
+    fieldsWrap.innerHTML = ''; rawWrap.style.display = 'none';
+    fetch(API+'/repos/'+repo+'/contents/'+currentPath, {headers: ghHeaders()})
+      .then(function(r){ if(!r.ok) throw new Error('Could not load '+currentPath+' (HTTP '+r.status+')'); return r.json(); })
       .then(function(data){
         currentSha = data.sha;
-        var content = decodeURIComponent(escape(atob(data.content.replace(/\\n/g,''))));
-        editor.value = content;
+        var html = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+        var schema = SCHEMA[currentPath];
+        if(schema){
+          parsedDoc = new DOMParser().parseFromString(html, 'text/html');
+          renderFields(schema);
+        } else {
+          parsedDoc = null;
+          rawWrap.style.display = 'block';
+          rawEditor.value = html;
+        }
         saveBtn.disabled = false;
-        setStatus(editStatus, 'Loaded ' + path + '. Edit below, then Save to GitHub.', 'ok');
+        loadPill.style.display = 'inline-flex';
+        setStatus(editStatus, 'Loaded '+currentPath+'.', 'ok');
       })
       .catch(function(err){ setStatus(editStatus, err.message, 'err'); });
   });
 
-  document.getElementById('previewBtn').addEventListener('click', function(){
-    var frame = document.getElementById('previewFrame');
-    frame.style.display = 'block';
-    frame.srcdoc = editor.value;
-  });
+  function renderFields(schema){
+    schema.forEach(function(item){
+      if(item.s === 'section'){
+        var h = document.createElement('div');
+        h.className = 'section-head'; h.textContent = item.t;
+        fieldsWrap.appendChild(h);
+        return;
+      }
+      var el = parsedDoc.querySelector('[data-field="'+item.f+'"]');
+      var wrap = document.createElement('div');
+      wrap.className = 'field';
+      var lab = document.createElement('div'); lab.className = 'field-label'; lab.textContent = item.l;
+      wrap.appendChild(lab);
+      if(item.hint){ var hint = document.createElement('div'); hint.className = 'field-hint'; hint.textContent = item.hint; wrap.appendChild(hint); }
+      var ta = document.createElement('textarea');
+      ta.setAttribute('data-field', item.f);
+      ta.value = el ? el.innerHTML.trim() : '';
+      if(!el){ ta.placeholder = 'Field not found on this page (skip this one).'; ta.disabled = true; }
+      wrap.appendChild(ta);
+      fieldsWrap.appendChild(wrap);
+    });
+  }
 
+  // ---- Save ----
   saveBtn.addEventListener('click', function(){
     var repo = repoEl.value.trim();
-    var path = document.getElementById('fileSel').value;
-    var msg = document.getElementById('commitMsg').value.trim() || 'Edit via admin panel';
     var editStatus = document.getElementById('editStatus');
-    if(!currentSha){ setStatus(editStatus, 'Load the file first so I know its current version.', 'err'); return; }
+    if(!currentSha){ setStatus(editStatus,'Load the page first.','err'); return; }
+    var outHtml;
+    if(parsedDoc){
+      fieldsWrap.querySelectorAll('textarea[data-field]').forEach(function(ta){
+        if(ta.disabled) return;
+        var el = parsedDoc.querySelector('[data-field="'+ta.getAttribute('data-field')+'"]');
+        if(el) el.innerHTML = ta.value;
+      });
+      outHtml = '<!DOCTYPE html>\n' + parsedDoc.documentElement.outerHTML;
+    } else {
+      outHtml = rawEditor.value;
+    }
     saveBtn.disabled = true;
-    var b64 = btoa(unescape(encodeURIComponent(editor.value)));
-    fetch(API + '/repos/' + repo + '/contents/' + path, {
-      method: 'PUT',
+    var b64 = btoa(unescape(encodeURIComponent(outHtml)));
+    fetch(API+'/repos/'+repo+'/contents/'+currentPath, {
+      method:'PUT',
       headers: Object.assign({'Content-Type':'application/json'}, ghHeaders()),
-      body: JSON.stringify({ message: msg, content: b64, sha: currentSha })
+      body: JSON.stringify({message:'Edit '+currentPath+' via admin panel', content:b64, sha:currentSha})
     })
-      .then(function(r){
-        if(!r.ok) return r.json().then(function(j){ throw new Error(j.message || ('HTTP ' + r.status)); });
-        return r.json();
-      })
-      .then(function(data){
-        currentSha = data.content.sha;
-        setStatus(editStatus, 'Saved. The live site will update in a minute or two.', 'ok');
-      })
-      .catch(function(err){ setStatus(editStatus, 'Save failed: ' + err.message, 'err'); })
+      .then(function(r){ if(!r.ok) return r.json().then(function(j){throw new Error(j.message||('HTTP '+r.status));}); return r.json(); })
+      .then(function(data){ currentSha = data.content.sha; setStatus(editStatus,'Saved. The live page updates in a minute or two.','ok'); })
+      .catch(function(err){ setStatus(editStatus,'Save failed: '+err.message,'err'); })
       .finally(function(){ saveBtn.disabled = false; });
   });
 
-  // Google Drive link converter
+  // ---- Drive converter ----
   document.getElementById('driveConvert').addEventListener('click', function(){
     var url = document.getElementById('driveIn').value.trim();
     var type = document.getElementById('driveType').value;
     var out = document.getElementById('driveOut');
     var m = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if(!m){ out.value = 'Could not find a file ID in that link. Check it\'s a Drive share link.'; return; }
+    if(!m){ out.value = "Could not find a file ID in that link. Check it's a Drive share link."; return; }
     var id = m[1];
-    if(type === 'image'){
-      out.value = '<img src="https://drive.google.com/uc?export=view&id=' + id + '" alt="" style="max-width:100%;border-radius:8px">';
-    } else {
-      out.value = '<iframe src="https://drive.google.com/file/d/' + id + '/preview" width="640" height="360" allow="autoplay" style="border:0;border-radius:8px"></iframe>';
-    }
+    out.value = type === 'image'
+      ? '<img src="https://drive.google.com/uc?export=view&id='+id+'" alt="" style="max-width:100%;border-radius:8px">'
+      : '<iframe src="https://drive.google.com/file/d/'+id+'/preview" width="640" height="360" allow="autoplay" style="border:0;border-radius:8px"></iframe>';
   });
   document.getElementById('driveCopy').addEventListener('click', function(){
-    var out = document.getElementById('driveOut');
-    out.select();
+    var out = document.getElementById('driveOut'); out.select();
     try{ navigator.clipboard.writeText(out.value); }catch(e){ document.execCommand('copy'); }
   });
 
-  // Visit counts
-  function refreshCounts(){
-    var files = ['index.html','research.html','projects.html','awards.html','leadership.html','references.html'];
-    var items = document.querySelectorAll('#countGrid .count-item');
-    files.forEach(function(f, i){
-      var path = encodeURIComponent(f);
-      var img = new Image();
-      img.onload = function(){
-        // visitorbadge.io returns an SVG badge; we can't parse the number from an <img>,
-        // so link out to the badge itself for the actual figure.
-        items[i].querySelector('.n').innerHTML = '<a href="https://visitorbadge.io/status?path=auntorchakma.github.io%2F' + path + '" target="_blank" rel="noopener" style="font-size:14px">view count ↗</a>';
-      };
-      img.onerror = function(){ items[i].querySelector('.n').textContent = 'n/a'; };
-      img.src = 'https://api.visitorbadge.io/api/combined?path=auntorchakma.github.io%2F' + path + '&countColor=%231585cf';
+  // ---- Visit counts ----
+  document.querySelectorAll('#countGrid .count-item').forEach(function(el){
+    var path = el.textContent.trim();
+    el.style.cursor = 'pointer'; el.style.color = 'var(--brand)'; el.style.fontSize='13px';
+    el.addEventListener('click', function(){
+      window.open('https://visitorbadge.io/status?path=auntorchakma.github.io%2F'+encodeURIComponent(path), '_blank', 'noopener');
     });
-  }
-  document.getElementById('refreshCounts').addEventListener('click', refreshCounts);
+  });
 
   loadSaved();
-  refreshCounts();
 })();
 </script>
 </body>
