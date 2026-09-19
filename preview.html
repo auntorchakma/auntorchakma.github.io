@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auntor Chakma | AI researcher, RMSTU</title>
+<meta name="description" content="Auntor Chakma is an AI researcher and Research Assistant at ELITE Research Lab, working on multimodal and vision-language models, trustworthy AI, and AI safety. B.Sc. in Computer Science and Engineering, Rangamati Science and Technology University.">
+<link rel="canonical" href="https://auntorchakma.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Auntor Chakma | AI researcher, RMSTU">
+<meta property="og:description" content="Multimodal and vision-language models, trustworthy AI, and AI safety for healthcare. Research Assistant at ELITE Research Lab.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Auntor Chakma","url":"https://auntorchakma.github.io/","jobTitle":"Researcher and Research Assistant","worksFor":{"@type":"Organization","name":"ELITE Research Lab LLC"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Rangamati Science and Technology University"},"sameAs":["https://github.com/auntor101","https://linkedin.com/in/auntor101","https://scholar.google.com/citations?user=zhwU8sUAAAAJ","https://orcid.org/0009-0002-8220-8122"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --text:#333333; --heading:#20364c; --h3:#708090; --muted:#808080;
+  --link:#1585cf; --nav:#20364c; --nav-hover-bg:#ffffff; --nav-hover-fg:#20364c;
+  --rule:#e0e0e0; --steel:#6A82A8; --teal:#2f4f4f; --card:rgba(255,255,255,.72);
+  --card-border:rgba(106,130,168,.28); --thumb-border:#dddddd; --thumb-bg:#ffffff;
+  --ph-bg:#fff4c2; --ph-fg:#6b5200; --tag-bg:#eef2f8; --tag-fg:#2D5987;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121212; --text:#e6e6e6; --heading:#e6e6e6; --h3:#e6e6e6; --muted:#b0b0b0;
+    --link:#7db7ff; --nav:#1b2430; --nav-hover-bg:#2a3442; --nav-hover-fg:#ffffff;
+    --rule:#30363d; --steel:#9fb3d1; --teal:#cfe3e3; --card:rgba(28,31,38,.92);
+    --card-border:rgba(125,183,255,.18); --thumb-border:#3a3a3a; --thumb-bg:#1b1b1b;
+    --ph-bg:#4a3d10; --ph-fg:#ffe8a3; --tag-bg:#1f2a38; --tag-fg:#a9c6ec;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121212; --text:#e6e6e6; --heading:#e6e6e6; --h3:#e6e6e6; --muted:#b0b0b0;
+  --link:#7db7ff; --nav:#1b2430; --nav-hover-bg:#2a3442; --nav-hover-fg:#ffffff;
+  --rule:#30363d; --steel:#9fb3d1; --teal:#cfe3e3; --card:rgba(28,31,38,.92);
+  --card-border:rgba(125,183,255,.18); --thumb-border:#3a3a3a; --thumb-bg:#1b1b1b;
+  --ph-bg:#4a3d10; --ph-fg:#ffe8a3; --tag-bg:#1f2a38; --tag-fg:#a9c6ec;
+}
+*{box-sizing:border-box}
+html{font-size:10px}
+body{margin:0;padding-top:78px;background:var(--bg);color:var(--text);
+  font-family:"Montserrat",Helvetica,Arial,sans-serif;font-size:1.5rem;line-height:1.5;
+  transition:background-color .25s,color .25s}
+a{color:var(--link);font-weight:500;text-decoration:none}
+a:hover{border-bottom:1px dashed var(--link);padding-bottom:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+h1,h2,h3,h4,h5{font-family:"Montserrat",Helvetica,sans-serif;color:var(--heading);font-weight:500;margin:0}
+p{margin:0 0 1.5rem}
+svg.i{width:1em;height:1em;fill:currentColor;vertical-align:-.125em}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav);transition:background-color .25s}
+.nav-inner{max-width:920px;margin:0 auto;padding:0 15px;display:flex;align-items:center;justify-content:space-between;min-height:62px}
+.brand{font-size:2.15rem;font-weight:500;color:#fff !important;border:0 !important;padding:0 !important}
+.brand:hover{border:0}
+.nav-links{display:flex;list-style:none;margin:0;padding:0;align-items:center}
+.nav-links a,.nav-links button{display:flex;align-items:center;height:62px;padding:0 15px;color:#fff;font-weight:400;font-size:1.5rem;
+  font-family:inherit;background:none;border:0;cursor:pointer;border-radius:1px;white-space:nowrap}
+.nav-links a:hover,.nav-links button:hover,.nav-links button.active{background:var(--nav-hover-bg);color:var(--nav-hover-fg);border-bottom:0;padding-bottom:0}
+.nav-links svg.i{width:1.8rem;height:1.8rem}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:8px 10px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:1px}
+
+.container{max-width:920px;margin:0 auto;padding:0 15px}
+.page-content{padding-top:3rem;padding-bottom:6rem}
+.row{display:flex;gap:30px}
+.side{flex:0 0 33.333%;max-width:33.333%}
+.main{flex:1;min-width:0}
+
+.ph{background:var(--ph-bg);color:var(--ph-fg);padding:0 4px;border-radius:3px}
+
+.thumb{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;width:100%;padding:4px;
+  border:1px solid var(--thumb-border);border-radius:4px;background:var(--thumb-bg)}
+.thumb-inner{width:100%;height:100%;border-radius:2px;background:linear-gradient(160deg,#2D5987,#20364c);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.thumb-inner b{font-size:5.2rem;font-weight:600;letter-spacing:.02em}
+.thumb-inner small{font-size:1.2rem;opacity:.8;margin-top:.6rem}
+#title{color:var(--heading);margin-top:2rem;font-weight:600;font-size:1.4rem;text-align:center}
+#program{display:block;color:var(--muted);font-weight:400}
+.socials{text-align:center;margin:1.4rem 0 1.6rem}
+.socials a{display:inline-block;margin:0 7px;color:var(--link)}
+.socials a:hover{border:0;padding:0;opacity:.8}
+.socials svg.i{width:2.8rem;height:2.8rem}
+.contact{width:100%;border-collapse:collapse}
+.contact td{border-top:1px solid var(--rule);padding:8px;vertical-align:top;font-size:1.4rem;word-break:break-word}
+.contact td:first-child{width:30px;color:var(--text)}
+
+h3.sec{position:relative;margin:3rem 0 2rem;color:var(--h3);font-size:2.4rem;z-index:0}
+h3.sec:first-child{margin-top:0}
+h3.sec span{background:var(--bg);padding-right:10px;position:relative;z-index:1;transition:background-color .25s}
+h3.sec:after{content:"";position:absolute;left:0;right:0;top:55%;border-top:2px solid var(--h3);opacity:.7;z-index:0}
+
+ul.plain{list-style:none;padding-left:0;margin:0}
+#news{padding-left:2rem;margin:0}
+#news li{margin-bottom:.8rem}
+.exp li.item{margin-bottom:2rem}
+.exp ul{padding-left:2rem;margin:.4rem 0 0}
+.exp-company{margin-bottom:2.4rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
+.exp-company-head{margin-bottom:1.2rem}
+.exp-co-name{font-size:1.7rem;font-weight:600;color:var(--heading)}
+.exp-co-name a{color:inherit}
+.exp-co-meta{color:var(--muted);font-size:1.3rem;margin-top:.2rem}
+.exp-roles{position:relative;padding-left:1.8rem;border-left:2px solid var(--rule);margin-left:.4rem}
+.exp-role{position:relative;padding-bottom:1.8rem}
+.exp-role:last-child{padding-bottom:0}
+.exp-role:before{content:"";position:absolute;left:-2.27rem;top:.35rem;width:9px;height:9px;border-radius:50%;background:var(--link)}
+.exp-role-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.exp-role-head b{font-size:1.5rem;font-weight:600;color:var(--heading)}
+.exp-dates{color:var(--muted);font-size:1.3rem;white-space:nowrap}
+.exp-role ul{padding-left:1.8rem;margin:.5rem 0 0;font-size:1.45rem}
+.exp-role li{margin-bottom:.3rem}
+@media (max-width:600px){.exp-roles{padding-left:1.4rem;margin-left:.1rem}.exp-role:before{left:-1.87rem}}
+.uni{color:var(--muted)}
+.gpa-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0 0}
+.gpa-chip{background:var(--tag-bg);color:var(--tag-fg);border-radius:6px;padding:.3rem .8rem;font-size:1.3rem}
+.skills{padding-left:2rem;margin:0}
+.skills li{margin-bottom:.3rem}
+
+.research-intro{display:flex;gap:30px;align-items:center}
+.research-intro .txt{flex:1}
+.interest-art{flex:0 0 280px;height:170px;border-radius:8px;border:1px solid var(--card-border);overflow:hidden}
+.pubs{list-style:none;padding:0;margin:0}
+.pubs li{border-top:1px solid var(--rule);padding:2rem 0}
+.pubs h4{font-size:1.8rem;margin-bottom:.6rem;line-height:1.35}
+.pubs h5{font-size:1.4rem;color:var(--steel);margin:.3rem 0 .6rem;font-weight:500}
+.me{color:var(--teal);font-weight:700}
+.venue{color:var(--steel);font-weight:600;font-style:italic}
+.badge{display:inline-block;font-size:1.15rem;font-weight:600;padding:.2rem .9rem;border-radius:999px;margin-left:.6rem;vertical-align:1px}
+.b-pub{background:#d4edda;color:#276b3b}.b-acc{background:#d6e8fb;color:#1a5fa8}.b-prep{background:#fef3cd;color:#856404}
+.toggle{background:none;border:0;color:var(--link);cursor:pointer;padding:0;margin:.8rem 0 0;font:inherit;font-size:1.4rem;display:inline-flex;gap:.5rem;align-items:center}
+.toggle:before{content:"▶";font-size:1rem;transition:transform .2s}
+.toggle[aria-expanded="true"]:before{transform:rotate(90deg)}
+.abstract{display:none;margin-top:.8rem;line-height:1.65;max-width:750px}
+.abstract.open{display:block}
+.tags{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:var(--tag-bg);color:var(--tag-fg);font-size:1.2rem;padding:.2rem .8rem;border-radius:4px}
+
+.pcard{margin-top:1.6rem;padding:1.8rem 2rem;border:1px solid var(--card-border);border-radius:16px;background:var(--card)}
+.pcard h4{font-size:1.8rem;margin-bottom:.4rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pcard .live{font-size:1.1rem;font-weight:600;background:#d4edda;color:#276b3b;border-radius:999px;padding:.15rem .7rem}
+:root[data-theme="dark"] .pcard .live{background:var(--tag-bg);color:#8fd6a8}
+.pcard p{margin-bottom:.4rem}
+
+.ach li{display:flex;gap:1.6rem;padding:1.4rem 0;border-top:1px solid var(--rule)}
+.ach .yr{flex:0 0 130px;color:var(--steel);font-weight:600;font-size:1.4rem}
+
+.impact{border:1px solid var(--card-border);border-radius:14px;padding:1.8rem 2rem;margin-bottom:1.6rem;background:var(--card)}
+.impact-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline;margin-bottom:.2rem}
+.impact-head h4{font-size:1.8rem}
+.impact-head .yr{color:var(--steel);font-weight:600;font-size:1.3rem;white-space:nowrap}
+.impact .org{color:var(--muted);font-size:1.4rem;margin-bottom:1.2rem}
+.car{display:grid;grid-template-columns:110px 1fr;gap:.6rem 1.4rem;font-size:1.45rem}
+.car dt{color:var(--link);font-weight:600;font-size:1.25rem;padding-top:.1rem}
+.car dd{margin:0 0 .4rem}
+.impact .links{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--rule);display:flex;gap:.8rem;flex-wrap:wrap}
+@media (max-width:560px){.car{grid-template-columns:1fr}.car dd{margin-bottom:1rem}}
+
+.ref-card{border-top:1px solid var(--rule);padding:1.6rem 0}
+.ref-card h4{font-size:1.7rem;margin-bottom:.2rem}
+.ref-card .role{color:var(--muted);font-size:1.4rem;margin-bottom:.3rem}
+
+#topper{position:fixed;right:0;bottom:120px;background:var(--link);color:#fff;border:0;border-radius:4px 0 0 4px;
+  padding:12px 8px;cursor:pointer;display:none}
+#topper.on{display:block}
+#topper svg{width:2rem;height:2rem;fill:#fff}
+
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--nav);color:#fff;padding:10px 18px;
+  border-radius:6px;font-size:1.4rem;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.on{opacity:1}
+
+@media (max-width:920px) and (min-width:768px){.nav-links a,.nav-links button{padding:0 9px;font-size:1.4rem}.brand{font-size:1.9rem}}
+@media (max-width:767px){
+  body{padding-top:62px}
+  .burger{display:block}
+  .nav-links{display:none;position:absolute;top:62px;left:0;right:0;background:var(--nav);flex-direction:column;align-items:stretch;padding-bottom:8px}
+  .nav-links.open{display:flex}
+  .nav-links a,.nav-links button{height:44px}
+  .row{flex-direction:column;gap:10px}
+  .side{max-width:100%;flex-basis:auto}
+  .thumb{max-width:240px;margin:0 auto}
+  .research-intro{flex-direction:column;align-items:flex-start}
+  .interest-art{flex-basis:auto;width:100%}
+  .ach li{flex-direction:column;gap:.2rem}
+  .ach .yr{flex-basis:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+
+[hidden]{display:none !important}
+button.brand{background:none;font-family:inherit;cursor:pointer}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:500;color:var(--link);cursor:pointer}
+.linkbtn:hover{border-bottom:1px dashed var(--link)}
+.kw{background:#d6e8fb;color:#1a5fa8;font-weight:600;padding:.05em .4em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root[data-theme="dark"] .kw{background:#1f2a38;color:#a9c6ec}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kw{background:#1f2a38;color:#a9c6ec}}
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:0 0 2rem}
+.hl>div{border:1px solid var(--card-border);border-radius:10px;padding:1.2rem 1.4rem;background:var(--card)}
+.hl b{display:block;font-size:2.8rem;font-weight:600;color:var(--link);line-height:1.1;margin-bottom:.3rem}
+.hl span{font-size:1.3rem;color:var(--muted);line-height:1.4;display:block}
+.seeking{border-left:4px solid var(--link);background:var(--tag-bg);padding:1.1rem 1.5rem;margin:0 0 2rem;line-height:1.6}
+h4.subsec{font-size:1.9rem;margin:2.6rem 0 1.2rem;color:var(--h3)}
+ul.apps{padding-left:2rem;margin:0 0 1rem}
+ul.apps li{margin-bottom:.9rem;max-width:760px}
+.lead-summary{margin:0 0 2rem;max-width:760px}
+.proofs{display:none;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.proofs.on{display:flex}
+.proof{display:inline-block;font-size:1.2rem;background:var(--tag-bg);color:var(--tag-fg);padding:.25rem .9rem;border-radius:4px;font-weight:500}
+.proof:hover{border-bottom:0;padding-bottom:.25rem;opacity:.85}
+.venues a{font-weight:500}
+.pcard .car{grid-template-columns:130px 1fr;margin-top:1rem}
+@media (max-width:560px){.pcard .car{grid-template-columns:1fr}}
+@media (max-width:767px){.hl{grid-template-columns:1fr}}
+
+.page{display:none}
+.page.shown{display:block}
+
+.page{display:none}
+.page.shown{display:block}
+</style>
+</head>
+<body>
+
+<nav class="navbar" aria-label="Main">
+  <div class="nav-inner">
+    <button type="button" class="brand" data-go="about">Auntor Chakma</button>
+    <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><button type="button" data-go="about">About</button></li>
+      <li><button type="button" data-go="research">Research</button></li>
+      <li><button type="button" data-go="projects">Projects</button></li>
+      <li><button type="button" data-go="awards">Awards</button></li>
+      <li><button type="button" data-go="leadership">Leadership</button></li>
+      <li><button type="button" data-go="references">References</button></li>
+      <li><button type="button" id="cvbtn">CV</button></li>
+      <li><button type="button" id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="i" id="theme-icon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="page" id="page-about">
+
+
+<div class="row">
+    <aside class="side">
+      <div class="thumb"><!-- To use a photo, replace the next line with: <img src="public/photo.jpg" alt="Auntor Chakma" style="width:100%;height:100%;object-fit:cover;border-radius:2px"> -->
+        <div class="thumb-inner"><b>AC</b></div></div>
+      <p id="title">Researcher &amp; Research Assistant<span id="program">ELITE Research Lab LLC, Queens NY (Remote)</span></p>
+      <div class="socials">
+        <a href="https://github.com/auntor101" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a href="https://linkedin.com/in/auntor101" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=zhwU8sUAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="i" viewBox="0 0 24 24"><path d="M5.24 13.77 0 9.5 12 0l12 9.5-5.24 4.27A7 7 0 0 0 12 10a7 7 0 0 0-6.76 3.77zM12 24a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg></a>
+        <a href="https://orcid.org/0009-0002-8220-8122" target="_blank" rel="noopener" aria-label="ORCID"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><text x="12" y="16.2" text-anchor="middle" font-size="10" font-weight="700" font-family="Montserrat,Arial,sans-serif" fill="var(--bg)">iD</text></svg></a>
+        <a href="mailto:auntorchakma@gmail.com" aria-label="Email"><svg class="i" viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v.4l-12 7.2L0 6.4V6a2 2 0 0 1 2-2zm-2 4.73 12 7.2 12-7.2V18a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.73z"/></svg></a>
+      </div>
+      <table class="contact">
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M12 0a8 8 0 0 0-8 8c0 6 8 16 8 16s8-10 8-16a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></td><td>Rangamati, Chittagong Hill Tracts, Bangladesh</td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v.4l-12 7.2L0 6.4V6a2 2 0 0 1 2-2zm-2 4.73 12 7.2 12-7.2V18a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.73z"/></svg></td><td><a href="mailto:auntorchakma@gmail.com">auntorchakma at gmail dot com</a></td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><text x="12" y="16.2" text-anchor="middle" font-size="10" font-weight="700" font-family="Montserrat,Arial,sans-serif" fill="var(--bg)">iD</text></svg></td><td><a href="https://orcid.org/0009-0002-8220-8122" target="_blank" rel="noopener">0009-0002-8220-8122</a></td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M14 0H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-8-8zm0 2.5L19.5 8H14V2.5zM7 13h10v2H7v-2zm0 4h10v2H7v-2z"/></svg></td><td><button type="button" class="linkbtn" id="cvlink">CV (PDF)</button></td></tr>
+      </table>
+    </aside>
+
+    <div class="main">
+      <h3 class="sec"><span>About Me</span></h3>
+      <div class="hl">
+        <div><b>3</b><span>papers, two accepted and one published</span></div>
+        <div><b>1st</b><span>author on both accepted papers</span></div>
+        <div><b>2</b><span>research interns supervised at ELITE Research Lab</span></div>
+      </div>
+      <div class="seeking"><b>Currently seeking:</b> research-based graduate positions in Computer Science, with a focus on <span class="kw">multimodal AI</span>, <span class="kw">vision-language models</span>, <span class="kw">trustworthy AI</span>, and <span class="kw">AI safety</span>, open to both master's and doctoral programmes. Supervisors and collaborators can reach me by email.</div>
+      <p>I'm Auntor Chakma, a Researcher and Research Assistant at ELITE Research Lab. My current research covers <span class="kw">multimodal learning</span>, <span class="kw">vision-language models</span> (VLMs) and their applications, and <span class="kw">federated learning</span>, applied to healthcare data, with the specific properties I work on described under Research.</p>
+      <p>I grew up in Rangamati, in the Chittagong Hill Tracts, where specialist medical care is hard to reach. The lung-sound project I supervise aims at a tool that a health worker in a low-resource clinic could run and understand.</p>
+      <p>My published work covers diabetic retinopathy grading from fundus images, Bangla license plate recognition, and a review of multimodal federated learning in healthcare. My B.Sc. thesis was on intrusion detection for Internet of Medical Things networks. Project code is on GitHub, and three live demos are linked under Projects.</p>
+      <p>I am a Researcher and Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> (New York, remote), and Management Information System (MIS) Officer on the WFP-funded Mother and Child Benefit Programme run by <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> in Rangamati. I hold a B.Sc. in Computer Science and Engineering from Rangamati Science and Technology University (2025).</p>
+      <h3 class="sec"><span>Mentor</span></h3>
+      <p>My current mentor and principal investigator is <a href="https://kishormorol.github.io/" target="_blank" rel="noopener">Md Kishor Morol</a>, a PhD student at Cornell University and a Researcher at Meta FAIR, who also founded <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>. He supervised my work on multimodal and federated learning. He now advises me on vision-language models, their applications, and AI safety, and on formal privacy guarantees. He is a co-author on the Frontiers in Digital Health review and oversees the two interns I supervise.</p>
+      <p>During my undergraduate degree, my thesis supervisor <a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">Md Mynoddin</a> guided the intrusion-detection work that became my B.Sc. thesis, and <a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">Dr. Tanjim Mahmud</a> supported my research as a co-author on the Bangla license plate paper.</p>
+      <h3 class="sec"><span>Recent News</span></h3>
+      <ul id="news">
+        <li><b>Sep, 2026</b>: "Multimodal Federated Learning with Privacy-Preserving Mechanisms in Healthcare: A Mini Review of Convergence, Challenges, and Future Directions" accepted in <b><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></b>.</li>
+        <li><b>9 Aug, 2026</b>: "An Ensemble Approach for Diabetic Retinopathy Severity Classification with Diffusion-Based Augmentation and Explainability" accepted in <b><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></b> (Q1, Scopus-indexed).</li>
+        <li><b>Aug, 2026</b>: Started supervising two research interns on biomedical signal processing at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
+        <li><b>Jul, 2026</b>: Joined <b><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a></b> as MIS Officer on the WFP-funded Mother and Child Benefit Programme in Rangamati.</li>
+        <li><b>Apr, 2026</b>: Promoted to Researcher &amp; Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
+        <li><b>10 Jan, 2026</b>: "A Deep Learning-Based Framework for Bangla Vehicle License Plate Detection and Recognition" published in <b><a href="https://link.springer.com/book/10.1007/978-3-032-11355-9" target="_blank" rel="noopener">Springer CCIS</a></b>, vol. 2683.</li>
+        <li><b>Jun, 2025</b>: Left my research assistant role at Rangamati Science and Technology University after defending my B.Sc. thesis, "Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things."</li>
+        <li><b>Dec, 2024</b>: Joined Rangamati Science and Technology University as a research assistant, working on network intrusion detection for medical IoT systems.</li>
+      </ul>
+
+      <h3 class="sec"><span>Experience</span></h3>
+      <div class="exp-company">
+        <div class="exp-company-head">
+          <div class="exp-co-name"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC</div>
+          <div class="exp-co-meta">Queens, NY, USA (Remote) · Aug 2025 – Present</div>
+        </div>
+        <div class="exp-roles">
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Researcher &amp; Research Assistant</b><span class="exp-dates">Apr 2026 – Present</span></div>
+            <ul><li>Research on multimodal and vision-language models for healthcare: interpretability, trustworthiness, AI safety, and privacy for data security</li><li>Supervising two interns on biomedical signal processing and outcome prediction, since Aug 2026</li></ul>
+            <div class="proofs"><a class="proof" data-proof="elite_letter" hidden>Appointment letter</a></div>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Junior Research Assistant</b><span class="exp-dates">Mar 2026 – Apr 2026</span></div>
+            <ul><li>Primary author on a federated learning project with differential privacy and XAI, and expanded my research domain into multimodal AI, its applications, and agentic systems</li></ul>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>AI Research Intern</b><span class="exp-dates">Jan 2026 – Mar 2026</span></div>
+            <ul><li>Conceived and led a mini-review on multimodal federated learning in healthcare during the three-month internship. It was later accepted in Frontiers in Digital Health.</li></ul>
+          </div>
+          <div class="exp-role">
+            <div class="exp-role-head"><b>Research Collaborator</b><span class="exp-dates">Aug 2025 – Dec 2025</span></div>
+            <ul><li>Diabetic retinopathy classification with Stable Diffusion augmentation and a stacking ensemble of the top 3 pretrained models (ConvNeXt-Tiny, DenseNet-121, and RegNetY-600MF)</li></ul>
+          </div>
+        </div>
+      </div>
+      <ul class="plain exp">
+        <li class="item"><b>Management Information System (MIS) Officer</b> | <em class="uni">Jul 2026 – Present</em><br>
+          <span class="uni"><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> | <em>Rangamati, Chittagong</em></span>
+          <ul><li>WFP-funded Mother and Child Benefit Programme, which protects women and children in the Chittagong Hill Tracts from malnutrition and supports healthy child growth and safe pregnancy and childbirth</li></ul>
+          <div class="proofs"><a class="proof" data-proof="ashika_letter" hidden>Employment letter</a></div></li>
+        <li class="item"><b>Researcher &amp; Research Assistant</b> | <em class="uni">Dec 2024 – Jun 2025</em><br>
+          <span class="uni">Rangamati Science and Technology University</span>
+          <ul><li>Network traffic collection and deep learning models for malicious traffic detection</li></ul></li>
+        <li class="item"><b>Software Engineer Intern</b> (Industrial Attachment) | <em class="uni">Mar 2024 – Jun 2024</em><br>
+          <span class="uni">Celloscope Limited | <em>Dhaka, Bangladesh</em></span>
+          <ul><li>Backend development with Java, Spring Boot, REST APIs, and MySQL</li></ul></li>
+      </ul>
+
+      <h3 class="sec"><span>Education</span></h3>
+      <ul class="plain">
+        <li style="margin-bottom:1rem">B.Sc. (Engg.) in Computer Science and Engineering, &nbsp;2018 – 2025 &nbsp;<span class="uni">(CGPA 3.50/4.00)</span><br>
+          <span class="uni"><em>Rangamati Science and Technology University (RMSTU), Rangamati</em></span>
+          <p class="uni" style="margin:.5rem 0 0;font-size:1.3rem;line-height:1.5">My cohort's coursework was delayed by roughly 1.5 years, first by COVID-related closures and then by scheduling backlogs common across Bangladeshi public universities in that period.</p>
+          <div class="gpa-row"><span class="gpa-chip">Sem 5: 3.70</span><span class="gpa-chip">Sem 6: 3.82</span><span class="gpa-chip">Sem 7: 3.93</span><span class="gpa-chip">Sem 8: 3.74</span></div></li>
+        <li style="margin-bottom:1rem">Higher Secondary Certificate, &nbsp;2017 &nbsp;<span class="uni">(GPA 5.00/5.00, Dhaka Board)</span><br>
+          <span class="uni"><em>Notre Dame College, Dhaka</em></span></li>
+        <li style="margin-bottom:1rem">Secondary School Certificate, &nbsp;2015 &nbsp;<span class="uni">(GPA 5.00/5.00, Chittagong Board)</span><br>
+          <span class="uni"><em>Laker's Public School and College</em></span></li>
+      </ul>
+
+      <h3 class="sec"><span>Skills</span></h3>
+      <ul class="skills">
+        <li><b>Languages:</b> Python, Java, C</li>
+        <li><b>ML/DL:</b> PyTorch, TensorFlow, Keras, scikit-learn, OpenCV, LangChain, LangGraph, RAG</li>
+        <li><b>Data:</b> NumPy, Pandas, Matplotlib, Seaborn, feature engineering</li>
+        <li><b>Web &amp; databases:</b> Django, FastAPI, Spring Boot, REST APIs, MySQL, MongoDB, PostgreSQL</li>
+        <li><b>Security:</b> Wireshark, network analysis</li>
+        <li><b>Tools:</b> Linux, Git, LaTeX, technical writing</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</section>
+
+<section class="page" id="page-research">
+
+
+<h3 class="sec"><span>Research Interest</span></h3>
+  <div class="research-intro">
+    <div class="txt">
+      <p><b>Primary focus:</b> Multimodal AI, Vision-Language Models (VLMs), Large Language Models, Trustworthy AI, AI Safety.</p>
+      <p><b>Secondary focus:</b> Federated Learning, Computer Vision, Network &amp; AI Security.</p>
+      <p>I build multimodal and <span class="kw">vision-language models</span> for healthcare and work on four properties of them: <span class="kw">interpretability</span>, trustworthiness, <span class="kw">AI safety</span>, and privacy for data security. In my diabetic retinopathy paper, lesion masks guided the model's attention during training, and an ensemble of three backbones reached 91.63% accuracy on seven-stage grading. Our multimodal federated learning review found that only one of eight empirical studies applied a formal privacy mechanism to model updates.</p>
+    </div>
+    <div class="interest-art" aria-hidden="true">
+      <svg viewBox="0 0 280 170" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <rect width="280" height="170" fill="#20364c"/>
+        <g stroke="#6A82A8" stroke-width="1.5" opacity=".8">
+          <line x1="140" y1="85" x2="50" y2="40"/><line x1="140" y1="85" x2="60" y2="130"/>
+          <line x1="140" y1="85" x2="230" y2="38"/><line x1="140" y1="85" x2="225" y2="128"/>
+          <line x1="140" y1="85" x2="140" y2="20"/>
+        </g>
+        <circle cx="140" cy="85" r="18" fill="#1585cf"/>
+        <g fill="#F6F7FB"><circle cx="50" cy="40" r="9"/><circle cx="60" cy="130" r="9"/><circle cx="230" cy="38" r="9"/><circle cx="225" cy="128" r="9"/><circle cx="140" cy="20" r="7"/></g>
+      </svg>
+    </div>
+  </div>
+
+  <h4 class="subsec">Real-world applications</h4>
+  <ul class="apps">
+    <li>A health worker in a clinic with no specialist could record a patient's breathing and receive a classification with an explanation. The <span class="kw">lung-sound project</span> works toward this by combining three public datasets: ICBHI, KAUH, and RD@TR.</li>
+    <li>Public fundus datasets hold mostly normal and mild cases, so models miss advanced <span class="kw">diabetic retinopathy</span>, where a missed reading costs the most. Our paper generates images of the rare stages and trains the model to attend to lesions, and the full pipeline beats standard augmentation by 4.65 percentage points at matched training-set size.</li>
+    <li>Hospitals can train one model without exchanging patient records, but the model updates they exchange can still leak information, so those updates need a <span class="kw">formal privacy mechanism</span>. Only one of the eight empirical studies in our review applied one.</li>
+    <li>A <span class="kw">vision-language model</span> can describe an image wrongly and with full confidence. Testing where it fails, and showing which parts of the image its answer relies on, gives a reader a way to catch the error before acting on it.</li>
+    <li>Networked medical devices are exposed to attacks. My thesis model detected and classified attacks in <span class="kw">Internet of Medical Things</span> traffic with 97.96% multiclass accuracy across 89 million records.</li>
+  </ul>
+  <h3 class="sec"><span>Publications</span></h3>
+  <ul class="pubs">
+    <li>
+      <h4>An Ensemble Approach for Diabetic Retinopathy Severity Classification with Diffusion-Based Augmentation and Explainability</h4>
+      <h5>Authors: <span class="me">Auntor Chakma</span>, Diya Rahman, T. H. Liew</h5>
+      Journal: <span class="venue"><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></span> (Q1, Scopus-indexed)<span class="badge b-acc">Accepted</span><br>
+      Accepted 9 August 2026<br>
+      <button class="toggle" aria-expanded="false">Show abstract</button>
+      <div class="abstract">Public fundus-image datasets are dominated by normal and mild cases, so models trained on them read common stages well but miss advanced disease, the stages where a missed reading matters most. This paper treats that failure as four separate problems rather than one: too few examples of rare stages, a severity scale that ordinary classifiers treat as unrelated categories, no way to check where a model is actually looking, and single models that share the same blind spots. Each gets its own fix: Stable Diffusion 2.1 with ControlNet generates additional minority-class images, an ordinal loss teaches the model that stages progress rather than sit as unrelated labels, lesion masks direct attention during training rather than only explaining it afterward, and three architecturally different backbones are combined through a learned meta-learner instead of a fixed voting rule. On 1,437 fundus photographs from Hospital de Clínicas, Paraguay, the combination reaches 91.63% accuracy and an AUC of 0.9920 on held-out images, cuts the ordinal model's mean error from 0.78 to 0.46 stages, and, at matched training-set size, beats standard image augmentation by 4.65 percentage points. No prior published pipeline combines all four elements for seven-stage grading, and removing any one of them measurably hurt accuracy.</div>
+    </li>
+    <li>
+      <h4>Multimodal Federated Learning with Privacy-Preserving Mechanisms in Healthcare: A Mini Review of Convergence, Challenges, and Future Directions</h4>
+      <h5>Authors: <span class="me">Auntor Chakma</span>, F. T. Z. Moon, F. Jahan, M. K. Morol, T. H. Liew, D. Nandi, A. A. Jubair, M. Rahman</h5>
+      Journal: <span class="venue"><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></span><span class="badge b-acc">Accepted</span><br>
+      Accepted September 2026<br>My role: first author. I conceived the research question and led the review during a three-month internship at ELITE Research Lab.<br>
+      <button class="toggle" aria-expanded="false">Show abstract</button>
+      <div class="abstract">Hospitals hold scan images, health records, and genomic data that improve diagnosis when combined, but each data type carries a different amount of patient-identifiable information, and most federated systems protect all of them with a single shared privacy setting. This mini-review searched seven databases and examined 14 studies published between 2020 and early 2026 (eight reporting original results and six providing field-level context) to find out how far the field has actually gone. Federated training proved stable at real scale: one glioblastoma imaging federation held steady across 71 hospitals, and multimodal models beat single-modality ones in most direct comparisons reported. Privacy design told a different story. Only one of the eight empirical studies applied a formal privacy mechanism to model updates at all, and none of them gave different data types their own privacy protection: a scan and a heart-rate reading were treated the same. The review reports this as an open, testable question rather than a proven flaw, and sets out the specific experiment needed to settle it: training one federation twice, once with a shared privacy budget and once with a budget set separately per data type.</div>
+    </li>
+    <li>
+      <h4><a href="https://link.springer.com/chapter/10.1007/978-3-032-11355-9_16" target="_blank" rel="noopener">A Deep Learning–Based Framework for Bangla Vehicle License Plate Detection and Recognition</a></h4>
+      <h5>Authors: Sagar Mohajan, G. M. Sakhawat Hossain, Md Mynoddin, Rishita Chakma, Tanjim Mahmud, Punam Kanungoe, <span class="me">Auntor Chakma</span></h5>
+      Book series: <span class="venue"><a href="https://link.springer.com/book/10.1007/978-3-032-11355-9" target="_blank" rel="noopener">Springer CCIS, vol. 2683 (ICDSAIA 2025, pp. 220–235)</a></span><span class="badge b-pub">Published</span><br>
+      Published 10 January 2026 · [<a href="https://link.springer.com/chapter/10.1007/978-3-032-11355-9_16" target="_blank" rel="noopener"><u>PAPER</u></a>]<br>
+      My role: model development, and writing and figures.<br>
+      <button class="toggle" aria-expanded="false">Show abstract</button>
+      <div class="abstract">Automated license-plate recognition built for Latin scripts performs poorly on Bangla plates, where character shapes, ligatures, and inconsistent plate quality across Bangladeshi vehicles break the assumptions those systems rely on. This work builds an end-to-end pipeline specifically for that script: an image-restoration stage first corrects the blur, low light, and motion artefacts typical of roadside camera captures, and a sequence-recognition model then reads the restored plate as an ordered character sequence rather than a set of isolated glyphs. On a synthetic Bangla license-plate dataset built to reflect that variability, the pipeline reaches 96% character-level accuracy, giving a practical basis for local vehicle-identification systems that existing Latin-script recognizers cannot serve.</div>
+    </li>
+  </ul>
+
+  <h3 class="sec"><span>Ongoing Research</span></h3>
+  <ul class="pubs">
+    <li>
+      <h4>Multimodal and Vision-Language Models for Healthcare</h4>
+      <h5><span class="me">Auntor Chakma</span>, mentored by Md Kishor Morol, ELITE Research Lab LLC</h5>
+      <span class="badge b-prep">In progress</span><br>
+      <button class="toggle" aria-expanded="false">Show description</button>
+      <div class="abstract">Applications of <span class="kw">multimodal</span> and <span class="kw">vision-language models</span> to healthcare data, building on the properties described under Research Interest. It continues my multimodal and federated learning research under the supervision of Md Kishor Morol. <span class="ph">[Name the specific ELITE Research Lab project this connects to, e.g. MedVQA-X, ExplainMed-RAG, or RetinaInsight, once confirmed]</span></div>
+    </li>
+    <li>
+      <h4>Signal Processing on Medical Equipment for Outcome Prediction</h4>
+      <h5><span class="me">Auntor Chakma</span> (supervising), with two research interns, ELITE Research Lab LLC</h5>
+      <span class="badge b-prep">In progress</span><br>
+      <button class="toggle" aria-expanded="false">Show description</button>
+      <div class="abstract">Combines the ICBHI, KAUH and RD@TR lung-sound datasets and extends Pulmo-TS2ONN (IEEE TIM 2024) into one model that classifies pulmonary disorders from respiratory sounds. The goals are low computational cost and predictions that come with an explanation, so that a health worker in a low-resource clinic can use the model. The work began in August 2026, and the target venue is a Springer Nature journal.</div>
+    </li>
+  </ul>
+  <h3 class="sec"><span>Undergraduate Thesis</span></h3>
+  <ul class="pubs">
+    <li>
+      <h4>Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things</h4>
+      <h5><span class="me">Auntor Chakma</span>, B.Sc. thesis, Rangamati Science and Technology University · Supervisor: Md Mynoddin</h5>
+      <button class="toggle" aria-expanded="false">Show description</button>
+      <div class="abstract">An attention-based TabNet framework with GAN-based synthetic minority-sample generation for intrusion detection in Internet of Medical Things networks, reaching 97.96% multiclass accuracy across 89 million network traffic records.</div>
+    </li>
+  </ul>
+
+
+
+</section>
+
+<section class="page" id="page-projects">
+
+
+<h3 class="sec"><span>Live Applications</span></h3>
+  <div class="pcard"><h4>AI Customer Support Chatbot (RAG)<span class="live">Live demo</span></h4>
+    <p>A chatbot that answers customer questions about shipping, returns, payments, accounts, discounts, warranties, and products from a store's own documents, and shows the source of each answer.</p>
+    <dl class="car"><dt>Problem</dt><dd>Support staff repeat the same policy answers all day, and a general chatbot can invent a policy that does not exist. Here each answer is retrieved from the store's documents and cited, so a customer or an agent can check it.</dd><dt>How it works</dt><dd>The question is first rewritten using the chat history, then matched against a <span class="kw">ChromaDB</span> index built with local all-MiniLM-L6-v2 embeddings. Llama 3 on Groq, the default model, writes the answer from the retrieved passages.</dd><dt>Real-world use</dt><dd>First-line support for a small online shop, leaving staff to handle the cases that need a person. The demo runs on a fictional Bangladeshi store, ShopSmart BD.</dd></dl>
+    <div class="tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">Streamlit</span><span class="tag">FastAPI</span><span class="tag">Groq</span></div>
+    <p style="margin-top:1rem">[<a href="https://smartshop-rag-chatbot.streamlit.app/" target="_blank" rel="noopener"><u>OPEN DEMO</u></a>] [<a href="https://github.com/auntor101/Smartshop-RAG-ChatBot" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  <div class="pcard"><h4>VisualMind AI<span class="live">Live demo</span></h4>
+    <p>An app that describes an uploaded image and answers follow-up questions about it.</p>
+    <dl class="car"><dt>Problem</dt><dd>A caption alone leaves questions open, and text inside an image is easy to miss. Chaining a captioning model with a <span class="kw">vision-language model</span> lets a user ask what is in the image and get the answer in one place.</dd><dt>How it works</dt><dd>BLIP writes a short caption. Llama 4 Scout on Groq then analyses the objects, colors, text, and context, and a chat keeps the image in memory for follow-up questions. The app accepts JPEG, PNG, WebP, and GIF files up to 4 MB.</dd><dt>Real-world use</dt><dd>Drafting alt text for images, reading text in screenshots, and checking what a photo contains. It is also a small working example of a vision-language pipeline.</dd></dl>
+    <div class="tags"><span class="tag">Streamlit</span><span class="tag">Groq</span><span class="tag">Hugging Face</span><span class="tag">Docker</span></div>
+    <p style="margin-top:1rem">[<a href="https://huggingface.co/spaces/auntor101/Visual_AI_Assist" target="_blank" rel="noopener"><u>OPEN DEMO</u></a>] [<a href="https://github.com/auntor101/visual-mind-ai" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  <div class="pcard"><h4>HireTrack AI<span class="live">Live demo</span></h4>
+    <p>A job-application tracker that scores a resume against a job description, drafts tailored application documents, and follows each application through to an offer.</p>
+    <dl class="car"><dt>Problem</dt><dd>Applicants rarely know why automated screening filters out a resume, and tailoring a resume and cover letter for every posting takes time.</dd><dt>How it works</dt><dd>A <span class="kw">local scoring engine</span> rates a resume on skills, experience, education, and keywords without any API call, and lists the missing skills. A language model then drafts a tailored resume (PDF and DOCX) and cover letter, and Exa AI finds job listings by semantic search.</dd><dt>Real-world use</dt><dd>A job seeker can check a resume against a posting before applying, and can see which missing skills recur across applications.</dd></dl>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">spaCy</span><span class="tag">FAISS</span><span class="tag">Exa AI</span><span class="tag">LiteLLM</span><span class="tag">Streamlit</span></div>
+    <p style="margin-top:1rem">[<a href="https://hiretrack-ai.onrender.com" target="_blank" rel="noopener"><u>OPEN DEMO</u></a>] [<a href="https://github.com/auntor101/hiretrack-ai" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  <h3 class="sec"><span>Other Projects</span></h3>
+  <div class="pcard"><h4>Anomaly Detection in IoMT Devices</h4>
+    <p>A pipeline that detects and classifies attacks in network traffic from connected medical devices.</p>
+    <dl class="car"><dt>Problem</dt><dd>Connected medical devices are targets for network attacks, and attack records are far rarer than normal traffic. The pipeline learns what normal traffic looks like and flags what deviates from it.</dd><dt>How it works</dt><dd>A <span class="kw">variational autoencoder</span> trained on about 171,000 normal records and an <span class="kw">Isolation Forest</span> each score how unusual a record is. A TabNet classifier takes those scores as extra features and assigns the attack type. The data is a merged WiFi traffic set of about 2.68 million training and 892,000 test records.</dd><dt>Real-world use</dt><dd>The approach applies to a hospital network monitor that flags unusual device traffic.</dd><dt>Status</dt><dd>Research code, not deployed.</dd></dl>
+    <div class="tags"><span class="tag">VAE</span><span class="tag">Isolation Forest</span><span class="tag">TabNet</span><span class="tag">TensorFlow</span><span class="tag">Optuna</span></div>
+    <p style="margin-top:1rem">[<a href="https://github.com/auntor101/Anomaly--Detections-in-IOMT-devices-" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  <div class="pcard"><h4>University Vehicle Tracking</h4>
+    <p>A web platform that shows university vehicles on a live location dashboard, with alerts and role-based access for administrators, drivers, students, and teachers.</p>
+    <dl class="car"><dt>Problem</dt><dd>Students and bus drivers lose time on campus transport because nobody outside the vehicle can see where it is.</dd><dt>How it works</dt><dd>Vehicle positions are stored in Firebase Realtime Database and pushed to a React dashboard as they change. Firebase Cloud Messaging sends push notifications, and access is split across five roles (admin, driver, student, teacher, office admin) with Firebase Authentication and JWT.</dd><dt>Real-world use</dt><dd>A university transport office could show students where each bus is and manage the fleet from one dashboard.</dd><dt>Status</dt><dd>A development and learning project.</dd></dl>
+    <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Java 17</span><span class="tag">React</span><span class="tag">Firebase</span></div>
+    <p style="margin-top:1rem">[<a href="https://github.com/auntor101/Multiple-University-Vehicles-Tracking-in-Real-Time-for-a-Smoother-Transportation" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  <div class="pcard"><h4>Chittagong Weather Prediction</h4>
+    <p>A classifier that predicts the weather in Chittagong as rain, high temperature, normal temperature, or cold, with a web interface.</p>
+    <dl class="car"><dt>Problem</dt><dd>Weather information matters for agriculture, transport, and disaster management. This project builds a small model for Chittagong from local daily records.</dd><dt>How it works</dt><dd>It trains on daily temperature, rainfall, humidity, and sunshine records from a public Mendeley dataset. Median imputation fills gaps, SMOTE balances the classes, and a <span class="kw">stacking ensemble</span> of Random Forest, Gradient Boosting, XGBoost, SVM, and Logistic Regression is tuned with randomized search and stratified cross-validation. A Flask app takes the measurements and returns the class with a confidence score.</dd><dt>Real-world use</dt><dd>A small local aid for planning around rain or heat, for example in farming or transport.</dd><dt>Status</dt><dd>A student project, not an operational forecast.</dd></dl>
+    <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">Flask</span></div>
+    <p style="margin-top:1rem">[<a href="https://github.com/auntor101/Weather-Prediction" target="_blank" rel="noopener"><u>CODE</u></a>]</p></div>
+  
+
+</section>
+
+<section class="page" id="page-awards">
+
+
+<h3 class="sec"><span>Awards &amp; Scholarships</span></h3>
+  <ul class="plain ach">
+    <li><span class="yr">2018, 2022, 2023, 2024</span><div><b>Chittagong Hill Tracts Development Board Scholarship</b><br><span class="uni">Awarded for academic excellence</span><div class="proofs"><a class="proof" data-proof="scholarship_cht" hidden>Award letter</a></div></div></li>
+    <li><span class="yr">2023, 2024</span><div><b>Merit Scholarship</b><br><span class="uni">Rangamati Science and Technology University</span><div class="proofs"><a class="proof" data-proof="scholarship_merit" hidden>Award letter</a></div></div></li>
+    <li><span class="yr">2023, 2025</span><div><b>Rangamati Hill District Council Scholarship</b><br><span class="uni">For academic performance</span><div class="proofs"><a class="proof" data-proof="scholarship_council" hidden>Award letter</a></div></div></li>
+    <li><span class="yr">2023</span><div><b>3rd Place, Hackathon</b><br><span class="uni">Led a two- to three-person team that built a web app for community resource mapping in the Rangamati Hill Tracts, using a JavaScript framework and a backend. The team placed 3rd among 18.</span><div class="proofs"><a class="proof" data-proof="hackathon_cert" hidden>Certificate</a></div></div></li>
+    <li><span class="yr">2015, 2017</span><div><b>Merit Scholarship in SSC and HSC</b><br><span class="uni">Directorate of Secondary and Higher Education (DSHE), Government of Bangladesh</span></div></li>
+    <li><span class="yr">2009</span><div><b>Inter-School Debate Championship, Best Debater</b><br><span class="uni">Won the championship and was named best debater at the inter-school level</span></div></li>
+    <li><span class="yr">2008 / 2009</span><div><b>Inter-School Drawing Competition</b><br><span class="uni">National level: 1st place (2008), 2nd place (2009)</span></div></li>
+  </ul>
+
+
+</section>
+
+<section class="page" id="page-leadership">
+
+
+<h3 class="sec"><span>Leadership &amp; Extracurricular Activities</span></h3>
+  <p class="lead-summary">I supervise <span class="kw">two research interns</span> at ELITE Research Lab. In 2023 and 2024 I facilitated a three-day <span class="kw">workshop</span> on food habits and climate change for 20 to 50 mothers and adolescent girls each time, and I handled the logistics of <span class="kw">winter relief</span> that reached about 60 families and 80 students.</p>
+  <div class="impact">
+    <div class="impact-head"><h4>Emergency flash flood relief</h4><span class="yr">2026</span></div>
+    <div class="org"><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a>, funded by WFP · Rangamati</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Flooding hit five unions in Rangamati hard. Households needed food and energy supplies quickly, and there was no record yet of who was affected or what each family still lacked.</dd>
+      <dt>What I did</dt><dd>Helped distribute rice, oil, dry food, and energy biscuits under the WFP-funded relief programme. I recorded each household's situation on paper forms and entered the data afterwards, so that relief could be directed by need.</dd>
+      <dt>Role</dt><dd>Volunteer and coordinator among the affected households, as part of a team led by Ratna Jyoti Chakma.</dd>
+      <dt>Result</dt><dd>The distribution reached about 400 households across the five affected unions.</dd>
+    </dl>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>Conference website developer</h4><span class="yr">2025</span></div>
+    <div class="org">RMSTU International Bioscience Conference 2025 (ICBC)</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>The conference needed a public website for registration and paper submissions, built by a small student team on a fixed deadline.</dd>
+      <dt>What I did</dt><dd>Built and secured <a href="https://icbc.rmstu-conf.ac.bd/" target="_blank" rel="noopener">icbc.rmstu-conf.ac.bd</a> as backend developer and security analyst on a six-person team.</dd>
+      <dt>Leadership</dt><dd>Owned the backend and security architecture for the whole team, so the site's reliability on conference days rested on decisions I made.</dd>
+      <dt>Result</dt><dd>The site handled registration and paper submissions for roughly 100 to 300 conference participants.</dd>
+    </dl>
+    <div class="links">
+      <a href="https://icbc.rmstu-conf.ac.bd" target="_blank" rel="noopener">Live site ↗</a>
+      <a href="https://www.facebook.com/share/p/18PXWp41YY/" target="_blank" rel="noopener">ICBC post ↗</a>
+    </div>
+    <div class="proofs"><a class="proof" data-proof="icbc_cert" hidden>ICBC certificate</a></div>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>Technical Session Coordinator &amp; Volunteer</h4><span class="yr">16–18 May 2025</span></div>
+    <div class="org">RMSTU International Bioscience Conference 2025 (ICBC)</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Technical sessions over three days needed a fixed schedule that presenters and moderators kept to, alongside general on-the-ground conference support.</dd>
+      <dt>What I did</dt><dd>Coordinated the technical sessions and managed the presentation schedule. I also worked the registration desk and delegate check-in, informally, wherever help was needed.</dd>
+      <dt>Leadership</dt><dd>Kept presenters and moderators on schedule directly, rather than escalating delays to someone else.</dd>
+      <dt>Result</dt><dd>I coordinated between one and three technical sessions across the three days.</dd>
+    </dl>
+    <div class="links"><a href="https://www.facebook.com/share/p/18PXWp41YY/" target="_blank" rel="noopener">ICBC post ↗</a></div>
+    <div class="proofs"><a class="proof" data-proof="icbc_cert" hidden>ICBC certificate</a></div>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>AI seminar organizer &amp; host</h4><span class="yr">2024</span></div>
+    <div class="org">Independent initiative · Schools and colleges of Rangamati Hill District</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Students at schools and colleges across Rangamati Hill District had little exposure to how AI systems work and where they fail.</dd>
+      <dt>What I did</dt><dd>Organized the seminar series myself, without an institutional sponsor, and ran the sessions with four or more fellow RMSTU students as co-presenters. The sessions covered AI applications, ethical considerations, and safety practices.</dd>
+      <dt>Leadership</dt><dd>Initiated the series, chose the schools and colleges to visit, and recruited the fellow students who co-presented with me.</dd>
+      <dt>Result</dt><dd>The series ran at six schools and colleges across the district, reaching more than 300 students in total.</dd>
+      <dt>Venues</dt><dd class="venues">Included <a href="https://moanoghar.org/general-education" target="_blank" rel="noopener">Moanoghar Residential School</a> and <a href="https://moanoghar.org/general-education" target="_blank" rel="noopener">Moanoghar Pre-Cadet School</a>, <a href="https://rangamaticollege.gov.bd/" target="_blank" rel="noopener">Rangamati Government College</a>, Rangamati Government Mohila College, and <a href="https://www.facebook.com/ranidayamoyeehs/" target="_blank" rel="noopener">Rani Dayamoyee High School</a>.</dd>
+    </dl>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>Winter relief distribution</h4><span class="yr">Winters 2023, 2024</span></div>
+    <div class="org">RMSTU Indigenous Students' Union · Baghaichhari and Kaptai upazilas, Rangamati Hill District</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Indigenous families in rural parts of Rangamati Hill District needed books, warm clothing, and study materials during winter.</dd>
+      <dt>What I did</dt><dd>As a general member and volunteer of the union, I helped distribute supplies, collected data on affected families, and coordinated logistics.</dd>
+      <dt>Leadership</dt><dd>Handled the on-the-ground logistics across both winters, while the union raised the funds from within the community.</dd>
+      <dt>Result</dt><dd>The union raised around BDT 45,000. The distribution reached about 60 families in three villages, two in Baghaichhari Upazila and one in Kaptai Upazila, and 80 students received the study materials they needed.</dd>
+    </dl>
+    <div class="links"><a href="https://www.facebook.com/RMSTUISU" target="_blank" rel="noopener">RMSTU ISU page ↗</a></div>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>Food habits &amp; climate change workshop</h4><span class="yr">2023, 2024</span></div>
+    <div class="org">RMSTU Indigenous Students' Union · Chittagong Hill Tracts</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Mothers and adolescent girls (kishories) in the Chittagong Hill Tracts had few structured sessions on how local food habits relate to nutrition and to climate change.</dd>
+      <dt>What I did</dt><dd>Facilitated a three-day workshop on the food habits of the Chittagong Hill Tracts and the impact of climate change, organized by the RMSTU Indigenous Students' Union. The sessions covered what the region's indigenous food habits offer for nutrition, and how climate change affects food and <span class="kw">jhum cultivation</span>. Printed material was produced from the sessions.</dd>
+      <dt>Leadership</dt><dd>Facilitated the sessions directly rather than assisting someone else who led them.</dd>
+      <dt>Result</dt><dd>The workshop ran across 2023 and 2024, with 20 to 50 mothers and kishories attending each time.</dd>
+    </dl>
+    <button class="toggle" aria-expanded="false">Show full write-up</button>
+    <div class="abstract">
+      <p>The Chittagong Hill Tracts differ from the plains districts of Bangladesh in what people eat and how they farm. A published review of traditional food plants in the region describes indigenous livelihoods as still dominated by subsistence agriculture that combines jhum (shifting cultivation), plough cultivation, and mixed fruit gardens. The workshop asked what this local food base offers for the nutrition of mothers and adolescent girls.</p>
+      <p>Climate change bears on the same food base. An ethnographic study in Kutukchhari and Sapchhari unions of Rangamati Sadar found that climate change and human causes together threaten food security and disrupt farming, and that people are being pushed to change their traditional jhum cultivation. In work reported by UNESCO, a youth-led study of 72 Tripura women in Simana Para, Khagrachari found that erratic weather disrupts jhum cultivation, water access, health, and food security.</p>
+      <p>Participants discussed how food and climate change are linked, and how changes in jhum affect what is grown and eaten.</p>
+      <p class="uni">Sources: <a href="https://doi.org/10.3390/wild2020013" target="_blank" rel="noopener">Garai (2025), Wild 2(2):13</a>; <a href="https://www.unesco.org/en/articles/indigenous-youth-led-climate-research-across-chittagong-hill-tracts-bangladesh" target="_blank" rel="noopener">UNESCO, youth-led climate research in the Chittagong Hill Tracts</a>; <a href="https://www.researchgate.net/publication/352729165_Traditional_Food_Plants_and_Agro-biodiversity_in_Chittagong_Hill_Tracts_Bangladesh_Food_Security_Nutrition_and_Conservation_Strategy" target="_blank" rel="noopener">Traditional food plants and agro-biodiversity in the Chittagong Hill Tracts</a>.</p>
+    </div>
+  </div>
+  <div class="impact">
+    <div class="impact-head"><h4>Digital literacy program instructor</h4><span class="yr">2022–2023</span></div>
+    <div class="org">Indigenous Youth Community Centers · Rangamati</div>
+    <dl class="car">
+      <dt>Problem</dt><dd>Indigenous youth in remote areas of the Chittagong Hill Tracts had little access to basic computer skills.</dd>
+      <dt>What I did</dt><dd>Taught basic computer skills and digital literacy to indigenous youth in remote parts of the Chittagong Hill Tracts.</dd>
+      <dt>Result</dt><dd>Over 150 students learned essential technology skills through the program.</dd>
+    </dl>
+  </div>
+
+
+</section>
+
+<section class="page" id="page-references">
+
+
+<h3 class="sec"><span>Mentors &amp; References</span></h3>
+  <div class="ref-card"><h4><a href="https://kishormorol.github.io/" target="_blank" rel="noopener">Md Kishor Morol</a></h4><div class="role">Mentor &amp; Principal Investigator, ELITE Research Lab · PhD Student, Cornell University · Researcher, Meta FAIR</div>
+    <p class="uni" style="margin-bottom:.2rem"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab LLC</a>, Queens, NY, USA</p>
+    <a href="mailto:kishor@elitelab.ai">kishor@elitelab.ai</a> · <a href="https://kishormorol.github.io/" target="_blank" rel="noopener">Website</a> · <a href="https://scholar.google.com/citations?hl=en&user=pjn3jg4AAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+  <div class="ref-card"><h4><a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">Dr. Tanjim Mahmud</a></h4><div class="role">Reference · Associate Professor · World's Top 2% Scientist</div>
+    <p class="uni" style="margin-bottom:.2rem">Dept. of Computer Science and Engineering, Rangamati Science and Technology University</p>
+    <a href="mailto:tanjim.cse@rmstu.ac.bd">tanjim.cse@rmstu.ac.bd</a> · <a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">RMSTU profile</a> · <a href="https://scholar.google.com/citations?hl=en&user=MmuzMOoAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+  <div class="ref-card"><h4><a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">Md Mynoddin</a></h4><div class="role">B.Sc. Thesis Supervisor · Assistant Professor</div>
+    <p class="uni" style="margin-bottom:.2rem">Dept. of Computer Science and Engineering, Rangamati Science and Technology University</p>
+    <a href="mailto:mynoddin@rmstu.ac.bd">mynoddin@rmstu.ac.bd</a> · <a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">RMSTU profile</a> · <a href="https://scholar.google.com/citations?hl=en&user=GJdr1I0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+
+
+</section>
+
+</div>
+
+<footer>© 2026 Auntor Chakma</footer>
+<button id="topper" aria-label="Back to top" title="Top"><svg viewBox="0 0 24 24"><path d="M12 7l-7 8h14z"/></svg></button>
+<div id="toast" role="status"></div>
+
+<script>
+var CV_URL="";
+var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:""};
+(function(){
+  var root=document.documentElement;
+  function current(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  function paintIcon(){var d=current()==='dark';document.getElementById('theme-icon').innerHTML=d?
+    '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>':
+    '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';}
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  paintIcon();
+  document.getElementById('theme').addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){} paintIcon();});
+
+  var pages=['about','research','projects','awards','leadership','references'];
+  function show(name){
+    if(name==='achievement')name='awards';
+    if(pages.indexOf(name)<0)name='about';
+    pages.forEach(function(p){document.getElementById('page-'+p).classList.toggle('shown',p===name);});
+    document.querySelectorAll('.nav-links button[data-go]').forEach(function(a){var on=a.getAttribute('data-go')===name;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+    window.scrollTo(0,0);
+    document.getElementById('navlinks').classList.remove('open');
+    document.getElementById('burger').setAttribute('aria-expanded','false');
+  }
+  function go(name){show(name);try{history.replaceState(null,'','#'+name);}catch(e){}}
+  document.querySelectorAll('[data-go]').forEach(function(el){el.addEventListener('click',function(){go(el.getAttribute('data-go'));});});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1));});
+  show(location.hash.slice(1));
+
+  document.getElementById('burger').addEventListener('click',function(){
+    var n=document.getElementById('navlinks');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');});
+
+  document.querySelectorAll('.toggle').forEach(function(b){
+    var label=b.textContent.replace('Show ','').replace('Hide ','');
+    b.addEventListener('click',function(){
+      var box=b.nextElementSibling;var open=box.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');b.textContent=(open?'Hide ':'Show ')+label;});});
+
+  var toast=document.getElementById('toast'),tt;
+  function note(msg){toast.textContent=msg;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},2600);}
+  function openCV(e){if(e)e.preventDefault();if(CV_URL){window.open(CV_URL,'_blank','noopener');}else{note('The CV is being prepared and will be linked here soon.');}}
+  document.getElementById('cvbtn').addEventListener('click',openCV);
+  var cvl=document.getElementById('cvlink');if(cvl)cvl.addEventListener('click',openCV);
+  document.querySelectorAll('[data-proof]').forEach(function(a){
+    var u=PROOF[a.getAttribute('data-proof')];
+    if(u){a.href=u;a.target='_blank';a.rel='noopener';a.hidden=false;var p=a.closest('.proofs');if(p)p.classList.add('on');}});
+
+  var top=document.getElementById('topper');
+  window.addEventListener('scroll',function(){top.classList.toggle('on',window.scrollY>400);});
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
