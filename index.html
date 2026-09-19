@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auntor Chakma | AI researcher, RMSTU</title>
+<meta name="description" content="Auntor Chakma is an AI researcher and Research Assistant at ELITE Research Lab, working on multimodal and vision-language models, trustworthy AI, and AI safety. B.Sc. in Computer Science and Engineering, Rangamati Science and Technology University.">
+<link rel="canonical" href="https://auntorchakma.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --text:#333333; --heading:#20364c; --h3:#708090; --muted:#808080;
+  --link:#1585cf; --nav:#20364c; --nav-hover-bg:#ffffff; --nav-hover-fg:#20364c;
+  --rule:#e0e0e0; --steel:#6A82A8; --teal:#2f4f4f; --card:rgba(255,255,255,.72);
+  --card-border:rgba(106,130,168,.28); --thumb-border:#dddddd; --thumb-bg:#ffffff;
+  --ph-bg:#fff4c2; --ph-fg:#6b5200; --tag-bg:#eef2f8; --tag-fg:#2D5987;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121212; --text:#e6e6e6; --heading:#e6e6e6; --h3:#e6e6e6; --muted:#b0b0b0;
+    --link:#7db7ff; --nav:#1b2430; --nav-hover-bg:#2a3442; --nav-hover-fg:#ffffff;
+    --rule:#30363d; --steel:#9fb3d1; --teal:#cfe3e3; --card:rgba(28,31,38,.92);
+    --card-border:rgba(125,183,255,.18); --thumb-border:#3a3a3a; --thumb-bg:#1b1b1b;
+    --ph-bg:#4a3d10; --ph-fg:#ffe8a3; --tag-bg:#1f2a38; --tag-fg:#a9c6ec;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121212; --text:#e6e6e6; --heading:#e6e6e6; --h3:#e6e6e6; --muted:#b0b0b0;
+  --link:#7db7ff; --nav:#1b2430; --nav-hover-bg:#2a3442; --nav-hover-fg:#ffffff;
+  --rule:#30363d; --steel:#9fb3d1; --teal:#cfe3e3; --card:rgba(28,31,38,.92);
+  --card-border:rgba(125,183,255,.18); --thumb-border:#3a3a3a; --thumb-bg:#1b1b1b;
+  --ph-bg:#4a3d10; --ph-fg:#ffe8a3; --tag-bg:#1f2a38; --tag-fg:#a9c6ec;
+}
+*{box-sizing:border-box}
+html{font-size:10px}
+body{margin:0;padding-top:78px;background:var(--bg);color:var(--text);
+  font-family:"Montserrat",Helvetica,Arial,sans-serif;font-size:1.5rem;line-height:1.5;
+  transition:background-color .25s,color .25s}
+a{color:var(--link);font-weight:500;text-decoration:none}
+a:hover{border-bottom:1px dashed var(--link);padding-bottom:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+h1,h2,h3,h4,h5{font-family:"Montserrat",Helvetica,sans-serif;color:var(--heading);font-weight:500;margin:0}
+p{margin:0 0 1.5rem}
+svg.i{width:1em;height:1em;fill:currentColor;vertical-align:-.125em}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav);transition:background-color .25s}
+.nav-inner{max-width:920px;margin:0 auto;padding:0 15px;display:flex;align-items:center;justify-content:space-between;min-height:62px}
+.brand{font-size:2.15rem;font-weight:500;color:#fff !important;border:0 !important;padding:0 !important}
+.brand:hover{border:0}
+.nav-links{display:flex;list-style:none;margin:0;padding:0;align-items:center}
+.nav-links a,.nav-links button{display:flex;align-items:center;height:62px;padding:0 15px;color:#fff;font-weight:400;font-size:1.5rem;
+  font-family:inherit;background:none;border:0;cursor:pointer;border-radius:1px;white-space:nowrap}
+.nav-links a:hover,.nav-links button:hover,.nav-links button.active{background:var(--nav-hover-bg);color:var(--nav-hover-fg);border-bottom:0;padding-bottom:0}
+.nav-links svg.i{width:1.8rem;height:1.8rem}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:8px 10px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:1px}
+
+.container{max-width:920px;margin:0 auto;padding:0 15px}
+.page-content{padding-top:3rem;padding-bottom:6rem}
+.row{display:flex;gap:30px}
+.side{flex:0 0 33.333%;max-width:33.333%}
+.main{flex:1;min-width:0}
+
+.ph{background:var(--ph-bg);color:var(--ph-fg);padding:0 4px;border-radius:3px}
+
+.thumb{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;width:100%;padding:4px;
+  border:1px solid var(--thumb-border);border-radius:4px;background:var(--thumb-bg)}
+.thumb-inner{width:100%;height:100%;border-radius:2px;background:linear-gradient(160deg,#2D5987,#20364c);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.thumb-inner b{font-size:5.2rem;font-weight:600;letter-spacing:.02em}
+.thumb-inner small{font-size:1.2rem;opacity:.8;margin-top:.6rem}
+#title{color:var(--heading);margin-top:2rem;font-weight:600;font-size:1.4rem;text-align:center}
+#program{display:block;color:var(--muted);font-weight:400}
+.socials{text-align:center;margin:1.4rem 0 1.6rem}
+.socials a{display:inline-block;margin:0 7px;color:var(--link)}
+.socials a:hover{border:0;padding:0;opacity:.8}
+.socials svg.i{width:2.8rem;height:2.8rem}
+.contact{width:100%;border-collapse:collapse}
+.contact td{border-top:1px solid var(--rule);padding:8px;vertical-align:top;font-size:1.4rem;word-break:break-word}
+.contact td:first-child{width:30px;color:var(--text)}
+
+h3.sec{position:relative;margin:3rem 0 2rem;color:var(--h3);font-size:2.4rem;z-index:0}
+h3.sec:first-child{margin-top:0}
+h3.sec span{background:var(--bg);padding-right:10px;position:relative;z-index:1;transition:background-color .25s}
+h3.sec:after{content:"";position:absolute;left:0;right:0;top:55%;border-top:2px solid var(--h3);opacity:.7;z-index:0}
+
+ul.plain{list-style:none;padding-left:0;margin:0}
+#news{padding-left:2rem;margin:0}
+#news li{margin-bottom:.8rem}
+.exp li.item{margin-bottom:2rem}
+.exp ul{padding-left:2rem;margin:.4rem 0 0}
+.uni{color:var(--muted)}
+.gpa-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0 0}
+.gpa-chip{background:var(--tag-bg);color:var(--tag-fg);border-radius:6px;padding:.3rem .8rem;font-size:1.3rem}
+.skills{padding-left:2rem;margin:0}
+.skills li{margin-bottom:.3rem}
+
+.research-intro{display:flex;gap:30px;align-items:center}
+.research-intro .txt{flex:1}
+.interest-art{flex:0 0 280px;height:170px;border-radius:8px;border:1px solid var(--card-border);overflow:hidden}
+.pubs{list-style:none;padding:0;margin:0}
+.pubs li{border-top:1px solid var(--rule);padding:2rem 0}
+.pubs h4{font-size:1.8rem;margin-bottom:.6rem;line-height:1.35}
+.pubs h5{font-size:1.4rem;color:var(--steel);margin:.3rem 0 .6rem;font-weight:500}
+.me{color:var(--teal);font-weight:700}
+.venue{color:var(--steel);font-weight:600;font-style:italic}
+.badge{display:inline-block;font-size:1.15rem;font-weight:600;padding:.2rem .9rem;border-radius:999px;margin-left:.6rem;vertical-align:1px}
+.b-pub{background:#d4edda;color:#276b3b}.b-acc{background:#d6e8fb;color:#1a5fa8}.b-prep{background:#fef3cd;color:#856404}
+.toggle{background:none;border:0;color:var(--link);cursor:pointer;padding:0;margin:.8rem 0 0;font:inherit;font-size:1.4rem;display:inline-flex;gap:.5rem;align-items:center}
+.toggle:before{content:"▶";font-size:1rem;transition:transform .2s}
+.toggle[aria-expanded="true"]:before{transform:rotate(90deg)}
+.abstract{display:none;margin-top:.8rem;line-height:1.65;max-width:750px}
+.abstract.open{display:block}
+.tags{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:var(--tag-bg);color:var(--tag-fg);font-size:1.2rem;padding:.2rem .8rem;border-radius:4px}
+
+.pcard{margin-top:1.6rem;padding:1.8rem 2rem;border:1px solid var(--card-border);border-radius:16px;background:var(--card)}
+.pcard h4{font-size:1.8rem;margin-bottom:.4rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pcard .live{font-size:1.1rem;font-weight:600;background:#d4edda;color:#276b3b;border-radius:999px;padding:.15rem .7rem}
+:root[data-theme="dark"] .pcard .live{background:var(--tag-bg);color:#8fd6a8}
+.pcard p{margin-bottom:.4rem}
+
+.ach li{display:flex;gap:1.6rem;padding:1.4rem 0;border-top:1px solid var(--rule)}
+.ach .yr{flex:0 0 130px;color:var(--steel);font-weight:600;font-size:1.4rem}
+
+.impact{border:1px solid var(--card-border);border-radius:14px;padding:1.8rem 2rem;margin-bottom:1.6rem;background:var(--card)}
+.impact-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline;margin-bottom:.2rem}
+.impact-head h4{font-size:1.8rem}
+.impact-head .yr{color:var(--steel);font-weight:600;font-size:1.3rem;white-space:nowrap}
+.impact .org{color:var(--muted);font-size:1.4rem;margin-bottom:1.2rem}
+.car{display:grid;grid-template-columns:110px 1fr;gap:.6rem 1.4rem;font-size:1.45rem}
+.car dt{color:var(--link);font-weight:600;font-size:1.25rem;padding-top:.1rem}
+.car dd{margin:0 0 .4rem}
+.impact .links{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--rule);display:flex;gap:.8rem;flex-wrap:wrap}
+@media (max-width:560px){.car{grid-template-columns:1fr}.car dd{margin-bottom:1rem}}
+
+.ref-card{border-top:1px solid var(--rule);padding:1.6rem 0}
+.ref-card h4{font-size:1.7rem;margin-bottom:.2rem}
+.ref-card .role{color:var(--muted);font-size:1.4rem;margin-bottom:.3rem}
+
+#topper{position:fixed;right:0;bottom:120px;background:var(--link);color:#fff;border:0;border-radius:4px 0 0 4px;
+  padding:12px 8px;cursor:pointer;display:none}
+#topper.on{display:block}
+#topper svg{width:2rem;height:2rem;fill:#fff}
+
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--nav);color:#fff;padding:10px 18px;
+  border-radius:6px;font-size:1.4rem;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.on{opacity:1}
+
+@media (max-width:920px) and (min-width:768px){.nav-links a,.nav-links button{padding:0 9px;font-size:1.4rem}.brand{font-size:1.9rem}}
+@media (max-width:767px){
+  body{padding-top:62px}
+  .burger{display:block}
+  .nav-links{display:none;position:absolute;top:62px;left:0;right:0;background:var(--nav);flex-direction:column;align-items:stretch;padding-bottom:8px}
+  .nav-links.open{display:flex}
+  .nav-links a,.nav-links button{height:44px}
+  .row{flex-direction:column;gap:10px}
+  .side{max-width:100%;flex-basis:auto}
+  .thumb{max-width:240px;margin:0 auto}
+  .research-intro{flex-direction:column;align-items:flex-start}
+  .interest-art{flex-basis:auto;width:100%}
+  .ach li{flex-direction:column;gap:.2rem}
+  .ach .yr{flex-basis:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+
+[hidden]{display:none !important}
+button.brand{background:none;font-family:inherit;cursor:pointer}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:500;color:var(--link);cursor:pointer}
+.linkbtn:hover{border-bottom:1px dashed var(--link)}
+.kw{background:#d6e8fb;color:#1a5fa8;font-weight:600;padding:.05em .4em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root[data-theme="dark"] .kw{background:#1f2a38;color:#a9c6ec}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kw{background:#1f2a38;color:#a9c6ec}}
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:0 0 2rem}
+.hl>div{border:1px solid var(--card-border);border-radius:10px;padding:1.2rem 1.4rem;background:var(--card)}
+.hl b{display:block;font-size:2.8rem;font-weight:600;color:var(--link);line-height:1.1;margin-bottom:.3rem}
+.hl span{font-size:1.3rem;color:var(--muted);line-height:1.4;display:block}
+.seeking{border-left:4px solid var(--link);background:var(--tag-bg);padding:1.1rem 1.5rem;margin:0 0 2rem;line-height:1.6}
+h4.subsec{font-size:1.9rem;margin:2.6rem 0 1.2rem;color:var(--h3)}
+ul.apps{padding-left:2rem;margin:0 0 1rem}
+ul.apps li{margin-bottom:.9rem;max-width:760px}
+.lead-summary{margin:0 0 2rem;max-width:760px}
+.proofs{display:none;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.proofs.on{display:flex}
+.proof{display:inline-block;font-size:1.2rem;background:var(--tag-bg);color:var(--tag-fg);padding:.25rem .9rem;border-radius:4px;font-weight:500}
+.proof:hover{border-bottom:0;padding-bottom:.25rem;opacity:.85}
+.venues a{font-weight:500}
+.pcard .car{grid-template-columns:130px 1fr;margin-top:1rem}
+@media (max-width:560px){.pcard .car{grid-template-columns:1fr}}
+@media (max-width:767px){.hl{grid-template-columns:1fr}}
+
+.page{display:none}
+.page.shown{display:block}
+
+</style>
+</head>
+<body>
+<nav class="navbar" aria-label="Main">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Auntor Chakma</a>
+    <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="public/CV_Auntor.pdf" target="_blank">CV</a></li>
+      <li><button type="button" id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="i" id="theme-icon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<section class="page shown" id="page-about">
+
+<div class="row">
+    <aside class="side">
+      <div class="thumb"><!-- To use a photo, replace the next line with: <img src="public/photo.jpg" alt="Auntor Chakma" style="width:100%;height:100%;object-fit:cover;border-radius:2px"> -->
+        <div class="thumb-inner"><b>AC</b></div></div>
+      <p id="title">Researcher &amp; Research Assistant<span id="program">ELITE Research Lab LLC, Queens NY (Remote)</span></p>
+      <div class="socials">
+        <a href="https://github.com/auntor101" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a href="https://linkedin.com/in/auntor101" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=zhwU8sUAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="i" viewBox="0 0 24 24"><path d="M5.24 13.77 0 9.5 12 0l12 9.5-5.24 4.27A7 7 0 0 0 12 10a7 7 0 0 0-6.76 3.77zM12 24a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg></a>
+        <a href="https://orcid.org/0009-0002-8220-8122" target="_blank" rel="noopener" aria-label="ORCID"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><text x="12" y="16.2" text-anchor="middle" font-size="10" font-weight="700" font-family="Montserrat,Arial,sans-serif" fill="var(--bg)">iD</text></svg></a>
+        <a href="mailto:auntorchakma@gmail.com" aria-label="Email"><svg class="i" viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v.4l-12 7.2L0 6.4V6a2 2 0 0 1 2-2zm-2 4.73 12 7.2 12-7.2V18a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.73z"/></svg></a>
+      </div>
+      <table class="contact">
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M12 0a8 8 0 0 0-8 8c0 6 8 16 8 16s8-10 8-16a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></td><td>Rangamati, Chittagong Hill Tracts, Bangladesh</td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v.4l-12 7.2L0 6.4V6a2 2 0 0 1 2-2zm-2 4.73 12 7.2 12-7.2V18a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.73z"/></svg></td><td><a href="mailto:auntorchakma@gmail.com">auntorchakma at gmail dot com</a></td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><text x="12" y="16.2" text-anchor="middle" font-size="10" font-weight="700" font-family="Montserrat,Arial,sans-serif" fill="var(--bg)">iD</text></svg></td><td><a href="https://orcid.org/0009-0002-8220-8122" target="_blank" rel="noopener">0009-0002-8220-8122</a></td></tr>
+        <tr><td><svg class="i" viewBox="0 0 24 24"><path d="M14 0H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-8-8zm0 2.5L19.5 8H14V2.5zM7 13h10v2H7v-2zm0 4h10v2H7v-2z"/></svg></td><td><button type="button" class="linkbtn" id="cvlink">CV (PDF)</button></td></tr>
+      </table>
+    </aside>
+
+    <div class="main">
+      <h3 class="sec"><span>About Me</span></h3>
+      <div class="hl">
+        <div><b>3</b><span>papers, two accepted and one published</span></div>
+        <div><b>1st</b><span>author on both accepted papers</span></div>
+        <div><b>2</b><span>research interns supervised at ELITE Research Lab</span></div>
+      </div>
+      <div class="seeking"><b>Currently seeking:</b> research-based graduate positions in Computer Science, with a focus on <span class="kw">multimodal AI</span>, <span class="kw">vision-language models</span>, <span class="kw">trustworthy AI</span>, and <span class="kw">AI safety</span> — open to both master's and doctoral programmes. Supervisors and collaborators can reach me by email.</div>
+      <p>I'm Auntor Chakma, a Research Assistant at ELITE Research Lab. My research covers <span class="kw">multimodal learning</span>, <span class="kw">vision-language models</span> (VLMs) and their applications, and <span class="kw">federated learning</span>, applied to healthcare data, with the specific properties I work on described under Research.</p>
+      <p>I grew up in Rangamati, in the Chittagong Hill Tracts, where specialist medical care is hard to reach. The lung-sound project I supervise aims at a tool that a health worker in a low-resource clinic could run and understand.</p>
+      <p>My published work covers diabetic retinopathy grading from fundus images, Bangla license plate recognition, and a review of multimodal federated learning in healthcare. My B.Sc. thesis was on intrusion detection for Internet of Medical Things networks. Project code is on GitHub, and three live demos are linked under Projects.</p>
+      <p>I am a Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> (New York, remote), and MIS Officer on the WFP-funded Mother and Child Benefit Programme run by <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> in Rangamati. I hold a B.Sc. in Computer Science and Engineering from Rangamati Science and Technology University (2025).</p>
+      <h3 class="sec"><span>Mentor</span></h3>
+      <p>My current mentor and principal investigator is <a href="https://kishormorol.github.io/" target="_blank" rel="noopener">Md Kishor Morol</a>, a PhD student at Cornell University and a Researcher at Meta FAIR, who also founded <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>. He supervised my work on multimodal and federated learning. He now advises me on vision-language models, their applications, and AI safety, and on formal privacy guarantees. He is a co-author on the Frontiers in Digital Health review and oversees the two interns I supervise.</p>
+      <p>During my undergraduate degree, my thesis supervisor <a href="https://rmstu.ac.bd/profile?info=13" target="_blank" rel="noopener">Md Mynoddin</a> guided the intrusion-detection work that became my B.Sc. thesis, and <a href="https://rmstu.ac.bd/profile?info=4" target="_blank" rel="noopener">Dr. Tanjim Mahmud</a> supported my research as a co-author on the Bangla license plate paper.</p>
+      <h3 class="sec"><span>Recent News</span></h3>
+      <ul id="news">
+        <li><b>Sep, 2026</b>: "Multimodal Federated Learning with Privacy-Preserving Mechanisms in Healthcare: A Mini Review of Convergence, Challenges, and Future Directions" accepted in <b><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></b>.</li>
+        <li><b>9 Aug, 2026</b>: "An Ensemble Approach for Diabetic Retinopathy Severity Classification with Diffusion-Based Augmentation and Explainability" accepted in <b><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></b> (Q1, Scopus-indexed).</li>
+        <li><b>Aug, 2026</b>: Started supervising two research interns on biomedical signal processing at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
+        <li><b>Jul, 2026</b>: Joined <b><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a></b> as MIS Officer on the WFP-funded Mother and Child Benefit Programme in Rangamati.</li>
+        <li><b>Apr, 2026</b>: Promoted to Researcher &amp; Research Assistant at <a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a>.</li>
+        <li><b>10 Jan, 2026</b>: "A Deep Learning-Based Framework for Bangla Vehicle License Plate Detection and Recognition" published in <b><a href="https://link.springer.com/book/10.1007/978-3-032-11355-9" target="_blank" rel="noopener">Springer CCIS</a></b>, vol. 2683.</li>
+        <li><b>Jun, 2025</b>: Left my research assistant role at Rangamati Science and Technology University after defending my B.Sc. thesis, "Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things."</li>
+        <li><b>Dec, 2024</b>: Joined Rangamati Science and Technology University as a research assistant, working on network intrusion detection for medical IoT systems.</li>
+      </ul>
+
+      <h3 class="sec"><span>Experience</span></h3>
+      <ul class="plain exp">
+        <li class="item"><b>Researcher &amp; Research Assistant</b> | <em class="uni">Apr 2026 – Present</em><br>
+          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Queens, NY, USA (Remote)</em></span>
+          <ul><li>Research on multimodal and vision-language models for healthcare: interpretability, trustworthiness, AI safety, and privacy for data security</li><li>Supervising two interns on biomedical signal processing and outcome prediction, since Aug 2026</li></ul>
+          <div class="proofs"><a class="proof" data-proof="elite_letter" hidden>Appointment letter</a></div></li>
+        <li class="item"><b>MIS Officer</b> | <em class="uni">Jul 2026 – Present</em><br>
+          <span class="uni"><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> | <em>Rangamati, Chittagong</em></span>
+          <ul><li>WFP-funded Mother and Child Benefit Programme, which protects women and children in the Chittagong Hill Tracts from malnutrition and supports healthy child growth and safe pregnancy and childbirth</li></ul>
+          <div class="proofs"><a class="proof" data-proof="ashika_letter" hidden>Employment letter</a></div></li>
+        <li class="item"><b>Junior Research Assistant</b> | <em class="uni">Mar 2026 – Apr 2026</em><br>
+          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
+          <ul><li>Primary author on a federated learning project with differential privacy and XAI</li></ul></li>
+        <li class="item"><b>AI Research Intern</b> | <em class="uni">Jan 2026 – Mar 2026</em><br>
+          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
+          <ul><li>Conceived and led a mini-review on multimodal federated learning in healthcare during the three-month internship. It was later accepted in Frontiers in Digital Health.</li></ul></li>
+        <li class="item"><b>Research Collaborator</b> | <em class="uni">Aug 2025 – Dec 2025</em><br>
+          <span class="uni"><a href="https://elitelab.ai" target="_blank" rel="noopener">ELITE Research Lab</a> LLC | <em>Remote</em></span>
+          <ul><li>Diabetic retinopathy grading with Stable Diffusion augmentation and CNN ensembles</li></ul></li>
+        <li class="item"><b>Researcher &amp; Research Assistant</b> | <em class="uni">Dec 2024 – Jun 2025</em><br>
+          <span class="uni">Rangamati Science and Technology University</span>
+          <ul><li>Network traffic collection and deep learning models for malicious traffic detection</li></ul></li>
+        <li class="item"><b>Software Engineer Intern</b> (Industrial Attachment) | <em class="uni">Mar 2024 – Jun 2024</em><br>
+          <span class="uni">Celloscope Limited | <em>Dhaka, Bangladesh</em></span>
+          <ul><li>Backend development with Java, Spring Boot, REST APIs, and MySQL</li></ul></li>
+      </ul>
+
+      <h3 class="sec"><span>Education</span></h3>
+      <ul class="plain">
+        <li style="margin-bottom:1rem">B.Sc. (Engg.) in Computer Science and Engineering, &nbsp;2018 – 2025 &nbsp;<span class="uni">(CGPA 3.50/4.00)</span><br>
+          <span class="uni"><em>Rangamati Science and Technology University (RMSTU), Rangamati</em></span>
+          <p class="uni" style="margin:.5rem 0 0;font-size:1.3rem;line-height:1.5">My cohort's coursework was delayed by roughly 1.5 years, first by COVID-related closures and then by scheduling backlogs common across Bangladeshi public universities in that period.</p>
+          <div class="gpa-row"><span class="gpa-chip">Sem 5: 3.70</span><span class="gpa-chip">Sem 6: 3.82</span><span class="gpa-chip">Sem 7: 3.93</span><span class="gpa-chip">Sem 8: 3.74</span></div></li>
+        <li style="margin-bottom:1rem">Higher Secondary Certificate, &nbsp;2017 &nbsp;<span class="uni">(GPA 5.00/5.00, Dhaka Board)</span><br>
+          <span class="uni"><em>Notre Dame College, Dhaka</em></span></li>
+        <li style="margin-bottom:1rem">Secondary School Certificate, &nbsp;2015 &nbsp;<span class="uni">(GPA 5.00/5.00, Chittagong Board)</span><br>
+          <span class="uni"><em>Laker's Public School and College</em></span></li>
+      </ul>
+
+      <h3 class="sec"><span>Skills</span></h3>
+      <ul class="skills">
+        <li><b>Languages:</b> Python, Java, C</li>
+        <li><b>ML/DL:</b> PyTorch, TensorFlow, Keras, scikit-learn, OpenCV, LangChain, LangGraph, RAG</li>
+        <li><b>Data:</b> NumPy, Pandas, Matplotlib, Seaborn, feature engineering</li>
+        <li><b>Web &amp; databases:</b> Django, FastAPI, Spring Boot, REST APIs, MySQL, MongoDB, PostgreSQL</li>
+        <li><b>Security:</b> Wireshark, network analysis</li>
+        <li><b>Tools:</b> Linux, Git, LaTeX, technical writing</li>
+      </ul>
+    </div>
+  </div>
+
+
+</section>
+</div>
+<footer>© 2026 Auntor Chakma · Template adapted from Randal Sean Harrison (MIT) via Soham Khisa</footer>
+<button id="topper" aria-label="Back to top" title="Top"><svg viewBox="0 0 24 24"><path d="M12 7l-7 8h14z"/></svg></button>
+<div id="toast" role="status"></div>
+<script>
+var CV_URL="";
+var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:""};
+(function(){
+  var root=document.documentElement;
+  function current(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  function paintIcon(){var el=document.getElementById('theme-icon');if(!el)return;var d=current()==='dark';el.innerHTML=d?
+    '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>':
+    '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';}
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  paintIcon();
+  var themeBtn=document.getElementById('theme');
+  if(themeBtn)themeBtn.addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){} paintIcon();});
+
+  var burger=document.getElementById('burger');
+  var navlinks=document.getElementById('navlinks');
+  if(burger&&navlinks)burger.addEventListener('click',function(){
+    var o=navlinks.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');});
+
+  document.querySelectorAll('.toggle').forEach(function(b){
+    var label=b.textContent.replace('Show ','').replace('Hide ','');
+    b.addEventListener('click',function(){
+      var box=b.nextElementSibling;var open=box.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');b.textContent=(open?'Hide ':'Show ')+label;});});
+
+  var toast=document.getElementById('toast'),tt;
+  function note(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},2600);}
+  function openCV(e){if(e)e.preventDefault();if(CV_URL){window.open(CV_URL,'_blank','noopener');}else{note('The CV is being prepared and will be linked here soon.');}}
+  var cvl=document.getElementById('cvlink');if(cvl)cvl.addEventListener('click',openCV);
+  document.querySelectorAll('[data-proof]').forEach(function(a){
+    var u=PROOF[a.getAttribute('data-proof')];
+    if(u){a.href=u;a.target='_blank';a.rel='noopener';a.hidden=false;var p=a.closest('.proofs');if(p)p.classList.add('on');}});
+
+  var top=document.getElementById('topper');
+  if(top){
+    window.addEventListener('scroll',function(){top.classList.toggle('on',window.scrollY>400);});
+    top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
+<!-- Lightweight hit counter (no signup): counts page loads per path. See admin.html for the running total. -->
+<script>
+(function(){
+  try{
+    var img=document.createElement('img');
+    img.style.display='none';
+    img.referrerPolicy='no-referrer-when-downgrade';
+    img.src='https://api.visitorbadge.io/api/combined?path=auntorchakma.github.io%2F'+encodeURIComponent(location.pathname.replace(/^\//,'')||'index')+'&countColor=%231585cf';
+    document.body.appendChild(img);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
