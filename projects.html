@@ -265,7 +265,7 @@ var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"
   function paintIcon(){var el=document.getElementById('theme-icon');if(!el)return;var d=current()==='dark';el.innerHTML=d?
     '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>':
     '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';}
-  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  try{var saved=localStorage.getItem('theme');root.setAttribute('data-theme',saved||'light');}catch(e){root.setAttribute('data-theme','light');}
   paintIcon();
   var themeBtn=document.getElementById('theme');
   if(themeBtn)themeBtn.addEventListener('click',function(){
