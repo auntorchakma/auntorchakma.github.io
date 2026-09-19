@@ -60,6 +60,18 @@ button.big{width:100%;padding:13px;font-size:15px}
 .drive-out input{flex:1}
 .help{font-size:13px;color:var(--muted);margin-top:8px}
 a{color:var(--brand)}
+
+.proof-item{border-top:1px solid var(--rule);padding:16px 0}
+.proof-item:first-child{border-top:0;padding-top:0}
+.proof-name{font-size:14.5px;font-weight:600}
+.proof-where{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.proof-current{font-size:13px;margin-bottom:10px;padding:8px 11px;border-radius:8px;background:var(--chip)}
+.proof-current.empty{color:var(--muted)}
+.proof-current a{word-break:break-all}
+.proof-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.proof-row input[type=file]{flex:1;min-width:200px;font-size:13px}
+.proof-row input[type=text]{flex:1;min-width:200px}
+.proof-or{font-size:12.5px;color:var(--muted);font-weight:600;text-align:center;margin:4px 0}
 </style>
 </head>
 <body>
@@ -106,6 +118,13 @@ a{color:var(--brand)}
   <div class="status" id="saveStatus"></div>
 </div>
 
+<div class="step disabled" id="step4">
+  <h2><span class="num">4</span>Proof documents</h2>
+  <p class="sub">Certificates, award letters, and photos or videos of proof, for the Leadership and Awards pages. Upload a file directly, or paste a link if you already have one hosted somewhere (Google Drive, YouTube, etc.). Each one saves separately and updates everywhere it's used on the site automatically.</p>
+  <p class="sub" style="margin-top:-6px"><b>File size:</b> photos and PDFs are fine. For video, keep it under about 20&nbsp;MB, since it's stored directly in the site's files. For anything longer, upload it to Google Drive or YouTube first and paste that link instead, using the Drive converter below for Drive links.</p>
+  <div id="proofWrap"></div>
+</div>
+
 <div class="step">
   <h2 style="font-size:15px">Photo or video from Google Drive</h2>
   <p class="sub" style="margin-left:0">Paste a Drive "Anyone with the link" share URL to get a code snippet you can paste into any box above.</p>
@@ -128,7 +147,7 @@ a{color:var(--brand)}
   var tokEl = document.getElementById('tok');
   var connPill = document.getElementById('connPill');
   var connStatus = document.getElementById('connStatus');
-  var step2 = document.getElementById('step2'), step3 = document.getElementById('step3');
+  var step2 = document.getElementById('step2'), step3 = document.getElementById('step3'), step4 = document.getElementById('step4');
   var loadBtn = document.getElementById('loadBtn'), saveBtn = document.getElementById('saveBtn');
   var loadStatus = document.getElementById('loadStatus'), saveStatus = document.getElementById('saveStatus');
   var fieldsWrap = document.getElementById('fieldsWrap');
@@ -209,6 +228,17 @@ a{color:var(--brand)}
     ]
   };
 
+  var PROOF_PAGES = ['index.html','research.html','projects.html','awards.html','leadership.html','references.html'];
+  var PROOF_SCHEMA = [
+    {key:'icbc_cert', label:'ICBC certificate', where:'Leadership page: "Conference website developer" and "Technical Session Coordinator & Volunteer" cards'},
+    {key:'hackathon_cert', label:'Hackathon certificate', where:'Awards page: "3rd Place, Hackathon"'},
+    {key:'scholarship_cht', label:'CHT Development Board Scholarship, award letter', where:'Awards page'},
+    {key:'scholarship_merit', label:'RMSTU Merit Scholarship, award letter', where:'Awards page'},
+    {key:'scholarship_council', label:'Rangamati Hill District Council Scholarship, award letter', where:'Awards page'},
+    {key:'elite_letter', label:'ELITE Research Lab, appointment letter', where:'About page, Experience section'},
+    {key:'ashika_letter', label:'ASHIKA Development Associates, employment letter', where:'About page, Experience section'}
+  ];
+
   function setStatus(el, msg, kind){ el.textContent = msg; el.className = 'status show ' + (kind||''); }
   function ghHeaders(){ return {'Authorization':'Bearer '+tokEl.value.trim(),'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}; }
 
@@ -229,12 +259,14 @@ a{color:var(--brand)}
       .then(function(){
         connPill.textContent = 'Connected'; connPill.classList.add('on');
         step2.classList.remove('disabled');
+        step4.classList.remove('disabled');
         setStatus(connStatus,'Connected. Pick a page below.','ok');
         try{ localStorage.setItem('gh_token', token); }catch(e){}
+        renderProofs();
       })
       .catch(function(err){
         connPill.textContent = 'Not connected'; connPill.classList.remove('on');
-        step2.classList.add('disabled'); step3.classList.add('disabled');
+        step2.classList.add('disabled'); step3.classList.add('disabled'); step4.classList.add('disabled');
         setStatus(connStatus, err.message, 'err');
       });
   }
@@ -242,7 +274,7 @@ a{color:var(--brand)}
   document.getElementById('forgetBtn').addEventListener('click', function(){
     try{ localStorage.removeItem('gh_token'); }catch(e){}
     tokEl.value=''; connPill.textContent='Not connected'; connPill.classList.remove('on');
-    step2.classList.add('disabled'); step3.classList.add('disabled');
+    step2.classList.add('disabled'); step3.classList.add('disabled'); step4.classList.add('disabled');
     setStatus(connStatus,'Token forgotten from this browser.','ok');
   });
 
@@ -328,6 +360,164 @@ a{color:var(--brand)}
     var out = document.getElementById('driveOut'); out.select();
     try{ navigator.clipboard.writeText(out.value); }catch(e){ document.execCommand('copy'); }
   });
+
+  // ---- Proof documents ----
+  var proofWrap = document.getElementById('proofWrap');
+  var proofCurrent = {};
+
+  function readProofValues(){
+    return fetch(API+'/repos/'+REPO+'/contents/index.html', {headers: ghHeaders()})
+      .then(function(r){ if(!r.ok) throw new Error('Could not read current proof links (HTTP '+r.status+').'); return r.json(); })
+      .then(function(data){
+        var html = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+        var m = html.match(/var PROOF=\{([^}]*)\};/);
+        var obj = {};
+        if(m){
+          m[1].split(',').forEach(function(pair){
+            var kv = pair.split(':');
+            if(kv.length===2){
+              var k = kv[0].trim();
+              var v = kv[1].trim().replace(/^"|"$/g,'');
+              obj[k] = v;
+            }
+          });
+        }
+        return obj;
+      });
+  }
+
+  function renderProofs(){
+    proofWrap.innerHTML = '<p class="help">Loading current proof links…</p>';
+    readProofValues().then(function(obj){
+      proofCurrent = obj;
+      proofWrap.innerHTML = '';
+      PROOF_SCHEMA.forEach(function(item){ proofWrap.appendChild(buildProofItem(item)); });
+    }).catch(function(err){
+      proofWrap.innerHTML = '<p class="status show err">'+err.message+'</p>';
+    });
+  }
+
+  function buildProofItem(item){
+    var wrap = document.createElement('div'); wrap.className = 'proof-item';
+
+    var name = document.createElement('div'); name.className='proof-name'; name.textContent = item.label;
+    var where = document.createElement('div'); where.className='proof-where'; where.textContent = 'Used on: ' + item.where;
+    wrap.appendChild(name); wrap.appendChild(where);
+
+    var current = document.createElement('div');
+    var val = proofCurrent[item.key];
+    if(val){
+      current.className = 'proof-current';
+      var a = document.createElement('a'); a.href = val; a.target='_blank'; a.rel='noopener'; a.textContent = 'Currently linked: ' + val;
+      current.appendChild(a);
+    } else {
+      current.className = 'proof-current empty';
+      current.textContent = 'Nothing uploaded yet.';
+    }
+    wrap.appendChild(current);
+
+    var fileRow = document.createElement('div'); fileRow.className = 'proof-row';
+    var fileInput = document.createElement('input');
+    fileInput.type = 'file'; fileInput.accept = 'image/*,video/*,application/pdf';
+    fileRow.appendChild(fileInput);
+    wrap.appendChild(fileRow);
+
+    var or = document.createElement('div'); or.className='proof-or'; or.textContent = 'OR';
+    wrap.appendChild(or);
+
+    var linkRow = document.createElement('div'); linkRow.className = 'proof-row';
+    var linkInput = document.createElement('input');
+    linkInput.type = 'text'; linkInput.placeholder = 'Paste a link instead (Google Drive, YouTube, etc.)';
+    linkRow.appendChild(linkInput);
+    wrap.appendChild(linkRow);
+
+    var saveBtn = document.createElement('button');
+    saveBtn.className = 'primary'; saveBtn.textContent = 'Save this proof';
+    wrap.appendChild(saveBtn);
+
+    var status = document.createElement('div'); status.className = 'status';
+    wrap.appendChild(status);
+
+    saveBtn.addEventListener('click', function(){
+      var file = fileInput.files[0];
+      var link = linkInput.value.trim();
+      if(!file && !link){ setStatus(status, 'Choose a file or paste a link first.', 'err'); return; }
+      if(file && link){ setStatus(status, 'Use either a file or a link, not both.', 'err'); return; }
+      saveBtn.disabled = true;
+
+      if(file){
+        if(file.size > 25*1024*1024){
+          setStatus(status, "That file is over 25 MB. Use a Drive or YouTube link instead for anything this large.", 'err');
+          saveBtn.disabled = false; return;
+        }
+        setStatus(status, 'Uploading file…', '');
+        var reader = new FileReader();
+        reader.onload = function(){
+          var b64 = reader.result.split(',')[1];
+          var ext = (file.name.split('.').pop() || 'bin').toLowerCase().replace(/[^a-z0-9]/g,'');
+          var path = 'proofs/' + item.key + '-' + Date.now() + '.' + ext;
+          fetch(API+'/repos/'+REPO+'/contents/'+path, {
+            method:'PUT',
+            headers: Object.assign({'Content-Type':'application/json'}, ghHeaders()),
+            body: JSON.stringify({message:'Add proof file for '+item.key, content:b64})
+          })
+            .then(function(r){ if(!r.ok) return r.json().then(function(j){throw new Error(j.message||('HTTP '+r.status));}); return r.json(); })
+            .then(function(){ return syncProofValue(item.key, path, status); })
+            .then(function(){
+              proofCurrent[item.key] = path;
+              fileInput.value = ''; linkInput.value = '';
+              setStatus(status, 'Saved. Uploaded and linked everywhere it is used.', 'ok');
+              current.className = 'proof-current';
+              current.innerHTML = ''; var a2 = document.createElement('a'); a2.href=path; a2.target='_blank'; a2.rel='noopener'; a2.textContent='Currently linked: '+path; current.appendChild(a2);
+            })
+            .catch(function(err){ setStatus(status, err.message, 'err'); })
+            .finally(function(){ saveBtn.disabled = false; });
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setStatus(status, 'Saving link…', '');
+        syncProofValue(item.key, link, status)
+          .then(function(){
+            proofCurrent[item.key] = link;
+            linkInput.value = '';
+            setStatus(status, 'Saved. Linked everywhere it is used.', 'ok');
+            current.className = 'proof-current';
+            current.innerHTML = ''; var a3 = document.createElement('a'); a3.href=link; a3.target='_blank'; a3.rel='noopener'; a3.textContent='Currently linked: '+link; current.appendChild(a3);
+          })
+          .catch(function(err){ setStatus(status, err.message, 'err'); })
+          .finally(function(){ saveBtn.disabled = false; });
+      }
+    });
+
+    return wrap;
+  }
+
+  function syncProofValue(key, value, status){
+    var safeValue = String(value).replace(/"/g,'%22');
+    var chain = Promise.resolve();
+    var done = 0;
+    PROOF_PAGES.forEach(function(page){
+      chain = chain.then(function(){
+        setStatus(status, 'Updating '+page+' ('+(done+1)+' of '+PROOF_PAGES.length+')…', '');
+        return fetch(API+'/repos/'+REPO+'/contents/'+page, {headers: ghHeaders()})
+          .then(function(r){ if(!r.ok) throw new Error('Could not read '+page+' (HTTP '+r.status+').'); return r.json(); })
+          .then(function(data){
+            var html = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+            var re = new RegExp('(\\b'+key+':")[^"]*(")');
+            if(!re.test(html)) return;
+            html = html.replace(re, '$1'+safeValue+'$2');
+            var b64 = btoa(unescape(encodeURIComponent(html)));
+            return fetch(API+'/repos/'+REPO+'/contents/'+page, {
+              method:'PUT',
+              headers: Object.assign({'Content-Type':'application/json'}, ghHeaders()),
+              body: JSON.stringify({message:'Update proof link: '+key, content:b64, sha:data.sha})
+            }).then(function(r){ if(!r.ok) return r.json().then(function(j){throw new Error('Saving '+page+' failed: '+(j.message||r.status));}); });
+          })
+          .then(function(){ done++; });
+      });
+    });
+    return chain;
+  }
 
   loadSaved();
 })();
