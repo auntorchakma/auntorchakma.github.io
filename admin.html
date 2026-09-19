@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin — Auntor Chakma site</title>
+<title>Admin | Auntor Chakma site</title>
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -77,13 +77,13 @@ a{color:var(--brand)}
 <body>
 <div class="wrap">
 <header>
-  <div class="k">Private — not linked from the public site</div>
+  <div class="k">Private, not linked from the public site</div>
   <h1>Site admin</h1>
-  <p>Edit pages, convert Google Drive links, and check the visit counter — all from this one page. Nothing here touches a server you don't control: your token stays in this browser only.</p>
+  <p>Edit pages, convert Google Drive links, and check the visit counter, all from this one page. Nothing here touches a server you don't control: your token stays in this browser only.</p>
 </header>
 
 <div class="note">
-  <b>About the token.</b> To save changes, this page needs a GitHub <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a> scoped to only the <code>auntorchakma.github.io</code> repository, with <b>Contents: Read and write</b> permission and nothing else. It's stored in this browser's <code>localStorage</code> — never sent anywhere except directly to GitHub's API. Click "Forget token" below before using a shared or public computer.
+  <b>About the token.</b> To save changes, this page needs a GitHub <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a> scoped to only the <code>auntorchakma.github.io</code> repository, with <b>Contents: Read and write</b> permission and nothing else. It's stored in this browser's <code>localStorage</code> and never sent anywhere except directly to GitHub's API. Click "Forget token" below before using a shared or public computer.
 </div>
 
 <div class="card">
@@ -109,16 +109,16 @@ a{color:var(--brand)}
 
 <div class="card" id="editCard">
   <h2>2. Edit a page</h2>
-  <div class="sub">Loads the live file from GitHub. Saving commits directly to the repo — the public site updates within a minute or two.</div>
+  <div class="sub">Loads the live file from GitHub. Saving commits directly to the repo; the public site updates within a minute or two.</div>
   <label for="fileSel">Page</label>
   <select id="fileSel">
-    <option value="index.html">index.html — About</option>
-    <option value="research.html">research.html — Research</option>
-    <option value="projects.html">projects.html — Projects</option>
-    <option value="awards.html">awards.html — Awards</option>
-    <option value="leadership.html">leadership.html — Leadership</option>
-    <option value="references.html">references.html — References</option>
-    <option value="admin.html">admin.html — this page</option>
+    <option value="index.html">index.html (About)</option>
+    <option value="research.html">research.html (Research)</option>
+    <option value="projects.html">projects.html (Projects)</option>
+    <option value="awards.html">awards.html (Awards)</option>
+    <option value="leadership.html">leadership.html (Leadership)</option>
+    <option value="references.html">references.html (References)</option>
+    <option value="admin.html">admin.html (this page)</option>
   </select>
   <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
     <button class="primary small" id="loadBtn">Load</button>
@@ -135,7 +135,7 @@ a{color:var(--brand)}
 
 <div class="card">
   <h2>3. Add a photo or video from Google Drive</h2>
-  <div class="sub">Paste a Drive "Anyone with the link" share URL. This converts it to a direct-embed link you can paste into the editor above — it won't work for private files.</div>
+  <div class="sub">Paste a Drive "Anyone with the link" share URL. This converts it to a direct-embed link you can paste into the editor above. It won't work for private files.</div>
   <label for="driveIn">Drive share link</label>
   <input type="text" id="driveIn" placeholder="https://drive.google.com/file/d/XXXXXXXXXXXXXXXX/view?usp=sharing">
   <div class="row" style="margin-top:10px">
@@ -152,21 +152,21 @@ a{color:var(--brand)}
     <input type="text" id="driveOut" readonly placeholder="Converted embed code appears here">
     <button class="ghost small" id="driveCopy">Copy</button>
   </div>
-  <p class="help">Image files embed directly. Video files over ~100MB may be slow to stream from Drive — for anything long, YouTube (unlisted) or a dedicated host will play more reliably.</p>
+  <p class="help">Image files embed directly. Video files over ~100MB may be slow to stream from Drive. For anything long, YouTube (unlisted) or a dedicated host will play more reliably.</p>
 </div>
 
 <div class="card">
   <h2>4. Site visits</h2>
-  <div class="sub">A free, no-signup hit counter (visitorbadge.io) tracks page loads per file. This is a rough count, not real analytics — no unique-visitor or location data. For that, add a free <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> account later and I can wire it in.</div>
+  <div class="sub">A free, no-signup hit counter (visitorbadge.io) tracks page loads per file. This is a rough count, not real analytics, with no unique-visitor or location data. For that, add a free <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> account later and I can wire it in.</div>
   <div class="count-grid" id="countGrid">
-    <div class="count-item"><div class="n">—</div><div class="p">index.html</div></div>
-    <div class="count-item"><div class="n">—</div><div class="p">research.html</div></div>
-    <div class="count-item"><div class="n">—</div><div class="p">projects.html</div></div>
-    <div class="count-item"><div class="n">—</div><div class="p">awards.html</div></div>
-    <div class="count-item"><div class="n">—</div><div class="p">leadership.html</div></div>
-    <div class="count-item"><div class="n">—</div><div class="p">references.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">index.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">research.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">projects.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">awards.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">leadership.html</div></div>
+    <div class="count-item"><div class="n">…</div><div class="p">references.html</div></div>
   </div>
-  <p class="help">Counts start from zero once the site is live and pages have been visited at least once. Refresh this card any time — it just re-reads the public badge images.</p>
+  <p class="help">Counts start from zero once the site is live and pages have been visited at least once. Refresh this card any time; it just re-reads the public badge images.</p>
   <button class="ghost small" id="refreshCounts" style="margin-top:8px">Refresh counts</button>
 </div>
 
@@ -296,7 +296,7 @@ a{color:var(--brand)}
     var type = document.getElementById('driveType').value;
     var out = document.getElementById('driveOut');
     var m = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if(!m){ out.value = 'Could not find a file ID in that link — check it\'s a Drive share link.'; return; }
+    if(!m){ out.value = 'Could not find a file ID in that link. Check it\'s a Drive share link.'; return; }
     var id = m[1];
     if(type === 'image'){
       out.value = '<img src="https://drive.google.com/uc?export=view&id=' + id + '" alt="" style="max-width:100%;border-radius:8px">';
