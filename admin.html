@@ -5,80 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin | Auntor Chakma site</title>
 <meta name="robots" content="noindex, nofollow">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f4f6f9;--surface:#fff;--ink:#20364c;--muted:#6b7684;--rule:#e2e6ec;
   --brand:#1585cf;--brand-ink:#fff;--chip:#eef3f9;--warn-bg:#fdf1e0;--warn-fg:#8a5a0b;
   --ok-bg:#e7f6ec;--ok-fg:#1d6334;--err-bg:#fbeae6;--err-fg:#9c3a2b;--shadow:0 1px 3px rgba(32,54,76,.08);
 }
-
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
-h1,h2,h3{font-family:"Montserrat",sans-serif;margin:0;font-weight:600}
-code,textarea,.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
-.wrap{max-width:900px;margin:0 auto;padding:28px 20px 80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:15px;line-height:1.6}
+h1,h2{font-family:"Montserrat",sans-serif;margin:0;font-weight:600}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 80px}
 header{margin-bottom:22px}
 header .k{color:var(--brand);font-weight:700;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase}
-h1{font-size:23px;margin:6px 0}
-header p{color:var(--muted);font-size:14px;max-width:640px;margin:0}
+h1{font-size:24px;margin:6px 0}
+header p{color:var(--muted);font-size:14.5px;max-width:640px;margin:0}
 
-.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow)}
-.card h2{font-size:16px;margin-bottom:4px}
-.card .sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow)}
+.step.disabled{opacity:.4;pointer-events:none}
+.step h2{font-size:16px;display:flex;align-items:center;gap:10px}
+.step h2 .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--chip);color:var(--brand);font-size:13px;font-weight:700;flex:none}
+.step .sub{color:var(--muted);font-size:13.5px;margin:6px 0 14px 34px}
 
 label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
 label:first-child{margin-top:0}
 input[type=text],input[type=password],select,textarea{
-  width:100%;padding:9px 11px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--ink);
-  font:inherit;font-size:14px}
+  width:100%;padding:10px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--ink);
+  font:inherit;font-size:14.5px}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
-textarea{resize:vertical;font-size:13.5px;line-height:1.5}
-.row{display:flex;gap:12px;flex-wrap:wrap}
-.row>div{flex:1;min-width:200px}
+textarea{resize:vertical;min-height:70px;font-size:14px;line-height:1.5}
 
-button{font:inherit;cursor:pointer;border-radius:8px;padding:9px 16px;font-weight:600;font-size:14px;border:1px solid transparent}
+button{font:inherit;cursor:pointer;border-radius:8px;padding:10px 18px;font-weight:600;font-size:14.5px;border:1px solid transparent}
 button.primary{background:var(--brand);color:var(--brand-ink);border:0}
 button.primary:hover{filter:brightness(1.06)}
 button.primary:disabled{opacity:.5;cursor:not-allowed}
 button.ghost{background:transparent;border:1px solid var(--rule);color:var(--ink)}
-button.small{padding:6px 12px;font-size:13px}
+button.big{width:100%;padding:13px;font-size:15px}
 
-.status{display:none;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-top:12px}
+.status{display:none;border-radius:8px;padding:11px 15px;font-size:14px;margin-top:12px;line-height:1.5}
 .status.show{display:block}
 .status.ok{background:var(--ok-bg);color:var(--ok-fg)}
 .status.err{background:var(--err-bg);color:var(--err-fg)}
-.status.warn{background:var(--warn-bg);color:var(--warn-fg)}
 
-.note{background:var(--warn-bg);border-left:4px solid var(--warn-fg);border-radius:8px;padding:12px 16px;font-size:13.5px;margin-bottom:18px}
-.note b{color:var(--warn-fg)}
-
-.locked{opacity:.45;pointer-events:none;filter:grayscale(.3)}
-.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 11px;background:var(--chip);color:var(--brand)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--chip);color:var(--brand)}
 .pill.on{background:var(--ok-bg);color:var(--ok-fg)}
-
-.tabs{display:flex;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--rule);padding-bottom:0}
-.tab{padding:9px 16px;font-size:14px;font-weight:600;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;border-radius:0;cursor:pointer}
-.tab.active{color:var(--brand);border-bottom-color:var(--brand)}
-.tabpanel{display:none}
-.tabpanel.active{display:block}
 
 .field{border-top:1px solid var(--rule);padding:16px 0}
 .field:first-child{border-top:0;padding-top:0}
-.field-label{font-size:13.5px;font-weight:600;margin-bottom:2px}
-.field-hint{font-size:12px;color:var(--muted);margin-bottom:7px}
-.field textarea{min-height:64px}
-.field-changed{border-left:3px solid var(--brand);padding-left:13px;margin-left:-16px}
-
-.section-head{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:22px 0 4px}
+.field-label{font-size:14px;font-weight:600;margin-bottom:6px}
+.section-head{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:24px 0 6px}
 .section-head:first-child{margin-top:0}
 
 .drive-out{display:flex;gap:8px;margin-top:8px}
 .drive-out input{flex:1}
-.help{font-size:12.5px;color:var(--muted);margin-top:6px}
+.help{font-size:13px;color:var(--muted);margin-top:8px}
 a{color:var(--brand)}
-details{margin-top:6px}
-summary{cursor:pointer;font-size:13.5px;color:var(--brand);font-weight:600}
 </style>
 </head>
 <body>
@@ -86,311 +67,258 @@ summary{cursor:pointer;font-size:13.5px;color:var(--brand);font-weight:600}
 <header>
   <div class="k">Private, not linked from the public site</div>
   <h1>Site admin</h1>
-  <p>Edit specific pieces of the site in plain boxes, no HTML required for most of it. Your GitHub token stays in this browser only.</p>
+  <p>Three steps: paste a token, pick a page, edit the boxes. Nothing here needs HTML knowledge.</p>
 </header>
 
-<div class="note">
-  <b>About the token.</b> Needs a GitHub <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a>, scoped to only <code>auntorchakma.github.io</code>, with <b>Contents: Read and write</b>. Stored in this browser's <code>localStorage</code> only. Click "Forget token" before using a shared computer.
-</div>
-
-<div class="card">
-  <h2>1. Connect</h2>
-  <div class="row">
-    <div>
-      <label for="tok">GitHub token</label>
-      <input type="password" id="tok" placeholder="github_pat_...">
-    </div>
-    <div>
-      <label for="repo">Repository</label>
-      <input type="text" id="repo" value="auntorchakma/auntorchakma.github.io">
-    </div>
-  </div>
+<div class="step" id="step1">
+  <h2><span class="num">1</span>Connect</h2>
+  <p class="sub">A token proves it's really you making the change. Get a fresh one each time you use this from <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>, scoped to only <code>auntorchakma.github.io</code>, with <b>Contents: Read and write</b>.</p>
+  <label for="tok">Paste your token here</label>
+  <input type="password" id="tok" placeholder="github_pat_...">
   <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
     <button class="primary" id="connectBtn">Connect</button>
-    <button class="ghost" id="forgetBtn">Forget token</button>
+    <button class="ghost" id="forgetBtn">Forget saved token</button>
     <span class="pill" id="connPill">Not connected</span>
   </div>
   <div class="status" id="connStatus"></div>
 </div>
 
-<div class="card" id="editCard">
-  <h2>2. Edit a page</h2>
-  <div class="sub">Pick a page below. Each box holds one paragraph, bullet, or line, labeled in plain English. Change the wording, then Save just that page.</div>
+<div class="step disabled" id="step2">
+  <h2><span class="num">2</span>Pick a page</h2>
+  <p class="sub">Then load it. This can take a second.</p>
+  <select id="pageSel">
+    <option value="index.html">About (index.html)</option>
+    <option value="research.html">Research</option>
+    <option value="projects.html">Projects</option>
+    <option value="awards.html">Awards</option>
+    <option value="leadership.html">Leadership</option>
+    <option value="references.html">References</option>
+  </select>
+  <button class="primary big" id="loadBtn" style="margin-top:12px">Load this page</button>
+  <div class="status" id="loadStatus"></div>
+</div>
 
-  <div class="tabs" id="pageTabs">
-    <button class="tab active" data-page="index.html">About</button>
-    <button class="tab" data-page="research.html">Research</button>
-    <button class="tab" data-page="other">Other pages</button>
-  </div>
-
-  <div id="otherPanel" style="display:none;margin-bottom:16px">
-    <label for="otherSel">Page</label>
-    <select id="otherSel">
-      <option value="projects.html">projects.html</option>
-      <option value="awards.html">awards.html</option>
-      <option value="leadership.html">leadership.html</option>
-      <option value="references.html">references.html</option>
-      <option value="admin.html">admin.html (this page)</option>
-    </select>
-    <p class="help">These three don't have the plain-box editor yet, so this opens the raw HTML instead. Ask me in chat to convert one and I will.</p>
-  </div>
-
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
-    <button class="primary small" id="loadBtn">Load current content</button>
-    <button class="primary small" id="saveBtn" disabled>Save changes</button>
-    <span class="pill" id="loadPill" style="display:none">Loaded</span>
-  </div>
-  <div class="status" id="editStatus"></div>
-
+<div class="step disabled" id="step3">
+  <h2><span class="num">3</span>Edit and save</h2>
+  <p class="sub">Change the wording in any box below. Boxes you don't touch stay exactly as they are.</p>
   <div id="fieldsWrap"></div>
-
-  <div id="rawWrap" style="display:none">
-    <label for="rawEditor">Raw HTML</label>
-    <textarea id="rawEditor" class="mono" style="min-height:420px" spellcheck="false"></textarea>
-  </div>
+  <button class="primary big" id="saveBtn" style="margin-top:16px">Save changes to the live site</button>
+  <div class="status" id="saveStatus"></div>
 </div>
 
-<div class="card">
-  <h2>3. Add a photo or video from Google Drive</h2>
-  <div class="sub">Paste a Drive "Anyone with the link" share URL to get an embeddable code snippet you can paste into any box above.</div>
-  <label for="driveIn">Drive share link</label>
+<div class="step">
+  <h2 style="font-size:15px">Photo or video from Google Drive</h2>
+  <p class="sub" style="margin-left:0">Paste a Drive "Anyone with the link" share URL to get a code snippet you can paste into any box above.</p>
   <input type="text" id="driveIn" placeholder="https://drive.google.com/file/d/XXXXXXXXXXXXXXXX/view?usp=sharing">
-  <div class="row" style="margin-top:10px">
-    <div>
-      <label>Type</label>
-      <select id="driveType">
-        <option value="image">Image</option>
-        <option value="video">Video</option>
-      </select>
-    </div>
+  <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+    <select id="driveType" style="width:auto"><option value="image">Image</option><option value="video">Video</option></select>
+    <button class="primary" id="driveConvert">Convert</button>
   </div>
-  <button class="primary small" id="driveConvert" style="margin-top:10px">Convert</button>
   <div class="drive-out">
-    <input type="text" id="driveOut" readonly placeholder="Converted embed code appears here">
-    <button class="ghost small" id="driveCopy">Copy</button>
+    <input type="text" id="driveOut" readonly placeholder="Converted code appears here">
+    <button class="ghost" id="driveCopy">Copy</button>
   </div>
-</div>
-
-<div class="card">
-  <h2>4. Site visits</h2>
-  <div class="sub">A free, no-signup hit counter. Rough count, not real analytics.</div>
-  <div id="countGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
-    <div class="count-item">index.html</div>
-    <div class="count-item">research.html</div>
-    <div class="count-item">projects.html</div>
-    <div class="count-item">awards.html</div>
-    <div class="count-item">leadership.html</div>
-    <div class="count-item">references.html</div>
-  </div>
-  <p class="help">Click a page name to see its count on visitorbadge.io.</p>
 </div>
 
 </div>
 <script>
 (function(){
   var API = 'https://api.github.com';
+  var REPO = 'auntorchakma/auntorchakma.github.io';
   var tokEl = document.getElementById('tok');
-  var repoEl = document.getElementById('repo');
   var connPill = document.getElementById('connPill');
   var connStatus = document.getElementById('connStatus');
-  var editCard = document.getElementById('editCard');
-  var saveBtn = document.getElementById('saveBtn');
-  var loadPill = document.getElementById('loadPill');
+  var step2 = document.getElementById('step2'), step3 = document.getElementById('step3');
+  var loadBtn = document.getElementById('loadBtn'), saveBtn = document.getElementById('saveBtn');
+  var loadStatus = document.getElementById('loadStatus'), saveStatus = document.getElementById('saveStatus');
   var fieldsWrap = document.getElementById('fieldsWrap');
-  var rawWrap = document.getElementById('rawWrap');
-  var rawEditor = document.getElementById('rawEditor');
-  var currentSha = null;
-  var currentPath = 'index.html';
-  var parsedDoc = null;
+  var currentSha = null, parsedDoc = null;
 
-  // ---- Field schema: plain-English labels mapped to data-field selectors ----
   var SCHEMA = {
     'index.html': [
-      {s:'section', t:'About Me'},
+      {s:'About Me'},
       {f:'about-p1', l:'Intro paragraph'},
       {f:'about-p2', l:'Background paragraph (Rangamati / CHT)'},
       {f:'about-p3', l:'Papers paragraph'},
-      {f:'about-p4', l:'Current role paragraph (ELITE / ASHIKA)'},
-      {f:'seeking', l:'"Currently seeking" box', hint:'Keep the <b> and <span class="kw"> tags if you want the bold label and blue keyword highlights to stay.'},
-      {s:'section', t:'Mentor'},
-      {f:'mentor-p1', l:'Mentor paragraph 1 (Kishor Morol)'},
-      {f:'mentor-p2', l:'Mentor paragraph 2 (thesis supervisors)'},
-      {s:'section', t:'Recent News (newest first)'},
+      {f:'about-p4', l:'Current role paragraph'},
+      {f:'seeking', l:'"Currently seeking" box'},
+      {s:'Mentor'},
+      {f:'mentor-p1', l:'Mentor paragraph 1'}, {f:'mentor-p2', l:'Mentor paragraph 2'},
+      {s:'Recent News (newest first)'},
       {f:'news-1', l:'News item 1'}, {f:'news-2', l:'News item 2'}, {f:'news-3', l:'News item 3'},
       {f:'news-4', l:'News item 4'}, {f:'news-5', l:'News item 5'}, {f:'news-6', l:'News item 6'},
       {f:'news-7', l:'News item 7'}, {f:'news-8', l:'News item 8'}, {f:'news-9', l:'News item 9'},
-      {s:'section', t:'Experience, ELITE Research Lab'},
-      {f:'exp-elite1-b1', l:'Researcher & Research Assistant, bullet 1'},
-      {f:'exp-elite1-b2', l:'Researcher & Research Assistant, bullet 2 (interns)'},
+      {s:'Experience, ELITE Research Lab'},
+      {f:'exp-elite1-b1', l:'Researcher & RA, bullet 1'}, {f:'exp-elite1-b2', l:'Researcher & RA, bullet 2'},
       {f:'exp-elite2-b1', l:'Junior Research Assistant, bullet'},
       {f:'exp-elite3-b1', l:'AI Research Intern, bullet'},
       {f:'exp-elite4-b1', l:'Research Collaborator, bullet'},
-      {s:'section', t:'Experience, other roles'},
-      {f:'exp-mis-b1', l:'MIS Officer, bullet'},
-      {f:'exp-rmstu-b1', l:'RMSTU Research Assistant, bullet'},
-      {f:'exp-cello-b1', l:'Celloscope Software Engineer Intern, bullet'},
-      {s:'section', t:'Skills'},
+      {s:'Experience, other roles'},
+      {f:'exp-mis-b1', l:'MIS Officer, bullet'}, {f:'exp-rmstu-b1', l:'RMSTU RA, bullet'}, {f:'exp-cello-b1', l:'Celloscope, bullet'},
+      {s:'Skills'},
       {f:'skills-programming', l:'Programming'}, {f:'skills-methods', l:'Methods'},
       {f:'skills-mldl', l:'ML/DL'}, {f:'skills-data', l:'Data'},
-      {f:'skills-web', l:'Web & databases'}, {f:'skills-security', l:'Security'},
-      {f:'skills-tools', l:'Tools'}
+      {f:'skills-web', l:'Web & databases'}, {f:'skills-security', l:'Security'}, {f:'skills-tools', l:'Tools'}
     ],
     'research.html': [
-      {s:'section', t:'Research Interest'},
-      {f:'focus-primary', l:'Primary focus line'},
-      {f:'focus-secondary', l:'Secondary focus line'},
-      {s:'section', t:'Publication abstracts'},
-      {f:'abstract-dr', l:'Diabetic retinopathy paper, abstract'},
-      {f:'abstract-frontiers', l:'Frontiers mini-review, abstract'},
-      {f:'abstract-springer', l:'Bangla license plate paper, abstract'},
-      {s:'section', t:'Ongoing research'},
-      {f:'abstract-vlm-ongoing', l:'Multimodal / VLM ongoing work, abstract'},
-      {f:'abstract-signal-ongoing', l:'Signal-processing ongoing work, abstract'},
-      {s:'section', t:'Thesis'},
-      {f:'abstract-thesis', l:'B.Sc. thesis, abstract'}
+      {s:'Research Interest'},
+      {f:'focus-primary', l:'Primary focus line'}, {f:'focus-secondary', l:'Secondary focus line'},
+      {s:'Publication abstracts'},
+      {f:'abstract-dr', l:'Diabetic retinopathy paper'},
+      {f:'abstract-frontiers', l:'Frontiers mini-review'},
+      {f:'abstract-springer', l:'Bangla license plate paper'},
+      {s:'Ongoing research'},
+      {f:'abstract-vlm-ongoing', l:'Multimodal / VLM work'},
+      {f:'abstract-signal-ongoing', l:'Signal-processing work'},
+      {s:'Thesis'}, {f:'abstract-thesis', l:'B.Sc. thesis'}
+    ],
+    'projects.html': [
+      {s:'AI Customer Support Chatbot'}, {f:'proj-rag-summary', l:'Short summary'}, {f:'proj-rag-details', l:'Problem / How it works / Real-world use'},
+      {s:'VisualMind AI'}, {f:'proj-visualmind-summary', l:'Short summary'}, {f:'proj-visualmind-details', l:'Problem / How it works / Real-world use'},
+      {s:'HireTrack AI'}, {f:'proj-hiretrack-summary', l:'Short summary'}, {f:'proj-hiretrack-details', l:'Problem / How it works / Real-world use'},
+      {s:'Anomaly Detection in IoMT Devices'}, {f:'proj-anomaly-summary', l:'Short summary'}, {f:'proj-anomaly-details', l:'Problem / How it works / Real-world use'},
+      {s:'University Vehicle Tracking'}, {f:'proj-vehicle-summary', l:'Short summary'}, {f:'proj-vehicle-details', l:'Problem / How it works / Real-world use'},
+      {s:'Chittagong Weather Prediction'}, {f:'proj-weather-summary', l:'Short summary'}, {f:'proj-weather-details', l:'Problem / How it works / Real-world use'}
+    ],
+    'awards.html': [
+      {s:'Awards & Scholarships (in page order)'},
+      {f:'award-1', l:'Award 1: CHT Development Board Scholarship'},
+      {f:'award-2', l:'Award 2: Merit Scholarship'},
+      {f:'award-3', l:'Award 3: Rangamati Hill District Council Scholarship'},
+      {f:'award-4', l:'Award 4: Hackathon'},
+      {f:'award-5', l:'Award 5: SSC/HSC Merit Scholarship'},
+      {f:'award-6', l:'Award 6: Debate Championship'},
+      {f:'award-7', l:'Award 7: Drawing Competition'}
+    ],
+    'leadership.html': [
+      {f:'lead-summary', l:'Summary line at the top'},
+      {s:'Impact cards (in page order)'},
+      {f:'impact-1', l:'Card 1: Emergency flash flood relief'},
+      {f:'impact-2', l:'Card 2: Conference website developer'},
+      {f:'impact-3', l:'Card 3: Technical Session Coordinator & Volunteer'},
+      {f:'impact-4', l:'Card 4: AI seminar organizer & host'},
+      {f:'impact-5', l:'Card 5: Winter relief distribution'},
+      {f:'impact-6', l:'Card 6: Food habits & climate change workshop'},
+      {f:'impact-7', l:'Card 7: Digital literacy program instructor'}
+    ],
+    'references.html': [
+      {s:'Mentors & References'},
+      {f:'ref-morol-role', l:'Md Kishor Morol, role line'},
+      {f:'ref-mahmud-role', l:'Dr. Tanjim Mahmud, role line'},
+      {f:'ref-mynoddin-role', l:'Md Mynoddin, role line'}
     ]
   };
 
   function setStatus(el, msg, kind){ el.textContent = msg; el.className = 'status show ' + (kind||''); }
+  function ghHeaders(){ return {'Authorization':'Bearer '+tokEl.value.trim(),'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}; }
+
   function loadSaved(){
-    try{
-      var t = localStorage.getItem('gh_token'); var r = localStorage.getItem('gh_repo');
-      if(t) tokEl.value = t; if(r) repoEl.value = r; if(t) connect(true);
-    }catch(e){}
+    try{ var t = localStorage.getItem('gh_token'); if(t){ tokEl.value = t; connect(true); } }catch(e){}
   }
-  function ghHeaders(){
-    return {'Authorization':'Bearer '+tokEl.value.trim(),'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
-  }
+
   function connect(silent){
-    var token = tokEl.value.trim(), repo = repoEl.value.trim();
-    if(!token || !repo){ if(!silent) setStatus(connStatus,'Enter both a token and a repository.','err'); return; }
-    fetch(API+'/repos/'+repo, {headers: ghHeaders()})
-      .then(function(r){ if(!r.ok) throw new Error(r.status===404?'Repository not found, or the token can\'t see it.':('GitHub returned '+r.status)); return r.json(); })
-      .then(function(data){
-        connPill.textContent = 'Connected, '+data.full_name; connPill.classList.add('on');
-        editCard.classList.remove('locked');
-        setStatus(connStatus,'Connected. Pick a page below and load it.','ok');
-        try{ localStorage.setItem('gh_token',token); localStorage.setItem('gh_repo',repo); }catch(e){}
+    var token = tokEl.value.trim();
+    if(!token){ if(!silent) setStatus(connStatus,'Paste a token first.','err'); return; }
+    fetch(API+'/repos/'+REPO, {headers: ghHeaders()})
+      .then(function(r){
+        if(r.status === 401) throw new Error("That token isn't valid. GitHub tokens expire or get revoked, so if this worked before, get a brand new one from the link above and paste it in fresh.");
+        if(r.status === 404) throw new Error("Connected, but this token can't see the repository. When you created it, make sure auntorchakma.github.io was selected under Repository access.");
+        if(!r.ok) throw new Error('GitHub returned an error (HTTP '+r.status+'). Try again in a moment.');
+        return r.json();
+      })
+      .then(function(){
+        connPill.textContent = 'Connected'; connPill.classList.add('on');
+        step2.classList.remove('disabled');
+        setStatus(connStatus,'Connected. Pick a page below.','ok');
+        try{ localStorage.setItem('gh_token', token); }catch(e){}
       })
       .catch(function(err){
-        connPill.textContent='Not connected'; connPill.classList.remove('on'); editCard.classList.add('locked');
+        connPill.textContent = 'Not connected'; connPill.classList.remove('on');
+        step2.classList.add('disabled'); step3.classList.add('disabled');
         setStatus(connStatus, err.message, 'err');
       });
   }
   document.getElementById('connectBtn').addEventListener('click', function(){ connect(false); });
   document.getElementById('forgetBtn').addEventListener('click', function(){
-    try{ localStorage.removeItem('gh_token'); localStorage.removeItem('gh_repo'); }catch(e){}
-    tokEl.value=''; connPill.textContent='Not connected'; connPill.classList.remove('on'); editCard.classList.add('locked');
-    setStatus(connStatus,'Token forgotten from this browser.','warn');
+    try{ localStorage.removeItem('gh_token'); }catch(e){}
+    tokEl.value=''; connPill.textContent='Not connected'; connPill.classList.remove('on');
+    step2.classList.add('disabled'); step3.classList.add('disabled');
+    setStatus(connStatus,'Token forgotten from this browser.','ok');
   });
 
-  // ---- Page tabs ----
-  var tabs = document.querySelectorAll('.tab');
-  var otherPanel = document.getElementById('otherPanel');
-  var otherSel = document.getElementById('otherSel');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      tabs.forEach(function(t){t.classList.remove('active');});
-      tab.classList.add('active');
-      var p = tab.getAttribute('data-page');
-      if(p === 'other'){
-        otherPanel.style.display = 'block';
-        currentPath = otherSel.value;
-      } else {
-        otherPanel.style.display = 'none';
-        currentPath = p;
-      }
-      fieldsWrap.innerHTML = ''; rawWrap.style.display = 'none';
-      saveBtn.disabled = true; loadPill.style.display = 'none';
-    });
-  });
-  otherSel.addEventListener('change', function(){ currentPath = otherSel.value; });
-
-  // ---- Load ----
-  document.getElementById('loadBtn').addEventListener('click', function(){
-    var repo = repoEl.value.trim();
-    var editStatus = document.getElementById('editStatus');
-    fieldsWrap.innerHTML = ''; rawWrap.style.display = 'none';
-    fetch(API+'/repos/'+repo+'/contents/'+currentPath, {headers: ghHeaders()})
-      .then(function(r){ if(!r.ok) throw new Error('Could not load '+currentPath+' (HTTP '+r.status+')'); return r.json(); })
+  loadBtn.addEventListener('click', function(){
+    var path = document.getElementById('pageSel').value;
+    fieldsWrap.innerHTML = ''; step3.classList.add('disabled');
+    setStatus(loadStatus, 'Loading…', '');
+    fetch(API+'/repos/'+REPO+'/contents/'+path, {headers: ghHeaders()})
+      .then(function(r){
+        if(r.status === 401) throw new Error('Your token stopped working partway through. Go back to Step 1, get a fresh token, and reconnect.');
+        if(!r.ok) throw new Error('Could not load '+path+' (HTTP '+r.status+').');
+        return r.json();
+      })
       .then(function(data){
         currentSha = data.sha;
         var html = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
-        var schema = SCHEMA[currentPath];
-        if(schema){
-          parsedDoc = new DOMParser().parseFromString(html, 'text/html');
-          renderFields(schema);
-        } else {
-          parsedDoc = null;
-          rawWrap.style.display = 'block';
-          rawEditor.value = html;
-        }
-        saveBtn.disabled = false;
-        loadPill.style.display = 'inline-flex';
-        setStatus(editStatus, 'Loaded '+currentPath+'.', 'ok');
+        parsedDoc = new DOMParser().parseFromString(html, 'text/html');
+        renderFields(SCHEMA[path]);
+        step3.classList.remove('disabled');
+        setStatus(loadStatus, 'Loaded. Edit below.', 'ok');
       })
-      .catch(function(err){ setStatus(editStatus, err.message, 'err'); });
+      .catch(function(err){ setStatus(loadStatus, err.message, 'err'); });
   });
 
   function renderFields(schema){
     schema.forEach(function(item){
-      if(item.s === 'section'){
-        var h = document.createElement('div');
-        h.className = 'section-head'; h.textContent = item.t;
-        fieldsWrap.appendChild(h);
-        return;
+      if(item.s){
+        var h = document.createElement('div'); h.className='section-head'; h.textContent = item.s;
+        fieldsWrap.appendChild(h); return;
       }
       var el = parsedDoc.querySelector('[data-field="'+item.f+'"]');
-      var wrap = document.createElement('div');
-      wrap.className = 'field';
+      var wrap = document.createElement('div'); wrap.className = 'field';
       var lab = document.createElement('div'); lab.className = 'field-label'; lab.textContent = item.l;
       wrap.appendChild(lab);
-      if(item.hint){ var hint = document.createElement('div'); hint.className = 'field-hint'; hint.textContent = item.hint; wrap.appendChild(hint); }
       var ta = document.createElement('textarea');
       ta.setAttribute('data-field', item.f);
       ta.value = el ? el.innerHTML.trim() : '';
-      if(!el){ ta.placeholder = 'Field not found on this page (skip this one).'; ta.disabled = true; }
+      if(!el){ ta.placeholder = 'Not found on this page.'; ta.disabled = true; }
       wrap.appendChild(ta);
       fieldsWrap.appendChild(wrap);
     });
   }
 
-  // ---- Save ----
   saveBtn.addEventListener('click', function(){
-    var repo = repoEl.value.trim();
-    var editStatus = document.getElementById('editStatus');
-    if(!currentSha){ setStatus(editStatus,'Load the page first.','err'); return; }
-    var outHtml;
-    if(parsedDoc){
-      fieldsWrap.querySelectorAll('textarea[data-field]').forEach(function(ta){
-        if(ta.disabled) return;
-        var el = parsedDoc.querySelector('[data-field="'+ta.getAttribute('data-field')+'"]');
-        if(el) el.innerHTML = ta.value;
-      });
-      outHtml = '<!DOCTYPE html>\n' + parsedDoc.documentElement.outerHTML;
-    } else {
-      outHtml = rawEditor.value;
-    }
+    var path = document.getElementById('pageSel').value;
+    if(!currentSha){ setStatus(saveStatus,'Load the page first.','err'); return; }
+    fieldsWrap.querySelectorAll('textarea[data-field]').forEach(function(ta){
+      if(ta.disabled) return;
+      var el = parsedDoc.querySelector('[data-field="'+ta.getAttribute('data-field')+'"]');
+      if(el) el.innerHTML = ta.value;
+    });
+    var outHtml = '<!DOCTYPE html>\n' + parsedDoc.documentElement.outerHTML;
     saveBtn.disabled = true;
+    setStatus(saveStatus, 'Saving…', '');
     var b64 = btoa(unescape(encodeURIComponent(outHtml)));
-    fetch(API+'/repos/'+repo+'/contents/'+currentPath, {
+    fetch(API+'/repos/'+REPO+'/contents/'+path, {
       method:'PUT',
       headers: Object.assign({'Content-Type':'application/json'}, ghHeaders()),
-      body: JSON.stringify({message:'Edit '+currentPath+' via admin panel', content:b64, sha:currentSha})
+      body: JSON.stringify({message:'Edit '+path+' via admin panel', content:b64, sha:currentSha})
     })
-      .then(function(r){ if(!r.ok) return r.json().then(function(j){throw new Error(j.message||('HTTP '+r.status));}); return r.json(); })
-      .then(function(data){ currentSha = data.content.sha; setStatus(editStatus,'Saved. The live page updates in a minute or two.','ok'); })
-      .catch(function(err){ setStatus(editStatus,'Save failed: '+err.message,'err'); })
+      .then(function(r){
+        if(r.status === 401) throw new Error('Your token stopped working before this saved. Get a fresh one in Step 1 and try again, your changes above are still in the boxes.');
+        if(!r.ok) return r.json().then(function(j){ throw new Error(j.message||('HTTP '+r.status)); });
+        return r.json();
+      })
+      .then(function(data){ currentSha = data.content.sha; setStatus(saveStatus,'Saved. The live page updates in a minute or two.','ok'); })
+      .catch(function(err){ setStatus(saveStatus, err.message, 'err'); })
       .finally(function(){ saveBtn.disabled = false; });
   });
 
-  // ---- Drive converter ----
   document.getElementById('driveConvert').addEventListener('click', function(){
     var url = document.getElementById('driveIn').value.trim();
     var type = document.getElementById('driveType').value;
     var out = document.getElementById('driveOut');
     var m = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if(!m){ out.value = "Could not find a file ID in that link. Check it's a Drive share link."; return; }
+    if(!m){ out.value = "Could not find a file ID. Check it's a Drive share link."; return; }
     var id = m[1];
     out.value = type === 'image'
       ? '<img src="https://drive.google.com/uc?export=view&id='+id+'" alt="" style="max-width:100%;border-radius:8px">'
@@ -399,15 +327,6 @@ summary{cursor:pointer;font-size:13.5px;color:var(--brand);font-weight:600}
   document.getElementById('driveCopy').addEventListener('click', function(){
     var out = document.getElementById('driveOut'); out.select();
     try{ navigator.clipboard.writeText(out.value); }catch(e){ document.execCommand('copy'); }
-  });
-
-  // ---- Visit counts ----
-  document.querySelectorAll('#countGrid .count-item').forEach(function(el){
-    var path = el.textContent.trim();
-    el.style.cursor = 'pointer'; el.style.color = 'var(--brand)'; el.style.fontSize='13px';
-    el.addEventListener('click', function(){
-      window.open('https://visitorbadge.io/status?path=auntorchakma.github.io%2F'+encodeURIComponent(path), '_blank', 'noopener');
-    });
   });
 
   loadSaved();
