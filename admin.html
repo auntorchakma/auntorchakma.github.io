@@ -187,7 +187,7 @@ a{color:var(--brand)}
       {f:'abstract-frontiers', l:'Frontiers mini-review'},
       {f:'abstract-springer', l:'Bangla license plate paper'},
       {s:'Ongoing research'},
-      {f:'abstract-vlm-ongoing', l:'Multimodal / VLM work'},
+      {f:'abstract-vlm-ongoing', l:'Visual prompt injection in multimodal AI agents'},
       {f:'abstract-signal-ongoing', l:'Signal-processing work'},
       {s:'Thesis'}, {f:'abstract-thesis', l:'B.Sc. thesis'}
     ],
@@ -212,12 +212,12 @@ a{color:var(--brand)}
     'leadership.html': [
       {f:'lead-summary', l:'Summary line at the top'},
       {s:'Impact cards (in page order)'},
-      {f:'impact-1', l:'Card 1: Emergency flash flood relief'},
+      {f:'impact-1', l:'Card 1: Emergency food distribution (flash floods)'},
       {f:'impact-2', l:'Card 2: Conference website developer'},
       {f:'impact-3', l:'Card 3: Technical Session Coordinator & Volunteer'},
       {f:'impact-4', l:'Card 4: AI seminar organizer & host'},
       {f:'impact-5', l:'Card 5: Winter relief distribution'},
-      {f:'impact-6', l:'Card 6: Food habits & climate change workshop'}
+      {f:'impact-6', l:'Card 6: Indigenous food habits & climate change awareness'}
     ],
     'references.html': [
       {s:'Mentors & References'},
@@ -229,13 +229,14 @@ a{color:var(--brand)}
 
   var PROOF_PAGES = ['index.html','research.html','projects.html','awards.html','leadership.html','references.html'];
   var PROOF_SCHEMA = [
-    {key:'icbc_cert', label:'ICBC certificate', where:'Leadership page: "Conference website developer" and "Technical Session Coordinator & Volunteer" cards'},
+    {key:'icbc_cert', label:'ICBC certificate', where:'Leadership page: "Technical Session Coordinator & Volunteer" card'},
     {key:'hackathon_cert', label:'Hackathon certificate', where:'Awards page: "3rd Place, Hackathon"'},
     {key:'scholarship_cht', label:'CHT Development Board Scholarship, award letter', where:'Awards page'},
     {key:'scholarship_merit', label:'RMSTU Merit Scholarship, award letter', where:'Awards page'},
     {key:'scholarship_council', label:'Rangamati Hill District Council Scholarship, award letter', where:'Awards page'},
     {key:'elite_letter', label:'ELITE Research Lab, appointment letter', where:'About page, Experience section'},
-    {key:'ashika_letter', label:'ASHIKA Development Associates, employment letter', where:'About page, Experience section'}
+    {key:'ashika_letter', label:'ASHIKA Development Associates, employment letter', where:'About page, Experience section'},
+    {key:'ashika_volunteer_cert', label:'ASHIKA volunteer certificate (flood relief)', where:'Leadership page: "Emergency Food Distribution" card'}
   ];
 
   function setStatus(el, msg, kind){ el.textContent = msg; el.className = 'status show ' + (kind||''); }

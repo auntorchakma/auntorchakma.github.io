@@ -183,6 +183,13 @@ ul.apps{padding-left:2rem;margin:0 0 1rem}
 ul.apps li{margin-bottom:.9rem;max-width:760px}
 .lead-summary{margin:0 0 2rem;max-width:760px}
 .proofs{display:none;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.fig{margin:1.2rem 0 .4rem;max-width:750px}
+.fig a,.fig a:hover{border-bottom:0;padding-bottom:0}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--card-border);border-radius:10px;background:#fff}
+.fig figcaption{font-size:1.25rem;opacity:.75;margin-top:.5rem}
+.figrow{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.figrow img{aspect-ratio:4/3;object-fit:cover}
+@media (max-width:600px){.figrow{grid-template-columns:1fr}}
 .proofs.on{display:flex}
 .proof{display:inline-block;font-size:1.2rem;background:var(--tag-bg);color:var(--tag-fg);padding:.25rem .9rem;border-radius:4px;font-weight:500}
 .proof:hover{border-bottom:0;padding-bottom:.25rem;opacity:.85}
@@ -223,7 +230,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
     <div class="txt">
       <p data-field="focus-primary"><b>Primary focus:</b> Multimodal AI, Vision-Language Models (VLMs), Large Language Models, Trustworthy AI, AI Safety.</p>
       <p data-field="focus-secondary"><b>Secondary focus:</b> Federated Learning, Computer Vision, Network &amp; AI Security.</p>
-      <p>I build multimodal and <span class="kw">vision-language models</span>, with healthcare as my main application area, and work on four properties of them, <span class="kw">interpretability</span>, trustworthiness, <span class="kw">AI safety</span>, and privacy for data security. In my diabetic retinopathy paper, lesion masks guided the model's attention during training, and an ensemble of three backbones reached 91.63% accuracy on seven-stage classification. Our multimodal federated learning review found that only 1 of 8 empirical studies (12.5%) applied a formal privacy mechanism to model updates.</p>
+      <p>I study multimodal and <span class="kw">vision-language models</span>, mainly in healthcare and in AI agents, with a focus on four properties: <span class="kw">interpretability</span>, trustworthiness, <span class="kw">AI safety</span>, and privacy for data security. In my diabetic retinopathy paper, lesion masks guided the model's attention during training, and an ensemble of three backbones reached 91.63% accuracy on seven-stage classification. Our multimodal federated learning review found that only 1 of 8 empirical studies (12.5%) applied a formal privacy mechanism to model updates.</p>
     </div>
     <div class="interest-art" aria-hidden="true">
       <svg viewBox="0 0 280 170" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
@@ -244,8 +251,8 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
     <li>A health worker in a clinic with no specialist could record a patient's breathing and receive a classification with an explanation. The <span class="kw">lung-sound project</span> works toward this by combining three public datasets: ICBHI, KAUH, and RD@TR.</li>
     <li>Public fundus datasets hold mostly normal and mild cases, so models miss advanced <span class="kw">diabetic retinopathy</span>, where a missed reading costs the most. Our paper generates images of the rare stages and trains the model to attend to lesions, and the full pipeline beats standard augmentation by 4.65% absolute accuracy at matched training-set size.</li>
     <li>Hospitals can train one model without exchanging patient records, but the model updates they exchange can still leak information, so those updates need a <span class="kw">formal privacy mechanism</span>. Only one of the eight empirical studies in our review applied one.</li>
-    <li>A <span class="kw">vision-language model</span> can describe an image wrongly and with full confidence. Testing where it fails, and showing which parts of the image its answer relies on, gives a reader a way to catch the error before acting on it.</li>
-    <li>Networked medical devices are exposed to attacks. My thesis model detected and classified attacks in <span class="kw">Internet of Medical Things</span> traffic with 97.96% multiclass accuracy across 89 million records.</li>
+    <li>An AI agent that books tickets or fills forms by reading the screen can be hijacked by a line of text hidden in an image. Measuring how often <span class="kw">vision-language agents</span> obey such hidden instructions, and flagging them before they act, is a step toward agents people can safely hand tasks to.</li>
+    <li>Networked medical devices are exposed to attacks. My thesis model detected and classified attacks in <span class="kw">Internet of Medical Things</span> traffic, reaching 99.6% accuracy on 2 classes, 97.9% on 6 categories and 95.7% on 19 attack types, on the CICIoMT2024 dataset of 8.78 million records.</li>
   </ul>
   <h3 class="sec"><span>Publications</span></h3>
   <ul class="pubs">
@@ -254,6 +261,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
       <h5>Authors: <span class="me">Auntor Chakma</span>, Diya Rahman, T. H. Liew</h5>
       Journal: <span class="venue"><a href="https://hightechjournal.org/" target="_blank" rel="noopener">HighTech and Innovation Journal</a></span> (Q1, Scopus-indexed)<span class="badge b-acc">Accepted</span><br>
       <b>Accepted</b> 9 August 2026<br>
+      <figure class="fig"><a href="assets/img/ga-dr-ensemble.webp" target="_blank" rel="noopener"><img src="assets/img/ga-dr-ensemble.webp" alt="Graphical abstract of the diabetic retinopathy ensemble paper" loading="lazy"></a></figure>
       <button class="toggle" aria-expanded="false">Show abstract</button>
       <div class="abstract" data-field="abstract-dr">Public fundus-image datasets are dominated by normal and mild cases, so models trained on them read common stages well but miss advanced disease, the stages where a missed reading matters most. This paper treats that failure as four separate problems rather than one: too few examples of rare stages, a severity scale that ordinary classifiers treat as unrelated categories, no way to check where a model is actually looking, and single models that share the same blind spots. Each gets its own fix: Stable Diffusion 2.1 with ControlNet generates additional minority-class images, an ordinal loss teaches the model that stages progress rather than sit as unrelated labels, lesion masks direct attention during training rather than only explaining it afterward, and three architecturally different backbones are combined through a learned meta-learner instead of a fixed voting rule. On 1,437 fundus photographs from Hospital de Clínicas, Paraguay, the combination reaches 91.63% accuracy and an AUC of 0.9920 on held-out images, cuts the ordinal model's mean error from 0.78 to 0.46 stages, and, at matched training-set size, beats standard image augmentation by 4.65% absolute accuracy. To our knowledge, no prior published pipeline combines all four elements for seven-stage classification, and removing any one of them measurably hurt accuracy.</div>
     </li>
@@ -262,6 +270,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
       <h5>Authors: <span class="me">Auntor Chakma</span>, F. T. Z. Moon, F. Jahan, M. K. Morol, T. H. Liew, D. Nandi, A. A. Jubair, M. Rahman</h5>
       Journal: <span class="venue"><a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener">Frontiers in Digital Health</a></span><span class="badge b-acc">Accepted</span><br>
       <b>Accepted</b> September 2026<br>My role: first author, from the literature search to the written review, during a three-month internship at ELITE Research Lab.<br>
+      <figure class="fig"><a href="assets/img/ga-mfl-review.webp" target="_blank" rel="noopener"><img src="assets/img/ga-mfl-review.webp" alt="Graphical abstract of the multimodal federated learning mini review" loading="lazy"></a></figure>
       <button class="toggle" aria-expanded="false">Show abstract</button>
       <div class="abstract" data-field="abstract-frontiers">Hospitals hold scan images, health records, and genomic data that improve diagnosis when combined, but each data type carries a different amount of patient-identifiable information, and most federated systems protect all of them with a single shared privacy setting. This mini-review searched seven databases and examined 14 studies published between 2020 and early 2026 (eight reporting original results and six providing field-level context) to find out how far the field has actually gone. Federated training proved stable at real scale, with one glioblastoma imaging federation holding steady across 71 hospitals, and multimodal models beat single-modality ones in most direct comparisons reported. Privacy design told a different story. Only 1 of the 8 empirical studies (12.5%) applied a formal privacy mechanism to model updates at all, and none of them gave different data types their own privacy protection, so a scan and a heart-rate reading were treated the same. The review reports this as an open question rather than a proven flaw.</div>
     </li>
@@ -279,11 +288,11 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
   <h3 class="sec"><span>Ongoing Research</span></h3>
   <ul class="pubs">
     <li>
-      <h4>Multimodal and Vision-Language Models</h4>
+      <h4>Visual Prompt Injection in Multimodal AI Agents</h4>
       <h5><span class="me">Auntor Chakma</span>, mentored by Md Kishor Morol, ELITE Research Lab LLC</h5>
-      <span class="badge b-prep">In progress</span><br>
+      <span class="badge b-prep">Early stage</span><br>
       <button class="toggle" aria-expanded="false">Show description</button>
-      <div class="abstract" data-field="abstract-vlm-ongoing">Vision-language models that show what an answer relies on, expose where they fail, and protect the data they learn from. The work continues my multimodal and federated learning research under the supervision of Md Kishor Morol.</div>
+      <div class="abstract" data-field="abstract-vlm-ongoing">AI agents that read screens, web pages, and documents through a vision-language model can be steered by instructions hidden in an image, such as text in a banner, an ad, or a screenshot, that the user never sees as a command. This project measures how often open vision-language agents follow such injected instructions, which kinds of visual injection succeed, and whether the model's attention singles out the injected region before the agent acts. The aim is a benchmark of realistic injections and a lightweight check that flags a compromised screen before an action is taken.</div>
     </li>
     <li>
       <h4>Signal Processing on Medical Equipment for Outcome Prediction</h4>
@@ -296,10 +305,11 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
   <h3 class="sec"><span>Undergraduate Thesis</span></h3>
   <ul class="pubs">
     <li>
-      <h4>Attentive TabNet Framework for Multiclass Intrusion Detection in the Internet of Medical Things</h4>
+      <h4>Attentive TabNet Framework for Multiclass Intrusion Detection in Internet of Medical Things (IoMT) Environments</h4>
       <h5><span class="me">Auntor Chakma</span>, B.Sc. thesis, Rangamati Science and Technology University · Supervisor: Md Mynoddin</h5>
+      <figure class="fig"><a href="assets/img/ga-thesis-tabnet.webp" target="_blank" rel="noopener"><img src="assets/img/ga-thesis-tabnet.webp" alt="Graphical abstract of the Attentive TabNet thesis" loading="lazy"></a></figure>
       <button class="toggle" aria-expanded="false">Show description</button>
-      <div class="abstract" data-field="abstract-thesis">An attention-based TabNet framework with GAN-based synthetic minority-sample generation for intrusion detection in Internet of Medical Things networks, reaching 97.96% multiclass accuracy across 89 million network traffic records.</div>
+      <div class="abstract" data-field="abstract-thesis">An attention-based TabNet framework that handles three detection tasks in one model, with conditional-GAN synthetic samples for rare attack classes. On CICIoMT2024 (8,775,013 raw records from 40 devices), it reaches 99.6% accuracy on 2 classes, 97.9% on 6 categories and 95.7% on 19 attack types, beating Random Forest, XGBoost and Logistic Regression on every task. GAN balancing beat SMOTE on all three, and the gap widened as the task got harder.</div>
     </li>
   </ul>
 
@@ -311,7 +321,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
 <div id="toast" role="status"></div>
 <script>
 var CV_URL="public/CV_Auntor.pdf";
-var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:""};
+var PROOF={icbc_cert:"public/icbc-2025-certificate.pdf",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:"",ashika_volunteer_cert:"assets/img/ashika-volunteer-cert.webp"};
 (function(){
   var root=document.documentElement;
   function current(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}

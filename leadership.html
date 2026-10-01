@@ -183,6 +183,15 @@ ul.apps{padding-left:2rem;margin:0 0 1rem}
 ul.apps li{margin-bottom:.9rem;max-width:760px}
 .lead-summary{margin:0 0 2rem;max-width:760px}
 .proofs{display:none;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.fig{margin:1.2rem 0 .4rem;max-width:750px}
+.fig a,.fig a:hover{border-bottom:0;padding-bottom:0}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--card-border);border-radius:10px;background:#fff}
+.fig figcaption{font-size:1.25rem;opacity:.75;margin-top:.5rem}
+.figrow{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.figrow img{aspect-ratio:4/3;object-fit:cover}
+.figrow-2{grid-template-columns:repeat(2,1fr);margin-bottom:.6rem}
+.figrow-tall img{aspect-ratio:3/4}
+@media (max-width:600px){.figrow{grid-template-columns:1fr}}
 .proofs.on{display:flex}
 .proof{display:inline-block;font-size:1.2rem;background:var(--tag-bg);color:var(--tag-fg);padding:.25rem .9rem;border-radius:4px;font-weight:500}
 .proof:hover{border-bottom:0;padding-bottom:.25rem;opacity:.85}
@@ -219,41 +228,44 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
 <section class="page shown" id="page-leadership">
 
 <h3 class="sec"><span>Leadership &amp; Extracurricular Activities</span></h3>
-  <p class="lead-summary" data-field="lead-summary">I supervise <span class="kw">two research interns</span> at ELITE Research Lab. In 2025 I facilitated a three-day <span class="kw">workshop</span> on food habits and climate change for 48 mothers and adolescent girls, and across 2023 and 2024 I helped collect and distribute <span class="kw">winter relief</span> that reached 61 families and 52 students.</p>
+  <p class="lead-summary" data-field="lead-summary">I supervise <span class="kw">two research interns</span> at ELITE Research Lab. In June 2026 I organized a three-day <span class="kw">awareness programme</span> on indigenous food habits and climate change for 48 mothers and adolescent girls in Kaptai and Bandarban, and across 2023 and 2024, as Welfare Secretary, I helped collect and distribute <span class="kw">winter relief</span> that reached 61 families and 52 students.</p>
   <div class="impact">
-    <div class="impact-head"><h4>Emergency flash flood relief</h4><span class="yr">2026</span></div>
-    <div class="org"><a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a>, funded by the <span class="kw">World Food Programme (WFP)</span> · Rangamati</div>
+    <div class="impact-head"><h4>Emergency Food Distribution for Communities Affected by Flash Floods</h4><span class="yr">2026</span></div>
+    <div class="org">Government of Bangladesh and <span class="kw">World Food Programme (WFP)</span>, implemented by <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> · Rangamati Hill District</div>
     <dl class="car" data-field="impact-1">
       <dt>Problem</dt><dd>Flooding hit five upazilas in Rangamati hard. Households needed food and energy supplies quickly, and there was no record yet of who was affected or what each family still lacked.</dd>
       <dt>What I did</dt><dd>Helped distribute rice, oil, dry food, and energy biscuits under the relief programme funded by the <span class="kw">World Food Programme</span>. Together with two supporting team members, I collected household data from the affected families on paper forms and entered it afterwards, creating the first structured record of who was affected and what each family still lacked, so that relief could be directed by need.</dd>
       <dt>Role</dt><dd>Volunteer and coordinator among the affected households, as part of a team led by Ratna Jyoti Chakma. I volunteered specifically in Rangamati Sadar.</dd>
       <dt>Result</dt><dd>The distribution reached 396 households across the five affected upazilas: Rangamati Sadar, Baghaichhari, Belaichhari, Barkal, and Juraichhari.</dd>
     </dl>
+    <figure class="fig"><div class="figrow"><a href="assets/img/flood-relief-team.webp" target="_blank" rel="noopener"><img src="assets/img/flood-relief-team.webp" alt="ASHIKA relief team in orange vests outside the office" loading="lazy"></a><a href="assets/img/flood-relief-1.webp" target="_blank" rel="noopener"><img src="assets/img/flood-relief-1.webp" alt="Food handed to a flood-affected woman under the WFP and ASHIKA banner" loading="lazy"></a><a href="assets/img/flood-relief-2.webp" target="_blank" rel="noopener"><img src="assets/img/flood-relief-2.webp" alt="Second food handover at the Rangamati Pourosova distribution" loading="lazy"></a></div><figcaption>Distribution at Rangamati Sadar, with the ASHIKA team.</figcaption></figure>
+    <div class="proofs"><a class="proof" data-proof="ashika_volunteer_cert" hidden>Volunteer certificate</a></div>
   </div>
   <div class="impact">
     <div class="impact-head"><h4>Conference website developer</h4><span class="yr">2025</span></div>
-    <div class="org">RMSTU International Bioscience Conference 2025 (ICBC)</div>
+    <div class="org">International Bioscience Conference and Carnival 2025 (ICBC) · Rangamati Science and Technology University</div>
     <dl class="car" data-field="impact-2">
       <dt>Problem</dt><dd>The conference needed a public website for registration and paper submissions, built by a small student team on a fixed deadline.</dd>
       <dt>What I did</dt><dd>Built and secured <a href="https://icbc.rmstu-conf.ac.bd/" target="_blank" rel="noopener">icbc.rmstu-conf.ac.bd</a> as backend developer and security analyst on a six-person team.</dd>
       <dt>Leadership</dt><dd>Owned the backend and security architecture for the whole team, so the site's reliability on conference days rested on decisions I made.</dd>
       <dt>Result</dt><dd>The site handled registration and paper submissions for 245 registered participants.</dd>
     </dl>
+    <figure class="fig"><a href="assets/img/shot-icbc-site.webp" target="_blank" rel="noopener"><img src="assets/img/shot-icbc-site.webp" alt="Home page of the ICBC 2025 conference website" loading="lazy"></a><figcaption>icbc.rmstu-conf.ac.bd, the conference website.</figcaption></figure>
     <div class="links">
       <a href="https://icbc.rmstu-conf.ac.bd" target="_blank" rel="noopener">Live site ↗</a>
       <a href="https://www.facebook.com/share/p/18PXWp41YY/" target="_blank" rel="noopener">ICBC post ↗</a>
     </div>
-    <div class="proofs"><a class="proof" data-proof="icbc_cert" hidden>ICBC certificate</a></div>
   </div>
   <div class="impact">
     <div class="impact-head"><h4>Technical Session Coordinator &amp; Volunteer</h4><span class="yr">16–18 May 2025</span></div>
-    <div class="org">RMSTU International Bioscience Conference 2025 (ICBC)</div>
+    <div class="org">International Bioscience Conference and Carnival 2025 (ICBC) · Rangamati Science and Technology University</div>
     <dl class="car" data-field="impact-3">
       <dt>Problem</dt><dd>Technical sessions over three days needed a fixed schedule that presenters and moderators kept to, alongside general on-the-ground conference support.</dd>
       <dt>What I did</dt><dd>Coordinated the technical sessions and managed the presentation schedule. I also worked the registration desk and delegate check-in, informally, wherever help was needed.</dd>
       <dt>Leadership</dt><dd>Kept presenters and moderators on schedule directly, rather than escalating delays to someone else.</dd>
       <dt>Result</dt><dd>I coordinated three technical sessions across the three days.</dd>
     </dl>
+    <figure class="fig"><a href="assets/img/icbc-2025-team.webp" target="_blank" rel="noopener"><img src="assets/img/icbc-2025-team.webp" alt="ICBC 2025 organizers and volunteers in front of the conference banner" loading="lazy"></a><figcaption>ICBC Volunteer 2025 team, Rangamati Science and Technology University, 16–18 May 2025.</figcaption></figure>
     <div class="links"><a href="https://www.facebook.com/share/p/18PXWp41YY/" target="_blank" rel="noopener">ICBC post ↗</a></div>
     <div class="proofs"><a class="proof" data-proof="icbc_cert" hidden>ICBC certificate</a></div>
   </div>
@@ -270,30 +282,34 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
   </div>
   <div class="impact">
     <div class="impact-head"><h4>Winter relief distribution</h4><span class="yr">Winters 2023, 2024</span></div>
-    <div class="org">RMSTU Indigenous Students' Family · Baghaichhari and Kaptai upazilas, Rangamati Hill District</div>
+    <div class="org">RMSTU Indigenous Students' Family · Baghaichhari and Sajek, Rangamati Hill District</div>
     <dl class="car" data-field="impact-5">
       <dt>Problem</dt><dd>Indigenous families in rural parts of Rangamati Hill District needed books, warm clothing, and study materials during winter.</dd>
-      <dt>What I did</dt><dd>As a general member and volunteer of the family, I helped collect funds and clean winter clothing, distributed supplies, collected data on affected families, and coordinated logistics.</dd>
-      <dt>Leadership</dt><dd>Was part of the small group that collected the funds and clothing directly, on top of handling the on-the-ground logistics across both winters.</dd>
-      <dt>Result</dt><dd>The family, myself included, collected around BDT 45,000 over the two winters and gathered clean winter clothing that reached 61 families in three villages, two in Baghaichhari Upazila and one in Kaptai Upazila, and 52 students received the study materials they needed.</dd>
+      <dt>What I did</dt><dd>As Welfare Secretary of the family, I helped collect funds and clean winter clothing, distributed supplies, collected data on affected families, and coordinated logistics.</dd>
+      <dt>Leadership</dt><dd>As Welfare Secretary, was part of the small group that collected the funds and clothing directly, on top of handling the on-the-ground logistics across both winters.</dd>
+      <dt>Result</dt><dd>The family, myself included, collected around BDT 45,000 over the two winters and gathered clean winter clothing that reached 61 families in three villages in Baghaichhari and Sajek, and 52 students received the study materials they needed.</dd>
     </dl>
     <div class="links"><a href="https://www.facebook.com/RMSTUISU" target="_blank" rel="noopener">Facebook page ↗</a></div>
   </div>
   <div class="impact">
-    <div class="impact-head"><h4>Food habits &amp; climate change workshop</h4><span class="yr">2025</span></div>
-    <div class="org">Self-organized · Chittagong Hill Tracts</div>
+    <div class="impact-head"><h4>Indigenous Food Habits &amp; Climate Change Awareness</h4><span class="yr">11–13 June 2026</span></div>
+    <div class="org">Self-organized, with support from <a href="https://ashikacht.org" target="_blank" rel="noopener">ASHIKA Development Associates</a> · Kaptai Upazila (Rangamati) and Bandarban Sadar Upazila (Bandarban)</div>
+    <p class="uni"><em>Awareness Programme on Indigenous Peoples' Food Habits and Climate-Driven Change in Food Habits</em></p>
     <dl class="car" data-field="impact-6">
       <dt>Problem</dt><dd>Mothers and adolescent girls (kishories) in the Chittagong Hill Tracts had few structured sessions on how local food habits relate to nutrition and to climate change.</dd>
-      <dt>What I did</dt><dd>Organized and led a group of 15 volunteers to run a three-day workshop on the food habits of the Chittagong Hill Tracts and the impact of climate change, for mothers and adolescent girls (kishories). The sessions covered what the region's indigenous food habits offer for nutrition, and how climate change affects food and <span class="kw">jhum cultivation</span>. Printed material was produced from the sessions.</dd>
+      <dt>What I did</dt><dd>Organized and led a group of 15 volunteers, and went out to communities in Kaptai and Bandarban Sadar upazilas to meet mothers and adolescent girls (kishories). We held meetings and awareness sessions with them, including at UNICEF-supported <span class="kw">Para Centres</span> and a monthly cluster meeting of Para Centre workers. The sessions covered what the region's indigenous food habits offer for nutrition, and how climate change affects food and <span class="kw">jhum cultivation</span>. Printed material was produced from the sessions.</dd>
       <dt>Leadership</dt><dd>Assembled and led the 15-person team myself, rather than joining one someone else had organized.</dd>
-      <dt>Result</dt><dd>The three-day workshop ran in 2025, with 48 mothers and kishories attending.</dd>
+      <dt>Result</dt><dd>The programme ran from 11 to 13 June 2026 and reached 48 mothers and kishories.</dd>
     </dl>
+    <figure class="fig"><div class="figrow figrow-2"><a href="assets/img/awareness-cluster-meeting-chandraghona.webp" target="_blank" rel="noopener"><img src="assets/img/awareness-cluster-meeting-chandraghona.webp" alt="Monthly cluster meeting of Para Centre workers under a UNICEF and CHT Development Board banner" loading="lazy"></a><a href="assets/img/awareness-para-centre-children.webp" target="_blank" rel="noopener"><img src="assets/img/awareness-para-centre-children.webp" alt="Mothers and children inside a Para Centre with UNICEF nutrition posters" loading="lazy"></a></div><div class="figrow figrow-tall"><a href="assets/img/awareness-para-centre-rkap118.webp" target="_blank" rel="noopener"><img src="assets/img/awareness-para-centre-rkap118.webp" alt="Para Centre workers outside Para Centre RKAP-118, Sapchhari Tripurachhari" loading="lazy"></a><a href="assets/img/awareness-leaflet-mother.webp" target="_blank" rel="noopener"><img src="assets/img/awareness-leaflet-mother.webp" alt="Explaining a printed leaflet to a mother holding her child" loading="lazy"></a><a href="assets/img/awareness-farming-families.webp" target="_blank" rel="noopener"><img src="assets/img/awareness-farming-families.webp" alt="Talking with a farming family as they bundle harvested greens" loading="lazy"></a></div><figcaption>Top: monthly cluster meeting at a Model Para Centre, Chandraghona Union, Kaptai; mothers and children at a Para Centre. Bottom: Para Centre RKAP-118, Wagga Union, Kaptai; handing out printed material to a mother; meeting a farming family.</figcaption></figure>
     <button class="toggle" aria-expanded="false">Show full write-up</button>
     <div class="abstract">
-      <p>The Chittagong Hill Tracts differ from the plains districts of Bangladesh in what people eat and how they farm. A published review of traditional food plants in the region describes indigenous livelihoods as still dominated by subsistence agriculture that combines jhum (shifting cultivation), plough cultivation, and mixed fruit gardens. The workshop asked what this local food base offers for the nutrition of mothers and adolescent girls.</p>
+      <p>The Chittagong Hill Tracts differ from the plains districts of Bangladesh in what people eat and how they farm. A published review of traditional food plants in the region describes indigenous livelihoods as still dominated by subsistence agriculture that combines jhum (shifting cultivation), plough cultivation, and mixed fruit gardens. The programme asked what this local food base offers for the nutrition of mothers and adolescent girls.</p>
       <p>Climate change bears on the same food base. An ethnographic study in Kutukchhari and Sapchhari unions of Rangamati Sadar found that climate change and human causes together threaten food security and disrupt farming, and that people are being pushed to change their traditional jhum cultivation. In work reported by UNESCO, a youth-led study of 72 Tripura women in Simana Para, Khagrachari found that erratic weather disrupts jhum cultivation, water access, health, and food security.</p>
+      <p>Kaptai was chosen because it shows how loss of land changes food. The Kaptai Dam flooded about 22,000 ha, around 40% of the cultivable land in the Chittagong Hill Tracts, displaced about 100,000 people, most of them Chakma, and shortened jhum cycles from 7–10 years to 3–5.</p>
+      <p>Para Centres are neighbourhood centres set up by UNICEF with the Chittagong Hill Tracts Development Board under the Integrated Community Development Project, and now run under the Board's Sustainable Social Services Delivery Project. They deliver health, nutrition, education, and water and sanitation services to mothers and children in remote villages.</p>
       <p>Participants discussed how food and climate change are linked, and how changes in jhum affect what is grown and eaten.</p>
-      <p class="uni">Sources: <a href="https://doi.org/10.3390/wild2020013" target="_blank" rel="noopener">Garai (2025), Wild 2(2):13</a>; <a href="https://www.unesco.org/en/articles/indigenous-youth-led-climate-research-across-chittagong-hill-tracts-bangladesh" target="_blank" rel="noopener">UNESCO, youth-led climate research in the Chittagong Hill Tracts</a>; <a href="https://www.researchgate.net/publication/352729165_Traditional_Food_Plants_and_Agro-biodiversity_in_Chittagong_Hill_Tracts_Bangladesh_Food_Security_Nutrition_and_Conservation_Strategy" target="_blank" rel="noopener">Traditional food plants and agro-biodiversity in the Chittagong Hill Tracts</a>.</p>
+      <p class="uni">Sources: <a href="https://doi.org/10.3390/wild2020013" target="_blank" rel="noopener">Garai (2025), Wild 2(2):13</a>; <a href="https://www.unesco.org/en/articles/indigenous-youth-led-climate-research-across-chittagong-hill-tracts-bangladesh" target="_blank" rel="noopener">UNESCO, youth-led climate research in the Chittagong Hill Tracts</a>; <a href="https://www.researchgate.net/publication/352729165_Traditional_Food_Plants_and_Agro-biodiversity_in_Chittagong_Hill_Tracts_Bangladesh_Food_Security_Nutrition_and_Conservation_Strategy" target="_blank" rel="noopener">Traditional food plants and agro-biodiversity in the Chittagong Hill Tracts</a>; <a href="https://www.unicef.org/bangladesh/sites/unicef.org.bangladesh/files/2019-09/CHT-report-LR-August20-website.pdf" target="_blank" rel="noopener">UNICEF, Many Tracts One Community</a>; <a href="https://evaluationreports.unicef.org/GetDocument?documentID=203&amp;fileID=24857" target="_blank" rel="noopener">UNICEF, evaluation of the Integrated Community Development Project</a>; <a href="https://www.researchgate.net/publication/335701834_Involuntary_Displacement_and_Human_Security_A_Study_of_the_Kaptai_Dam_in_Bangladesh" target="_blank" rel="noopener">Involuntary displacement and human security: the Kaptai Dam</a>.</p>
     </div>
   </div>
 </section>
@@ -303,7 +319,7 @@ ul.apps li{margin-bottom:.9rem;max-width:760px}
 <div id="toast" role="status"></div>
 <script>
 var CV_URL="public/CV_Auntor.pdf";
-var PROOF={icbc_cert:"",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:""};
+var PROOF={icbc_cert:"public/icbc-2025-certificate.pdf",hackathon_cert:"",scholarship_cht:"",scholarship_merit:"",scholarship_council:"",elite_letter:"",ashika_letter:"",ashika_volunteer_cert:"assets/img/ashika-volunteer-cert.webp"};
 (function(){
   var root=document.documentElement;
   function current(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
